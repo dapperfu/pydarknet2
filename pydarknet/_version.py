@@ -58,7 +58,7 @@ HANDLERS = {}
 
 
 def register_vcs_handler(vcs, method):  # decorator
-    """Decorate function to mark a method as the handler for a particular VCS."""
+    """Decorate function to mark a method as the handler for a VCS."""
 
     def decorate(f):
         """Store f in HANDLERS[vcs][method]."""
@@ -124,7 +124,7 @@ def versions_from_parentdir(parentdir_prefix, root, verbose):
         dirname = os.path.basename(root)
         if dirname.startswith(parentdir_prefix):
             return {
-                "version": dirname[len(parentdir_prefix) :],
+                "version": dirname[len(parentdir_prefix),:],
                 "full-revisionid": None,
                 "dirty": False,
                 "error": None,
