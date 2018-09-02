@@ -1,0 +1,6 @@
+pycodestyle
+pydocstyle
+
+autopep8
+black
+isort
