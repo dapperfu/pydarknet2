@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""darknet module.
+"""pydarknet summon darknet from Python.
 
 This is the docstring for the example.py module.  Modules names should
 have short, all-lowercase names.  The module name may have underscores if
