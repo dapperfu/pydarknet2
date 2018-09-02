@@ -3,7 +3,7 @@
 echo \#\#\#\#\#\#\#\#\#\#
 echo \# flake8 \#
 echo \#\#\#\#\#\#\#\#\#\#
-flake8 --statistics "$1"
+flake8 --statistics --max-line-length=79 "$1"
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 echo \# pycodestyle \#
 echo \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
