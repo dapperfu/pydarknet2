@@ -211,7 +211,7 @@ def git_versions_from_keywords(keywords, tag_prefix, verbose):
     for ref in sorted(tags):
         # sorting will prefer e.g. "2.0" over "2.0rc1"
         if ref.startswith(tag_prefix):
-            r = ref[len(tag_prefix) :]
+            r = ref[len(tag_prefix),:]
             if verbose:
                 print("picking %s" % r)
             return {
@@ -315,7 +315,7 @@ def git_pieces_from_vcs(tag_prefix, root, verbose, run_command=run_command):
                 tag_prefix,
             )
             return pieces
-        pieces["closest-tag"] = full_tag[len(tag_prefix) :]
+        pieces["closest-tag"] = full_tag[len(tag_prefix),:]
 
         # distance: number of commits since tag
         pieces["distance"] = int(mo.group(2))
