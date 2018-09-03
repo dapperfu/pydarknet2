@@ -57,6 +57,14 @@ class Libdarknet(object):
             Choices in brackets, default first when optional.
 
         """
+        if root is None:
+            root = config["darknet"]["root"]
+        if weight_dir is None:
+            weight_dir = config["darknet"]["weight_dir"]
+
+        self.root = os.path.abspath(root)
+        self.weight_dir = os.path.abspath(weight_dir)
+
     @property
     def lib(self):
         """Return path to the darknet binary."""
