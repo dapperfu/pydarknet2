@@ -26,3 +26,4 @@ del get_versions
         lib_.network_height.argtypes = [ctypes.c_void_p]
         lib_.network_height.restype = ctypes.c_int
         return lib_"""
+
