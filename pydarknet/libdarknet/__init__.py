@@ -57,6 +57,11 @@ class Libdarknet(object):
         """Return path to the darknet binary."""
         return os.path.abspath(os.path.join(self.root, "libdarknet.so"))
 
+        @property
+    def exists(self):
+        """Determine if library exists"""
+        return os.path.exists(self.lib)
+
     @cached_property
     def _lib(self):
         lib_ = ctypes.CDLL(self.lib, ctypes.RTLD_GLOBAL)
@@ -66,7 +71,4 @@ class Libdarknet(object):
         lib_.network_height.restype = ctypes.c_int
         return lib_
 
-    @property
-    def exists(self):
-        """Determine if library exists"""
-        return os.path.exists(self.lib)
+
