@@ -21,6 +21,7 @@ from ..utils import chroot
 from functools import wraps
 import os
 
+
 class Libdarknet(object):
     """Class for the libdarknet shared library.
     """
@@ -68,4 +69,3 @@ class Libdarknet(object):
     def exists(self):
         """Determine if library exists"""
         return os.path.exists(self.lib)
-

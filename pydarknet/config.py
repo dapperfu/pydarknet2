@@ -2,9 +2,8 @@
 """Ipsum"""
 
 """Configuration."""
-import  configparser
+import configparser
 import os
-
 
 """Default settings."""
 default_darknet_root = os.path.expanduser(os.path.join("~", ".darknet"))
