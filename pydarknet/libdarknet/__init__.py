@@ -36,10 +36,11 @@ def chroot(f):
         return ret
 
 class Libdarknet(object):
-    """Class for the libdarknet shared library."""
+    """Class for the libdarknet shared library.
+    """
 
     def __init__(self, root=None, weight_dir=None):
-        r"""Initialize a darknet object.
+        r"""Initialize a libdarknet object.
 
         Parameters
         ----------
