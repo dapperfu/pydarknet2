@@ -16,6 +16,7 @@ from cached_property import cached_property
 
 from functools import wraps
 from ..config import config
+import os
 
 # darknet gets angry if you don't use the darknet directory as 'root'.
 def chroot(f):
@@ -56,8 +57,8 @@ class Libdarknet(object):
             Choices in brackets, default first when optional.
 
         """
-        @cached_proprety
-        def _lib(self):
+        @property
+        def lib(self):
             """Return path to the darknet binary."""
             return os.path.abspath(os.path.join(self.root, "libdarknet.so"))
 
