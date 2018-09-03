@@ -75,7 +75,8 @@ class Libdarknet(object):
         path = os.path.abspath(path)
         self.lib.get_metadata.argtypes = [ctypes.c_char_p]
         self.lib.get_metadata.restype = Metadata
-        metadata = self.lib.get_metadata(ctypes.c_char_p(path.encode("UTF-8")))
+        metadata_=ctypes.c_char_p(path.encode("UTF-8"))
+        metadata = self.lib.get_metadata(metadata_)
         return metadata
 
     @chroot
@@ -89,3 +90,8 @@ class Libdarknet(object):
             ctypes.c_int,
         ]
         self.lib.load_network.restype = ctypes.c_void_p
+
+        cfgfile_=ctypes.c_char_p(cfgfile.encode("UTF-8"))
+        weightfile_=ctypes.c_char_p(weightfile.encode("UTF-8"))
+        clear_=ctypes.c_int(clear)
+        self.network = self.lib.load_network(cfgfile_, weightfile_, clear_)
