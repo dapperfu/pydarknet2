@@ -12,7 +12,7 @@ a line by itself, preferably preceded by a blank line.
 
 """
 
-from ..config import config
+from cached_property import cached_property
 
 from functools import wraps
 from ..config import config
@@ -54,3 +54,9 @@ class Libdarknet(object):
             detail, e.g. ``(N,) ndarray`` or ``array_like``.
         long_var_name : {'hi', 'ho'}, optional
             Choices in brackets, default first when optional.
+
+        """
+        @cached_proprety
+        def _lib(self):
+        """Return path to the darknet binary."""
+        return os.path.abspath(os.path.join(self.root, "libdarknet.so"))
