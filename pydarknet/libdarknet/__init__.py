@@ -20,7 +20,7 @@ from cached_property import cached_property
 
 from ..config import config
 from ..utils import chroot
-from .structs import *
+from .structs import Metadata
 
 
 class Libdarknet(object):
@@ -77,5 +77,5 @@ class Libdarknet(object):
 
         self.lib.get_metadata.argtypes = [ctypes.c_char_p]
         self.lib.get_metadata.restype = Metadata
-        self.metadata = self.lib.get_metadata(ctypes.c_char_p(path.encode()))
-
+        metadata = self.lib.get_metadata(ctypes.c_char_p(path.encode("UTF-8")))
+        return metadata
