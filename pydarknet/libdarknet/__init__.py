@@ -71,4 +71,5 @@ class Libdarknet(object):
         lib_.network_height.restype = ctypes.c_int
         return lib_
 
-
+    @chroot
+    def get_metadata(
