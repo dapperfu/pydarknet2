@@ -52,17 +52,17 @@ class Libdarknet(object):
         self.weight_dir = os.path.abspath(weight_dir)
 
     @property
-    def lib(self):
+    def _lib(self):
         """Return path to the darknet binary."""
         return os.path.abspath(os.path.join(self.root, "libdarknet.so"))
 
     @property
     def exists(self):
         """Determine if library exists"""
-        return os.path.exists(self.lib)
+        return os.path.exists(self._lib)
 
     @cached_property
-    def _lib(self):
+    def lib(self):
         lib_ = ctypes.CDLL(self.lib, ctypes.RTLD_GLOBAL)
         lib_.network_width.argtypes = [ctypes.c_void_p]
         lib_.network_width.restype = ctypes.c_int
