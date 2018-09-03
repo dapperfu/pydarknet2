@@ -57,7 +57,7 @@ class Libdarknet(object):
         """Return path to the darknet binary."""
         return os.path.abspath(os.path.join(self.root, "libdarknet.so"))
 
-        @property
+    @property
     def exists(self):
         """Determine if library exists"""
         return os.path.exists(self.lib)
