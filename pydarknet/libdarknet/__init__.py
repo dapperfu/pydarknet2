@@ -12,14 +12,14 @@ a line by itself, preferably preceded by a blank line.
 
 """
 
-from cached_property import cached_property
-
 import ctypes
+import os
+from functools import wraps
+
+from cached_property import cached_property
 
 from ..config import config
 from ..utils import chroot
-from functools import wraps
-import os
 
 
 class Libdarknet(object):
