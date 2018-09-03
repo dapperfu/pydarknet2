@@ -4,3 +4,4 @@ pydocstyle
 autopep8
 black
 isort
+cached_property
