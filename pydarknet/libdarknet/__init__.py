@@ -18,6 +18,7 @@ import ctypes
 
 from ..config import config
 from ..utils import chroot
+from functools import wraps
 import os
 
 class Libdarknet(object):
