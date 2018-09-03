@@ -57,12 +57,12 @@ class Libdarknet(object):
             Choices in brackets, default first when optional.
 
         """
-        @property
-        def lib(self):
-            """Return path to the darknet binary."""
-            return os.path.abspath(os.path.join(self.root, "libdarknet.so"))
+    @property
+    def lib(self):
+        """Return path to the darknet binary."""
+        return os.path.abspath(os.path.join(self.root, "libdarknet.so"))
 
-        @property
-        def exists(self):
-            """Determine if library exists"""
-            return os.path.exists(self._lib)
+    @property
+    def exists(self):
+        """Determine if library exists"""
+        return os.path.exists(self._lib)
