@@ -14,6 +14,8 @@ a line by itself, preferably preceded by a blank line.
 
 from cached_property import cached_property
 
+import ctypes
+
 from functools import wraps
 from ..config import config
 import os
@@ -69,6 +71,15 @@ class Libdarknet(object):
     def lib(self):
         """Return path to the darknet binary."""
         return os.path.abspath(os.path.join(self.root, "libdarknet.so"))
+
+    @cached_property
+    def _lib(self):
+        lib_ = ctypes.CDLL(self.lib_path, ctypes.RTLD_GLOBAL)
+        lib_.network_width.argtypes = [ctypes.c_void_p]
+        lib_.network_width.restype = ctypes.c_int
+        lib_.network_height.argtypes = [ctypes.c_void_p]
+        lib_.network_height.restype = ctypes.c_int
+        return lib_
 
     @property
     def exists(self):
