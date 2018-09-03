@@ -91,7 +91,7 @@ class Libdarknet(object):
         ]
         self.lib.load_network.restype = ctypes.c_void_p
 
-        cfgfile_=ctypes.c_char_p(cfgfile.encode("UTF-8"))
-        weightfile_=ctypes.c_char_p(weightfile.encode("UTF-8"))
+        cfg_file_=ctypes.c_char_p(cfg_file.encode("UTF-8"))
+        weight_file_=ctypes.c_char_p(weight_file.encode("UTF-8"))
         clear_=ctypes.c_int(clear)
-        self.network = self.lib.load_network(cfgfile_, weightfile_, clear_)
+        self.network = self.lib.load_network(cfg_file_, weight_file_, clear_)
