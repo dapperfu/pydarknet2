@@ -74,3 +74,8 @@ class Libdarknet(object):
     @chroot
     def get_metadata(self, path):
         path = os.path.abspath(path)
+
+        self.lib.get_metadata.argtypes = [ctypes.c_char_p]
+        self.lib.get_metadata.restype = Metadata
+        self.metadata = self.lib.get_metadata(ctypes.c_char_p(path.encode()))
+
