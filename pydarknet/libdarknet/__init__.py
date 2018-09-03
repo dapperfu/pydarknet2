@@ -63,7 +63,7 @@ class Libdarknet(object):
 
     @cached_property
     def lib(self):
-        lib_ = ctypes.CDLL(self.lib, ctypes.RTLD_GLOBAL)
+        lib_ = ctypes.CDLL(self._lib, ctypes.RTLD_GLOBAL)
         lib_.network_width.argtypes = [ctypes.c_void_p]
         lib_.network_width.restype = ctypes.c_int
         lib_.network_height.argtypes = [ctypes.c_void_p]
