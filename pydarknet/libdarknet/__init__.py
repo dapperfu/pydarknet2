@@ -65,4 +65,4 @@ class Libdarknet(object):
     @property
     def exists(self):
         """Determine if library exists"""
-        return os.path.exists(self._lib)
+        return os.path.exists(self.lib)
