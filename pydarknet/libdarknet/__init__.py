@@ -12,4 +12,4 @@ a line by itself, preferably preceded by a blank line.
 
 """
 
-from ..
+from ..config import config
