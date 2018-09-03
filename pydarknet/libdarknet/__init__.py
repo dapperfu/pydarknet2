@@ -72,4 +72,5 @@ class Libdarknet(object):
         return lib_
 
     @chroot
-    def get_metadata(
+    def get_metadata(self, path):
+        path = os.path.abspath(path)
