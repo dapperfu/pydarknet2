@@ -140,3 +140,6 @@ class Libdarknet(object):
 
         img = load_image_(path_, width_, height_, colors_)
         return img
+
+    @chroot
+    def network_predict_image(self, )
