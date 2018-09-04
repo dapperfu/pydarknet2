@@ -19,7 +19,7 @@ from cached_property import cached_property
 
 from ..config import config
 from ..utils import chroot
-from .structs import Metadata
+from .structs import Metadata, Image
 
 
 class Libdarknet(object):
