@@ -122,3 +122,21 @@ class Libdarknet(object):
 
     @chroot
     def load_image_color(self, path, width=0, height=0, colors=0):
+        path=os.path.abspath(path)
+
+        load_image_ = self.lib.load_image_color
+        load_image_.argtypes = [
+            ctypes.c_char_p,
+            ctypes.c_int,
+            ctypes.c_int,
+            ctypes.c_int,
+        ]
+        load_image_.restype = Image
+
+        path_ = ctypes.c_char_p(path.encode("UTF-8"))
+        width_ = ctypes.c_int(width)
+        height_ = ctypes.c_int(height)
+        colors_ = ctypes.c_int(colors)
+
+        img = load_image_(path_, width_, height_, colors_)
+        return img
