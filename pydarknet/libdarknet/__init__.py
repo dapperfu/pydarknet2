@@ -122,6 +122,10 @@ class Libdarknet(object):
 
     @chroot
     def load_image_color(self, path, width=0, height=0, colors=0):
+        """Load image color.
+
+        Foo. Barr.
+        """
         path=os.path.abspath(path)
 
         load_image_ = self.lib.load_image_color
