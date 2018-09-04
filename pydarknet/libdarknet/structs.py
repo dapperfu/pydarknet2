@@ -44,7 +44,7 @@ class Image(ctypes.Structure, BaseClass):
     ]
 
     def __repr__(self):
-        return "{}<{}x{}x>".format(
+        return "{}<{}x{}x{}>".format(
             self.__class__.__name__, self.w, self.h, self.c
         )
 
