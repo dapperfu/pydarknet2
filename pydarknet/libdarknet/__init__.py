@@ -19,7 +19,7 @@ from cached_property import cached_property
 
 from ..config import config
 from ..utils import chroot
-from .structs import Metadata, Image
+from .structs import Image, Metadata
 
 
 class Libdarknet(object):
@@ -126,7 +126,7 @@ class Libdarknet(object):
 
         Foo. Barr.
         """
-        path=os.path.abspath(path)
+        path = os.path.abspath(path)
 
         load_image_ = self.lib.load_image_color
         load_image_.argtypes = [
@@ -150,5 +150,3 @@ class Libdarknet(object):
         self.lib.network_predict_image.argtypes = [ctypes.c_void_p, Image]
         self.lib.network_predict_image.restype = ctypes.POINTER(ctypes.c_float)
         return self.lib.network_predict_image(network, image)
-
-
