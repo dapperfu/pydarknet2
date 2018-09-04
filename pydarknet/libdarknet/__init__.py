@@ -81,6 +81,9 @@ class Libdarknet(object):
 
     @chroot
     def load_network(self, cfg_file, weight_file, clear=0):
+        """Load a
+
+        """
         cfg_file = os.path.abspath(cfg_file)
         weight_file = os.path.abspath(weight_file)
 
