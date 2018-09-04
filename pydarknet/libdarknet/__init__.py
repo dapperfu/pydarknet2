@@ -119,3 +119,6 @@ class Libdarknet(object):
         weight_file_ = ctypes.c_char_p(weight_file.encode("UTF-8"))
         clear_ = ctypes.c_int(clear)
         return self.lib.load_network(cfg_file_, weight_file_, clear_)
+
+    @chroot
+    def load_image_color(self, path, width=0, height=0, colors=0):
