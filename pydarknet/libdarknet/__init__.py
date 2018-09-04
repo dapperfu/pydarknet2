@@ -146,4 +146,9 @@ class Libdarknet(object):
         return img
 
     @chroot
-    def network_predict_image(self, )
+    def network_predict_image(self, network, image):
+        self.lib.network_predict_image.argtypes = [ctypes.c_void_p, Image]
+        self.lib.network_predict_image.restype = ctypes.POINTER(ctypes.c_float)
+        return self.lib.network_predict_image(network, image)
+
+
