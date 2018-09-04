@@ -19,7 +19,7 @@ from cached_property import cached_property
 
 from ..config import config
 from ..utils import chroot
-from .structs import Image, Metadata, Detection
+from .structs import Detection, Image, Metadata
 
 
 class Libdarknet(object):
@@ -152,7 +152,9 @@ class Libdarknet(object):
         return self.lib.network_predict_image(network, image)
 
     @chroot
-    def get_network_boxes(self, network, image, threshold=0.5, heir_thresh=0.5):
+    def get_network_boxes(
+        self, network, image, threshold=0.5, heir_thresh=0.5
+    ):
         # detection *get_network_boxes(network *net, int w, int h, float thresh, float hier, int *map, int relative, int *num);
         self.lib.get_network_boxes.argtypes = [
             ctypes.c_void_p,
@@ -168,6 +170,8 @@ class Libdarknet(object):
 
         num = ctypes.c_int(0)
         pnum = ctypes.pointer(num)
-        dets = self.lib.get_network_boxes(network, image.w, image.h, threshold, heir_thresh, None, 0, pnum)
+        dets = self.lib.get_network_boxes(
+            network, image.w, image.h, threshold, heir_thresh, None, 0, pnum
+        )
 
         return num, dets

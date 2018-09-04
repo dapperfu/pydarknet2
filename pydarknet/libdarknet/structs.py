@@ -58,8 +58,8 @@ class Box(ctypes.Structure):
     ]
 
     def __repr__(self):
-        return "Box<{:.1f}, {:.1f}, {:.1f}, {:.1f}>".format(
-            self.x, self.y, self.w, self.h
+        return "{}<{:.1f}, {:.1f}, {:.1f}, {:.1f}>".format(
+            self.__class__.__name__, self.x, self.y, self.w, self.h
         )
 
     @property
