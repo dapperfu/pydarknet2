@@ -58,7 +58,7 @@ class Box(ctypes.Structure):
     ]
 
     def __repr__(self):
-        return "BOX<{:.1f}, {:.1f}, {:.1f}, {:.1f}>".format(
+        return "Box<{:.1f}, {:.1f}, {:.1f}, {:.1f}>".format(
             self.x, self.y, self.w, self.h
         )
 
@@ -92,6 +92,9 @@ class Detection(ctypes.Structure, BaseClass):
         ("objectness", ctypes.c_float),
         ("sort_class", ctypes.c_int),
     ]
+
+    def __repr__(self):
+
 
 
 class Matrix(ctypes.Structure, BaseClass):
