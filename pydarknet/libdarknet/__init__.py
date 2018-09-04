@@ -169,3 +169,5 @@ class Libdarknet(object):
         num = ctypes.c_int(0)
         pnum = ctypes.pointer(num)
         dets = self.lib.get_network_boxes(network, image.w, image.h, threshold, heir_thresh, None, 0, pnum)
+
+        return num, dets
