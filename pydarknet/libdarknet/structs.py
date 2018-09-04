@@ -48,7 +48,6 @@ class Image(ctypes.Structure, BaseClass):
             self.__class__.__name__, self.w, self.h, self.c
         )
 
-
 class Box(ctypes.Structure):
     _fields_ = [
         ("x", ctypes.c_float),
