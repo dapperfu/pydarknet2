@@ -64,8 +64,8 @@ class Classifier(Libdarknet, object):
 
         res = []
         for det in dets:
-            assert det.classes == metadata.classes
-            for i in range(metadata.classes):
+            assert det.classes == self.metadata.classes
+            for i in range(self.metadata.classes):
                 if det.prob[i] > 0:
                     b = det.bbox
                     res.append((metadata.names[i].decode(), det.prob[i], (b.left, b.upper, b.right, b.lower)))
