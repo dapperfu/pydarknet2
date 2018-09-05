@@ -18,7 +18,7 @@ from cached_property import cached_property
 from PIL import Image
 
 from ._version import get_versions
-from .classes import ClassifiedImage, Detections
+from .classes import ClassifiedImage, Detections, Image
 from .darknet import Darknet
 from .libdarknet import Libdarknet
 
