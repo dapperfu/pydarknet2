@@ -201,7 +201,6 @@ class Libdarknet(object):
 
     @chroot
     def do_nms_obj(self, dets, total, classes, thresh):
-
         """void do_nms_obj(detection *dets, int total, int classes, float thresh);
         """
         self.lib.do_nms_obj.argtypes = [
@@ -228,6 +227,7 @@ class Libdarknet(object):
 
     @chroot
     def free_image(self, image):
+        """Free image."""
         self.lib.free_image.argtypes = [Image]
         self.lib.free_image(image)
 
