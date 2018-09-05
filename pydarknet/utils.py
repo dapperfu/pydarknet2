@@ -41,6 +41,7 @@ def c_array(values, ctype=ctypes.c_float):
     arr[:] = values
     return arr
 
+from numpy import np
 
 def array_to_image(arr):
     arr = arr.transpose(2, 0, 1)
