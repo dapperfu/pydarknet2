@@ -60,7 +60,6 @@ class Classifier(Libdarknet, object):
         dets = Detections(num, detections_ptr)
 
         self.free_image(img)
-
         self.do_nms_sort(detections_ptr, num, self.metadata.classes, nms)
 
         res = []
@@ -69,7 +68,9 @@ class Classifier(Libdarknet, object):
             for i in range(self.metadata.classes):
                 if det.prob[i] > 0:
                     res.append(
-                        ClassifiedImage(self.metadata.names[i].decode(), det)
+                        ClassifiedImage(
+                            self.metadata.names[i].decode(), det, image_path
+                        )
                     )
         return res
 
