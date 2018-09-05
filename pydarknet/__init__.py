@@ -14,13 +14,13 @@ a line by itself, preferably preceded by a blank line.
 
 import sys
 
+from cached_property import cached_property
+from PIL import Image
+
 from ._version import get_versions
+from .classes import ClassifiedImage, Detections
 from .darknet import Darknet
 from .libdarknet import Libdarknet
-from .classes import Detections, ClassifiedImage
-from cached_property import cached_property
-
-from PIL import Image
 
 __version__ = get_versions()["version"]
 del get_versions
@@ -28,15 +28,15 @@ del get_versions
 if sys.version_info[0] < 3:
     raise Exception("Python2. No. https://pythonclock.org/")
 
+
 class Classifier(Libdarknet, object):
     """Classify an image."""
 
     def __init__(self, metadata_path, cfg_path, weights_path, **kwargs):
         super().__init__(**kwargs)
-        self.metadata_path=metadata_path
-        self.cfg_path=cfg_path
-        self.weights_path=weights_path
-
+        self.metadata_path = metadata_path
+        self.cfg_path = cfg_path
+        self.weights_path = weights_path
 
     @cached_property
     def metadata(self):
@@ -52,7 +52,6 @@ class Classifier(Libdarknet, object):
         print("...Done")
         return n
 
-
     def detect(self, image_path, nms=0.5):
         img = self.load_image_color(image_path)
         self.network_predict_image(self.network, img)
@@ -62,16 +61,19 @@ class Classifier(Libdarknet, object):
 
         self.free_image(img)
 
-        self.do_nms_sort(detections_ptr, num, self.metadata.classes, nms);
+        self.do_nms_sort(detections_ptr, num, self.metadata.classes, nms)
 
         res = []
         for det in dets:
             assert det.classes == self.metadata.classes
             for i in range(self.metadata.classes):
                 if det.prob[i] > 0:
-                    res.append(ClassifiedImage(self.metadata.names[i].decode(), det))
+                    res.append(
+                        ClassifiedImage(self.metadata.names[i].decode(), det)
+                    )
         return res
 
     def __repr__(self):
-        return "Classifier<{}, {}, {}>".format(self.metadata_path, self.cfg_path, self.weights_path)
-
+        return "Classifier<{}, {}, {}>".format(
+            self.metadata_path, self.cfg_path, self.weights_path
+        )

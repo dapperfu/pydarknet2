@@ -20,19 +20,21 @@ class Detections(object):
 
     def __getitem__(self, index):
         return self.detections_ptr[index]
-from cached_property import cached_property
 
+
+from cached_property import cached_property
 from PIL import Image
+
 
 class ClassifiedImage(object):
     def __init__(self, classification, detection, image_path):
-        self.classification=classification
-        self.detection=detection
+        self.classification = classification
+        self.detection = detection
         self.image_path = image_path
 
-#    @cached_property
-#    def image(self):
-#        return Image.open(self.image_path).crop(self.crop)
+    #    @cached_property
+    #    def image(self):
+    #        return Image.open(self.image_path).crop(self.crop)
 
     @property
     def crop(self):

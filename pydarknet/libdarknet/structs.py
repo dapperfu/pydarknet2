@@ -3,6 +3,8 @@
 
 import ctypes
 
+import numpy as np
+
 
 class BaseClass(object):
     def __repr__(self):
@@ -35,7 +37,6 @@ class UpdateArgs(ctypes.Structure, BaseClass):
         ("t", ctypes.c_int),
     ]
 
-import numpy
 
 class Image(ctypes.Structure, BaseClass):
     _fields_ = [
