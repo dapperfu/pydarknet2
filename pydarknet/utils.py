@@ -33,7 +33,7 @@ def get_weight(network):
 
 import ctypes
 
-def c_array(ctype, values):
+def c_array(values, ctype=ctypes.c_float):
     arr = (ctype * len(values))()
     arr[:] = values
     return arr
