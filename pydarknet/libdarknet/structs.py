@@ -94,7 +94,7 @@ class Detection(ctypes.Structure, BaseClass):
     ]
 
     def __repr__(self):
-        return "Detection<{}, {:.2f}>".format(self.bbox, self.prob[0])
+        return "Detection<{}, {:.2f}>".format(self.bbox, self.objectness)
 
 
 class Matrix(ctypes.Structure, BaseClass):
