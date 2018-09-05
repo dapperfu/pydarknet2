@@ -23,7 +23,6 @@ from cached_property import cached_property
 __version__ = get_versions()["version"]
 del get_versions
 
-
 if sys.version_info[0] < 3:
     raise Exception("Python2. No. https://pythonclock.org/")
 
