@@ -29,6 +29,9 @@ class Detections(object):
             self._idx += 1
             return self.detections_ptr[idx]
 
+    def __getitem__(self, index):
+        return self.detections_ptr[index]
+
 
 class ArgumentArgs(ctypes.Structure, BaseClass):
     _fields_ = [
