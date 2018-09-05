@@ -209,7 +209,7 @@ class Metadata(ctypes.Structure):
 
     def __next__(self):
         idx = self._idx
-        if self._idx >= self.num:
+        if self._idx >= self.classes:
             raise StopIteration
         else:
             self._idx += 1
