@@ -24,3 +24,6 @@ del get_versions
 
 if sys.version_info[0] < 3:
     raise Exception("Python2. No. https://pythonclock.org/")
+
+
+class Classifier(Libdarknet, object):
