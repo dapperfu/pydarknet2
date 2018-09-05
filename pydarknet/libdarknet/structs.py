@@ -4,6 +4,7 @@
 import ctypes
 
 import numpy as np
+import PIL
 
 
 class BaseClass(object):
