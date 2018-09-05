@@ -58,10 +58,8 @@ class Image(ctypes.Structure, BaseClass):
 
         # Pull all of the data out of the float 'into' a Python object.
         data = self.float[0 : len(self)]
-        # Multiply
+        # Multiply by 255 and change datatype.
         data_ = np.multiply(data, 255).astype(dtype=np.uint8)
-
-        data_ = np.asarray(data)
         array_ = data_.reshape((self.c, self.h, self.w))
         array = array_.transpose(1, 2, 0)
         return array
