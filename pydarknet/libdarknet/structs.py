@@ -11,7 +11,6 @@ class BaseClass(object):
         return "{}<>".format(self.__class__.__name__)
 
 
-
 class ArgumentArgs(ctypes.Structure, BaseClass):
     _fields_ = [
         ("w", ctypes.c_int),
@@ -52,10 +51,11 @@ class Image(ctypes.Structure, BaseClass):
         )
 
     def __len__(self):
-        return self.w*self.h*self.c
-
+        return self.w * self.h * self.c
 
     def asarray(self, dtype=np.uint8):
+        data = img.float[0 : len(self)]
+        data_ = np.asarray(data)
 
 
 class Box(ctypes.Structure):
