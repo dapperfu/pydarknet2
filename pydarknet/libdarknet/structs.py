@@ -192,6 +192,9 @@ class Metadata(ctypes.Structure):
         ("names", ctypes.POINTER(ctypes.c_char_p)),
     ]
 
+    def __repr__(self):
+        return "Metadata<{}>".format(len(self))
+
     def asgenerator(self):
         for idx in range(self.classes):
             yield self.names[idx].decode("UTF-8")
