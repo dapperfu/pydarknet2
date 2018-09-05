@@ -34,8 +34,9 @@ class Classifier(Libdarknet, object):
 
     def __init__(self, metadata_path, cfg_path, weights_path, **kwargs):
         super().__init__(**kwargs)
-        self.metadata_path=metadata
-        self.network=network
+        self.metadata_path=metadata_path
+        self.cfg_path=cfg_path
+        self.weights_path=weights_path
 
 
 
