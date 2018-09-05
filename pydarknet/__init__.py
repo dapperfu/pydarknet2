@@ -38,11 +38,17 @@ class Classifier(Libdarknet, object):
 
     @cached_property
     def metadata(self):
-        return self.get_metadata(self.metadata_path)
+        print("Loading metadata...", end="")
+        m = self.get_metadata(self.metadata_path)
+        print("...Done")
+        return m
 
     @cached_property
     def network(self):
-        return self.load_network(self.cfg_path, self.weights_path, 0)
+        print("Loading network...", end="")
+        n = self.load_network(self.cfg_path, self.weights_path, 0)
+        print("...Done")
+        return n
 
 
     def detect(self, image_path, nms=0.5):
