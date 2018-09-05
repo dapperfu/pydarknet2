@@ -27,8 +27,6 @@ del get_versions
 if sys.version_info[0] < 3:
     raise Exception("Python2. No. https://pythonclock.org/")
 
-from cac
-
 class Classifier(Libdarknet, object):
     """Classify an image."""
 
