@@ -52,8 +52,11 @@ class Classifier(Libdarknet, object):
         print("...Done")
         return n
 
-    def detect(self, image_path, nms=0.5):
-        img = self.load_image_color(image_path)
+    def detect(self, image, nms=0.5):
+        if isinstance(image, Image):
+            img = image
+        else:
+            img = self.load_image_color(image)
         self.network_predict_image(self.network, img)
 
         num, detections_ptr = self.get_network_boxes(self.network, img)
