@@ -210,6 +210,7 @@ class Libdarknet(object):
             ctypes.c_float,
         ]
         self.lib.do_nms_obj.restype = None
+        self.lib.do_nms_obj(dets, total, classes, thresh)
 
     @chroot
     def do_nms_sort(self, dets, total, classes, thresh):
