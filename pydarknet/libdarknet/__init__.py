@@ -186,3 +186,9 @@ class Libdarknet(object):
         )
 
         return num, dets
+
+    @chroot
+    def get_labels(self, filename):
+        """
+                char **get_labels(char *filename);
+        """
