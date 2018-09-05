@@ -49,8 +49,7 @@ class Image(ctypes.Structure, BaseClass):
             self.__class__.__name__, self.w, self.h, self.c
         )
 
-    @property
-    def n(self):
+    def __len__(self):
         return self.w*self.h*self.c
 
 class Box(ctypes.Structure):
