@@ -9,6 +9,27 @@ class BaseClass(object):
         return "{}<>".format(self.__class__.__name__)
 
 
+class Detections(object):
+    def __init__(self, num, detections_ptr):
+        self.num = num
+        self.detections_ptr = detections_ptr
+
+    def __repr__(self):
+        return "Detections<{}>".format(self.num)
+
+    def __iter__(self):
+        self._idx = 0
+        return self
+
+    def __next__(self):
+        idx = self._idx
+        if self._idx >= self.num:
+            raise StopIteration
+        else:
+            self._idx += 1
+            return self.detections_ptr[idx]
+
+
 class ArgumentArgs(ctypes.Structure, BaseClass):
     _fields_ = [
         ("w", ctypes.c_int),
