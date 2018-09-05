@@ -190,5 +190,5 @@ class Libdarknet(object):
     @chroot
     def get_labels(self, filename):
         """
-                char **get_labels(char *filename);
+        char **get_labels(char *filename);
         """
