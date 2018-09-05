@@ -20,6 +20,8 @@ from .libdarknet import Libdarknet
 from .classes import Detections
 from cached_property import cached_property
 
+from PIL import Image
+
 __version__ = get_versions()["version"]
 del get_versions
 
@@ -73,3 +75,5 @@ class Classifier(Libdarknet, object):
 
     def __repr__(self):
         return "Classifier<{}, {}, {}>".format(self.metadata_path, self.cfg_path, self.weights_path)
+
+    def crop_image(self, image_path):
