@@ -17,7 +17,7 @@ import sys
 from ._version import get_versions
 from .darknet import Darknet
 from .libdarknet import Libdarknet
-
+from .classes import Detections
 from cached_property import cached_property
 
 __version__ = get_versions()["version"]
@@ -50,6 +50,8 @@ class Classifier(Libdarknet, object):
 
     def detect(self, image_path):
         img = self.load_image_color(image_path)
-
+        self.network_predict_image(network, img)
+        num, detections_ptr = self.get_network_boxes(network, img)
+        dets = Detections(num, detections_ptr)
 
         self.free_image(img)
