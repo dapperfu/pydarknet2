@@ -45,6 +45,8 @@ class Image(ctypes.Structure, BaseClass):
         ("c", ctypes.c_int),
         ("float", ctypes.POINTER(ctypes.c_float)),
     ]
+
+
 """
     def __repr__(self):
         return "{}<{}x{}x{}>".format(
@@ -68,7 +70,8 @@ class Image(ctypes.Structure, BaseClass):
 
     def asimage(self):
         return PIL.Image.fromarray(self.asarray())
-""""""
+"""
+
 
 class Box(ctypes.Structure):
     _fields_ = [
