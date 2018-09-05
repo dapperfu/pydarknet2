@@ -69,11 +69,6 @@ class Image(ctypes.Structure, BaseClass):
     def asimage(self):
         return PIL.Image.fromarray(self.asarray())
 
-    # def ascv2(self):
-    #    rgb = self.asarray()
-    #    bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
-    #    return
-
 
 class Box(ctypes.Structure):
     _fields_ = [
