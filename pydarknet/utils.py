@@ -54,4 +54,5 @@ def array_to_image(arr):
 
 
 def image_to_array(image):
-    pass
+    img_ = np.asarray(image, dtype=np.uint8)
+    return array_to_image(img_)
