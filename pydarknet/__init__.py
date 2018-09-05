@@ -33,3 +33,5 @@ class Classifier(Libdarknet, object):
         super().__init__(**kwargs)
         self.metadata=metadata
         self.network=network
+
+    def detect(self, image)
