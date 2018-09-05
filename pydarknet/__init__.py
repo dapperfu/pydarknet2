@@ -64,3 +64,6 @@ class Classifier(Libdarknet, object):
                     b = det.bbox
                     res.append((metadata.names[i].decode(), det.prob[i], (b.left, b.upper, b.right, b.lower)))
         return res
+
+    def __repr__(self):
+        return "Classifier<{}, {}, {}>".format(self.metadata_path, self.cfg_path, self.weights_path)
