@@ -48,7 +48,7 @@ def array_to_image(arr):
     c = arr.shape[0]
     h = arr.shape[1]
     w = arr.shape[2]
-    arr = (astype(np.float) / 255.0).flatten()
-    data = c_array(dn.c_float, arr)
+    arr = (arr.astype(np.float) / 255.0).flatten()
+    data = c_array(ctypes.c_float, arr)
     im = Image(w, h, c, data)
     return im
