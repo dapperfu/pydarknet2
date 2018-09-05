@@ -3,7 +3,7 @@
 
 import os
 from functools import wraps
-from .Libdarknet.structs import Image
+from .libdarknet.structs import Image
 
 
 # darknet gets angry if you don't use the darknet directory as 'root'.
