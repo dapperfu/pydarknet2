@@ -211,9 +211,7 @@ class Libdarknet(object):
             ctypes.c_float,
         ]
         self.lib.do_nms_obj.restype = None
-
-        self.lib.do_nms_obj(dets, total, classes, thresh)
-
+    @chroot
     def do_nms_sort(self, dets, total, classes, thresh):
         """void do_nms_sort(detection *dets, int total, int classes, float thresh);
         """
@@ -226,3 +224,18 @@ class Libdarknet(object):
         self.lib.do_nms_sort.restype = None
 
         self.lib.do_nms_sort(dets, total, classes, thresh)
+
+
+    @chroot
+    def free_image(self, image):
+        self.lib.free_image.argtypes = [Image]
+        self.lib.free_image(image)
+
+    @chroot
+    def free_detections(dets, num):
+
+    self.lib.free_detections.argtypes = [ctypes.POINTER(DETECTION), ctypes.c_int]
+    self.lib.free_detections(dets, num)
+
+    self.lib.do_nms_obj(dets, total, classes, thresh)
+
