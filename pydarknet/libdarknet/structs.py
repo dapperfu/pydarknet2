@@ -35,6 +35,7 @@ class UpdateArgs(ctypes.Structure, BaseClass):
         ("t", ctypes.c_int),
     ]
 
+import numpy
 
 class Image(ctypes.Structure, BaseClass):
     _fields_ = [
@@ -51,6 +52,10 @@ class Image(ctypes.Structure, BaseClass):
 
     def __len__(self):
         return self.w*self.h*self.c
+
+
+    def asarray(self, dtype=np.uint8):
+
 
 class Box(ctypes.Structure):
     _fields_ = [
