@@ -210,7 +210,7 @@ class Libdarknet(object):
             ctypes.c_int,
             ctypes.c_float,
         ]
-        self.lib.get_labels.restype = None
+        self.lib.do_nms_obj.restype = None
 
         self.lib.do_nms_obj(dets, total, classes, thresh)
 
@@ -223,6 +223,6 @@ class Libdarknet(object):
             ctypes.c_int,
             ctypes.c_float,
         ]
-        self.lib.get_labels.restype = None
+        self.lib.do_nms_sort.restype = None
 
         self.lib.do_nms_sort(dets, total, classes, thresh)
