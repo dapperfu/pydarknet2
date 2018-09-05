@@ -3,6 +3,7 @@
 
 import os
 from functools import wraps
+from .Libdarknet.structs import Image
 
 
 # darknet gets angry if you don't use the darknet directory as 'root'.
@@ -29,7 +30,6 @@ def chroot(f):
 # Weight Downloader
 def get_weight(network):
     pass
-
 
 import ctypes
 
