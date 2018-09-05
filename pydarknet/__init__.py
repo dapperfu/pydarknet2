@@ -30,7 +30,6 @@ class Classifier(Libdarknet, object):
     """Classify an image."""
 
     def __init__(self, metadata, network, **kwargs):
-
-
-
         super().__init__(**kwargs)
+        self.metadata=metadata
+        self.network=network
