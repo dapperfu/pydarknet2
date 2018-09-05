@@ -28,3 +28,4 @@ def chroot(f):
 
 # Weight Downloader
 def get_weight(network):
+    pass
