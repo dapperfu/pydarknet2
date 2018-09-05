@@ -233,6 +233,7 @@ class Libdarknet(object):
 
     @chroot
     def free_detections(self, dets, num):
+        """Free Detections."""
         self.lib.free_detections.argtypes = [
             ctypes.POINTER(Detection),
             ctypes.c_int,
