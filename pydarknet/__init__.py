@@ -50,3 +50,6 @@ class Classifier(Libdarknet, object):
 
     def detect(self, image_path):
         img = self.load_image_color(image_path)
+
+
+        self.free_image(img)
