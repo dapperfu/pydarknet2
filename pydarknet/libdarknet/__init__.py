@@ -199,7 +199,6 @@ class Libdarknet(object):
 
         return self.lib.get_labels(filename_)
 
-
     @chroot
     def do_nms_obj(self, dets, total, classes, thresh):
 
@@ -215,11 +214,10 @@ class Libdarknet(object):
 
         self.lib.do_nms_obj(dets, total, classes, thresh)
 
-
     def do_nms_sort(self, dets, total, classes, thresh):
         """void do_nms_sort(detection *dets, int total, int classes, float thresh);
         """
-        self.lib.do_nms_obj.argtypes = [
+        self.lib.do_nms_sort.argtypes = [
             ctypes.POINTER(Detection),
             ctypes.c_int,
             ctypes.c_int,
@@ -227,5 +225,4 @@ class Libdarknet(object):
         ]
         self.lib.get_labels.restype = None
 
-        self.lib.do_nms_obj(dets, total, classes, thresh)
-
+        self.lib.do_nms_sort(dets, total, classes, thresh)
