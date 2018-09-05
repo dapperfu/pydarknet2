@@ -77,3 +77,4 @@ class Classifier(Libdarknet, object):
         return "Classifier<{}, {}, {}>".format(self.metadata_path, self.cfg_path, self.weights_path)
 
     def crop_image(self, image_path):
+        img = Image.open(image_path)
