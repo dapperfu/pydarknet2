@@ -203,13 +203,16 @@ class Metadata(ctypes.Structure):
         self._idx = 0
         return self
 
+    def __len__(self):
+        return self.classes
+
     def __next__(self):
         idx = self._idx
         if self._idx >= self.classes:
             raise StopIteration
         else:
             self._idx += 1
-            return self.detections_ptr[idx]
+            return self[idx]
 
     def __getitem__(self, index):
         assert index < self.classes, "Index out of range."
