@@ -205,7 +205,7 @@ class Libdarknet(object):
 
         """void do_nms_obj(detection *dets, int total, int classes, float thresh);
         """
-        self.lib.get_labels.argtypes = [
+        self.lib.do_nms_obj.argtypes = [
             ctypes.POINTER(Detection),
             ctypes.c_int,
             ctypes.c_int,
@@ -219,4 +219,13 @@ class Libdarknet(object):
     def do_nms_sort(self, dets, total, classes, thresh):
         """void do_nms_sort(detection *dets, int total, int classes, float thresh);
         """
+        self.lib.do_nms_obj.argtypes = [
+            ctypes.POINTER(Detection),
+            ctypes.c_int,
+            ctypes.c_int,
+            ctypes.c_float,
+        ]
+        self.lib.get_labels.restype = None
+
+        self.lib.do_nms_obj(dets, total, classes, thresh)
 
