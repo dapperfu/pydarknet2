@@ -54,8 +54,13 @@ class Image(ctypes.Structure, BaseClass):
     def __len__(self):
         return self.w * self.h * self.c
 
-    def asarray(self, dtype=np.uint8):
+    def asarray(self):
+
+        # Pull all of the data out of the float 'into' a Python object.
         data = self.float[0 : len(self)]
+        # Multiply
+        data_ = np.multiply(data, 255).astype(dtype=np.uint8)
+
         data_ = np.asarray(data)
         array_ = data_.reshape((self.c, self.h, self.w))
         array = array_.transpose(1, 2, 0)
