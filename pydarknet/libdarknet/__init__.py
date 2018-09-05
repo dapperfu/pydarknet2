@@ -155,6 +155,18 @@ class Libdarknet(object):
     def get_network_boxes(
         self, network, image, threshold=0.5, heir_thresh=0.5
     ):
+        """
+        get_network_boxes(
+                network *net,
+                int w,
+                int h,
+                float
+                thresh,
+                float hier,
+                int *map,
+                int relative,
+                int *num)
+        """
         self.lib.get_network_boxes.argtypes = [
             ctypes.c_void_p,
             ctypes.c_int,
