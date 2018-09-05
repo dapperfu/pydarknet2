@@ -4,6 +4,7 @@
 import ctypes
 import os
 from functools import wraps
+import numpy as np
 
 from .libdarknet.structs import Image
 
