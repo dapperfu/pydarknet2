@@ -32,9 +32,11 @@ from cac
 class Classifier(Libdarknet, object):
     """Classify an image."""
 
-    def __init__(self, metadata, network, **kwargs):
+    def __init__(self, metadata_path, cfg_path, weights_path, **kwargs):
         super().__init__(**kwargs)
-        self.metadata=metadata
+        self.metadata_path=metadata
         self.network=network
+
+
 
     def detect(self, image):
