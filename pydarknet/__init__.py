@@ -27,3 +27,10 @@ if sys.version_info[0] < 3:
 
 
 class Classifier(Libdarknet, object):
+    """Classify an image."""
+
+    def __init__(self, metadata, network, **kwargs):
+
+
+
+        super().__init__(**kwargs)
