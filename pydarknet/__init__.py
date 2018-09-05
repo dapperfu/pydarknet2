@@ -48,4 +48,5 @@ class Classifier(Libdarknet, object):
         return self.load_network(self.cfg_path, self.weights_path, 0)
 
 
-    def detect(self, image):
+    def detect(self, image_path):
+        img = self.load_image_color(image_path)
