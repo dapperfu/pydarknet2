@@ -197,7 +197,7 @@ class Metadata(ctypes.Structure):
             yield self.names[idx].decode("UTF-8")
 
     def aslist(self):
-        return list(self.asgenerator(self))
+        return list(self.asgenerator())
 
     def __iter__(self):
         self._idx = 0
