@@ -192,3 +192,5 @@ class Libdarknet(object):
         """
         char **get_labels(char *filename);
         """
+        self.lib.get_labels.argtypes = []
+        self.lib.get_labels.restype = ctypes.POINTER(ctypes.c_char_p)
