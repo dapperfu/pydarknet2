@@ -39,5 +39,10 @@ class Classifier(Libdarknet, object):
         self.weights_path=weights_path
 
 
+    @cached_property
+    def metadata(self):
+        return self.get_metadata(self.metadata_path)
+
+
 
     def detect(self, image):
