@@ -196,10 +196,12 @@ class Metadata(ctypes.Structure):
         assert idx < self.classes, "Index out of range."
         return self.names[idx].decode("UTF-8")
 
-    @cached_property
-    def generator(self):
+    def asgenerator(self):
         for idx in range(self.classes):
             yield self.names[idx].decode("UTF-8")
+
+    def aslist(self):
+        return list(self.asgenerator(self))
 
     def __iter__(self):
         self._idx = 0
