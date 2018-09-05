@@ -55,7 +55,7 @@ class Image(ctypes.Structure, BaseClass):
         return self.w * self.h * self.c
 
     def asarray(self, dtype=np.uint8):
-        data = img.float[0 : len(self)]
+        data = self.float[0 : len(self)]
         data_ = np.asarray(data)
         array_ = data_.reshape((self.c, self.h, self.w))
         array = array_.transpose(1, 2, 0)
