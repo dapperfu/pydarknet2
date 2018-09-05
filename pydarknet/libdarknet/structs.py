@@ -194,5 +194,4 @@ class Metadata(ctypes.Structure):
 
     def get_name(self, idx):
         assert idx < self.classes, "Index out of range."
-
         return self.names[idx].decode("UTF-8")
