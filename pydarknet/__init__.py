@@ -18,6 +18,8 @@ from ._version import get_versions
 from .darknet import Darknet
 from .libdarknet import Libdarknet
 
+from cached_property import cached_property
+
 __version__ = get_versions()["version"]
 del get_versions
 
@@ -25,6 +27,7 @@ del get_versions
 if sys.version_info[0] < 3:
     raise Exception("Python2. No. https://pythonclock.org/")
 
+from cac
 
 class Classifier(Libdarknet, object):
     """Classify an image."""
@@ -34,4 +37,4 @@ class Classifier(Libdarknet, object):
         self.metadata=metadata
         self.network=network
 
-    def detect(self, image)
+    def detect(self, image):
