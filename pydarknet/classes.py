@@ -32,9 +32,9 @@ class ClassifiedImage(object):
         self.detection = detection
         self.image_path = image_path
 
-    #    @cached_property
-    #    def image(self):
-    #        return Image.open(self.image_path).crop(self.crop)
+    @cached_property
+    def image(self):
+        return Image.open(self.image_path).crop(self.crop)
 
     @property
     def crop(self):
