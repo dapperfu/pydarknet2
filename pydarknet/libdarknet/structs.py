@@ -61,6 +61,9 @@ class Image(ctypes.Structure, BaseClass):
         array = array_.transpose(1, 2, 0)
         return array
 
+    def asimage(self):
+        return PIL.Image.fromarray(self.asarray())
+
 
 class Box(ctypes.Structure):
     _fields_ = [
