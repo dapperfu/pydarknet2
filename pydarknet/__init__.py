@@ -49,7 +49,7 @@ class Classifier(Libdarknet, object):
         img = self.load_image_color(image_path)
         self.network_predict_image(network, img)
 
-        num, detections_ptr = self.get_network_boxes(network, img)
+        num, detections_ptr = self.get_network_boxes(self.network, img)
         dets = Detections(num, detections_ptr)
 
         self.free_image(img)
