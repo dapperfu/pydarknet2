@@ -31,7 +31,7 @@ def get_weight(network):
     pass
 
 
-import ctype
+import ctypes
 
 def c_array(ctype, values):
     arr = (ctype * len(values))()
