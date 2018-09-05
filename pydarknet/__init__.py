@@ -69,7 +69,7 @@ class Classifier(Libdarknet, object):
             assert det.classes == self.metadata.classes
             for i in range(self.metadata.classes):
                 if det.prob[i] > 0:
-                    res.append(ClassifiedImage(self.metadata.names[i].decode(), det, image_path)
+                    res.append(ClassifiedImage(self.metadata.names[i].decode(), det, image_path))
         return res
 
     def __repr__(self):
