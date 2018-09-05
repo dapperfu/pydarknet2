@@ -51,7 +51,3 @@ def array_to_image(arr):
     data = c_array(dn.c_float, arr)
     im = Image(w, h, c, data)
     return im
-
-def from(image):
-    img_ = np.asarray(image, dtype=np.uint8)
-    return array_to_image(img_)
