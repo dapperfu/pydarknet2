@@ -47,14 +47,14 @@ class Classifier(Libdarknet, object):
 
     def detect(self, image_path, nms=0.5):
         img = self.load_image_color(image_path)
-        self.network_predict_image(network, img)
+        self.network_predict_image(self.network, img)
 
         num, detections_ptr = self.get_network_boxes(self.network, img)
         dets = Detections(num, detections_ptr)
 
         self.free_image(img)
 
-        self.do_nms_sort(detections_ptr, num, metadata.classes, nms);
+        self.do_nms_sort(detections_ptr, num, self.metadata.classes, nms);
 
         res = []
         for det in dets:
