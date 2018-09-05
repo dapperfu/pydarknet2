@@ -238,4 +238,3 @@ class Libdarknet(object):
     self.lib.free_detections(dets, num)
 
     self.lib.do_nms_obj(dets, total, classes, thresh)
-
