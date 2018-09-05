@@ -213,6 +213,8 @@ class Libdarknet(object):
         ]
         self.lib.get_labels.restype = None
 
+        self.lib.do_nms_obj(dets, total, classes, thresh)
+
 
     def do_nms_sort(self, dets, total, classes, thresh):
         """void do_nms_sort(detection *dets, int total, int classes, float thresh);
