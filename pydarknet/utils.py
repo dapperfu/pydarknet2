@@ -47,3 +47,5 @@ def array_to_image(arr):
     data = c_array(dn.c_float, arr)
     im = Image(w, h, c, data)
     return im
+
+def image_to_array(image):
