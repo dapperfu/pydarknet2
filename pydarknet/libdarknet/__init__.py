@@ -198,3 +198,15 @@ class Libdarknet(object):
         filename_ = ctypes.c_char_p(filename.encode("UTF-8"))
 
         return self.lib.get_labels(filename_)
+
+
+    @chroot
+    def do_nms_obj(self, dets, total, classes, thresh):
+
+        """void do_nms_obj(detection *dets, int total, int classes, float thresh);
+        """
+
+    def do_nms_sort(self, dets, total, classes, thresh):
+
+        """void do_nms_sort(detection *dets, int total, int classes, float thresh);
+        """
