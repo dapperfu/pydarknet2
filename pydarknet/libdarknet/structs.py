@@ -195,3 +195,23 @@ class Metadata(ctypes.Structure):
     def get_name(self, idx):
         assert idx < self.classes, "Index out of range."
         return self.names[idx].decode("UTF-8")
+
+    @cached_property
+    def generator(self):
+        for idx in range(self.classes):
+            yield self.names[idx].decode("UTF-8")
+
+    def __iter__(self):
+        self._idx = 0
+        return self
+
+    def __next__(self):
+        idx = self._idx
+        if self._idx >= self.num:
+            raise StopIteration
+        else:
+            self._idx += 1
+            return self.detections_ptr[idx]
+
+    def __getitem__(self, index):
+        return self.detections_ptr[index]
