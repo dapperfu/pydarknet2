@@ -192,10 +192,6 @@ class Metadata(ctypes.Structure):
         ("names", ctypes.POINTER(ctypes.c_char_p)),
     ]
 
-    def get_name(self, idx):
-        assert idx < self.classes, "Index out of range."
-        return self.names[idx].decode("UTF-8")
-
     def asgenerator(self):
         for idx in range(self.classes):
             yield self.names[idx].decode("UTF-8")
@@ -216,4 +212,5 @@ class Metadata(ctypes.Structure):
             return self.detections_ptr[idx]
 
     def __getitem__(self, index):
-        return self.detections_ptr[index]
+        assert index < self.classes, "Index out of range."
+        return self.names[index].decode("UTF-8")
