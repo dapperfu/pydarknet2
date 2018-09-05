@@ -13,6 +13,8 @@ a line by itself, preferably preceded by a blank line.
 """
 
 from ._version import get_versions
+from .darknet import Darknet
+from .libdarknet import Libdarknet
 
 __version__ = get_versions()["version"]
 del get_versions
