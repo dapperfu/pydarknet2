@@ -6,7 +6,6 @@ import os
 from functools import wraps
 
 import numpy as np
-from numpy import np
 
 from .libdarknet.structs import Image
 
