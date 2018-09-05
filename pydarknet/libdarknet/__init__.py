@@ -185,7 +185,7 @@ class Libdarknet(object):
             network, image.w, image.h, threshold, heir_thresh, None, 0, pnum
         )
 
-        return num, dets
+        return num.value, dets
 
     @chroot
     def get_labels(self, filename):
