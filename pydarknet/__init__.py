@@ -12,9 +12,15 @@ a line by itself, preferably preceded by a blank line.
 
 """
 
+import sys
+
 from ._version import get_versions
 from .darknet import Darknet
 from .libdarknet import Libdarknet
 
 __version__ = get_versions()["version"]
 del get_versions
+
+
+if sys.version_info[0] < 3:
+    raise Exception("Python2. No. https://pythonclock.org/")
