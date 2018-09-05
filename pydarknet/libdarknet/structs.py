@@ -60,7 +60,9 @@ class Image(ctypes.Structure, BaseClass):
         data = self.float[0 : len(self)]
         # Multiply by 255 and change datatype.
         data_ = np.multiply(data, 255).astype(dtype=np.uint8)
+        # Reshape the array into something.
         array_ = data_.reshape((self.c, self.h, self.w))
+        # Un transpose it back to an image array.
         array = array_.transpose(1, 2, 0)
         return array
 
