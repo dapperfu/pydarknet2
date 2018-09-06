@@ -148,3 +148,7 @@ class Classifier(Libdarknet, object):
         return "Classifier<{}, {}, {}>".format(
             self.metadata_path, self.cfg_path, self.weights_path
         )
+
+from ._version import get_versions
+__version__ = get_versions()['version']
+del get_versions
