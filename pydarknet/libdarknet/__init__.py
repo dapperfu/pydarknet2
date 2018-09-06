@@ -219,6 +219,21 @@ class Libdarknet(object):
     ):
         """Get network boxes for a given image classified by network
 
+        Parameters
+        ----------
+        network : Network
+            Pointer to darknet network object.
+        width : int
+            Image width
+        height : int
+            Image height.
+        colors : int
+            Number of image colors.
+
+        Returns
+        -------
+        img : Image
+            Loaded image structure.
 
 
 
