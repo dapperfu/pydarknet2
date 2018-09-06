@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Module for the ```darknet.py``` command line interface.
+
+An entrypoint for ```pydarknet``` module.
+"""
+
 import os
 
 import click
@@ -64,7 +70,7 @@ def clone(
 @click.option("--openmp", is_flag=True, help="Compile with OpenMP support.")
 @click.option("--force", is_flag=True, help="Do it.")
 def build(gpu, cudnn, opencv, openmp, force, root):
-    """Build """
+    """Build darknet."""
 
     darknet = pydarknet.darknet.Darknet(root=root)
     darknet.build(
