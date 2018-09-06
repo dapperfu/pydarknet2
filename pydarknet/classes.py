@@ -74,10 +74,12 @@ class ClassifiedImage(object):
 
     @cached_property
     def crop(self):
+        """Return the image cropped to the classified object."""
         return self.image.crop(self.crop_box)
 
     @property
     def crop_box(self):
+        """Shorthand to the pil_crop_box."""
         return self.detection.bbox.pil_crop_box
 
     def __repr__(self):
