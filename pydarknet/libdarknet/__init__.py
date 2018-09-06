@@ -153,9 +153,11 @@ class Libdarknet(object):
             Image file to load. Relative paths are relative to the
             darknet directory.
         width : int
-            Image
+            Image width
         height : int
-            Clear network.
+            Image height.
+        colors : int
+            Number of image colors.
 
         Returns
         -------
@@ -165,6 +167,7 @@ class Libdarknet(object):
         path = os.path.abspath(path)
 
         assert os.path.exists(path)
+
         load_image_ = self.lib.load_image_color
         load_image_.argtypes = [
             ctypes.c_char_p,
