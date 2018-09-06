@@ -125,10 +125,17 @@ class Classifier(Libdarknet, object):
 
         # Empty list for results.
         res = []
+        # For each detected object in the detection objects.
         for det in dets:
+            # Ensure that the number of detected classes is the same
+            # as in the metadata file.
             assert det.classes == self.metadata.classes
+            # For each number of metadata classes.
             for i in range(self.metadata.classes):
+                # If the probability of the detection for the given
+                # classification is greater than 0.
                 if det.prob[i] > 0:
+                    # Add it to the list of results.
                     res.append(
                         ClassifiedImage(
                             self.metadata.names[i].decode(), det, img
