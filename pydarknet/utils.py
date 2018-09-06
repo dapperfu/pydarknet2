@@ -23,7 +23,6 @@ def chroot(f):
     changes the current working directory to the Darknet or Libdarknet
     root directory before executing a function.
     """
-
     @wraps(f)
     def wrapper(self, *args, **kwargs):
         """Wrap Function."""
@@ -39,12 +38,6 @@ def chroot(f):
         return ret
 
     return wrapper
-
-
-# Weight Downloader
-def get_weight(network):
-    pass
-
 
 def c_array(values, ctype=ctypes.c_float):
     """Return a ctypes array of values."""
