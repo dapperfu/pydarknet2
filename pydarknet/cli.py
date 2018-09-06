@@ -30,7 +30,7 @@ def darknet():
     default=config["darknet"]["root"],
     help="Darknet root directory",
 )
-def clone(root=default_darknet_root, url):
+def clone(root=config["darknet"]["root"], url=config["darknet"]["clone_url"]):
     """Clone a darknet repository"""
     click.echo("URL: %s" % url)
     click.echo("Root: %s" % root)
