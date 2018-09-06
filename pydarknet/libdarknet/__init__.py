@@ -45,7 +45,7 @@ class Libdarknet(object):
     https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html
 
     # Documentation is Attribution-NonCommercial-ShareAlike 4.0
-    #   International (CC BY-NC-SA 4.0)
+    # International (CC BY-NC-SA 4.0)
     # Copyright (c) 2018, Jed Frey.
     """
 
