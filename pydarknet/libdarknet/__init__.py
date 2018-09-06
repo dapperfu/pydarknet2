@@ -271,7 +271,6 @@ class Libdarknet(object):
         self.lib.get_labels.argtypes = [ctypes.c_char_p]
         self.lib.get_labels.restype = ctypes.POINTER(ctypes.c_char_p)
 
-
         filename_ = ctypes.c_char_p(filename.encode("UTF-8"))
 
         return self.lib.get_labels(filename_)

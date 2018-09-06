@@ -66,6 +66,7 @@ class ClassifiedImage(object):
     image : Image
         Darknet Image object.
     """
+
     def __init__(self, classification, detection, image):
         self.classification = classification
         self.detection = detection

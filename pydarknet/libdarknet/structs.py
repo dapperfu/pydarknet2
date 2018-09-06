@@ -9,12 +9,14 @@ import PIL
 
 class BaseMixin(object):
     """Mixin for __repr__."""
+
     def __repr__(self):
         return "{}<>".format(self.__class__.__name__)
 
 
 class ArgumentArgs(ctypes.Structure, BaseMixin):
     """Argument Args."""
+
     _fields_ = [
         ("w", ctypes.c_int),
         ("h", ctypes.c_int),
@@ -28,6 +30,7 @@ class ArgumentArgs(ctypes.Structure, BaseMixin):
 
 class UpdateArgs(ctypes.Structure, BaseMixin):
     """Update Args."""
+
     _fields_ = [
         ("batch", ctypes.c_int),
         ("learning_rate", ctypes.c_float),
@@ -43,6 +46,7 @@ class UpdateArgs(ctypes.Structure, BaseMixin):
 
 class Image(ctypes.Structure):
     """Image structure."""
+
     _fields_ = [
         ("w", ctypes.c_int),
         ("h", ctypes.c_int),
@@ -79,6 +83,7 @@ class Image(ctypes.Structure):
 
 class Box(ctypes.Structure):
     """Box structure defines the coordinates of a detected object."""
+
     _fields_ = [
         ("x", ctypes.c_float),
         ("y", ctypes.c_float),
@@ -119,6 +124,7 @@ class Box(ctypes.Structure):
 
 class Detection(ctypes.Structure, BaseMixin):
     """Detection structure."""
+
     _fields_ = [
         ("bbox", Box),
         ("classes", ctypes.c_int),
@@ -134,6 +140,7 @@ class Detection(ctypes.Structure, BaseMixin):
 
 class Matrix(ctypes.Structure, BaseMixin):
     """Matrix structure."""
+
     _fields_ = [
         ("rows", ctypes.c_int),
         ("cols", ctypes.c_int),
@@ -198,6 +205,7 @@ class Tree(ctypes.Structure):
 
 class Metadata(ctypes.Structure):
     """Metadata structure."""
+
     _fields_ = [
         ("classes", ctypes.c_int),
         ("names", ctypes.POINTER(ctypes.c_char_p)),
