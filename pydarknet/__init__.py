@@ -63,11 +63,11 @@ class Classifier(Libdarknet, object):
         image : str, Image, PIL.Image, numpy array
             Image file to detect objects in.
         nms : float
-            Nms?
+            See darknet documentation.
 
         Returns
         -------
-        detections : Image
+        detections : list
             Loaded image structure.
         """
         if isinstance(image, Image):
