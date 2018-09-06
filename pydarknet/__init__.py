@@ -100,6 +100,8 @@ class Classifier(Libdarknet, object):
         detections : list of ClassifiedImages
             Return a list of ClassifiedImage objects.
         """
+
+        # Convert the passed in image variable to a darknet Image
         if isinstance(image, Image):
             img = image
         elif isinstance(image, str):
@@ -107,13 +109,21 @@ class Classifier(Libdarknet, object):
         else:
             img = array_to_image(np.asarray(image))
 
+        # Use the network to predict image object.
         self.network_predict_image(self.network, img)
 
+        # Get the number of detected objects and a pointer to the
+        # detection array.
         num, detections_ptr = self.get_network_boxes(self.network, img)
-        dets = Detections(num, detections_ptr)
 
+        # Do a nms sort.
         self.do_nms_sort(detections_ptr, num, self.metadata.classes, nms)
 
+        # Construct a detections object from the result.
+        dets = Detections(num, detections_ptr)
+
+
+        # Empty list for results.
         res = []
         for det in dets:
             assert det.classes == self.metadata.classes
