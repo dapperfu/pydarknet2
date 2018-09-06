@@ -234,5 +234,6 @@ class Metadata(ctypes.Structure):
             return self[idx]
 
     def __getitem__(self, index):
+        """"Allow indexing of Metadata object."""
         assert index < self.classes, "Index out of range."
         return self.names[index].decode("UTF-8")
