@@ -248,10 +248,27 @@ class Libdarknet(object):
 
     @chroot
     def get_labels(self, path):
+        """Get labels from a path.
+
+        Parameters
+        ----------
+        path : str
+            Image file to load. Relative paths are relative to the
+            darknet directory.
+        width : int
+            Image width
+        height : int
+            Image height.
+        colors : int
+            Number of image colors.
+
+        Returns
+        -------
+        detections : Image
+            Loaded image structure.
         """
-        char **get_labels(char *filename);
-        """
-        filename =
+
+        path = os.path.abspath(path)
 
         self.lib.get_labels.argtypes = [ctypes.c_char_p]
         self.lib.get_labels.restype = ctypes.POINTER(ctypes.c_char_p)
