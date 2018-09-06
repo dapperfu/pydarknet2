@@ -52,6 +52,7 @@ def array_to_image(arr):
     im = Image(w, h, c, data)
     return im
 
+
 def array_to_image(arr):
     arr = arr.transpose(2, 0, 1)
     c = arr.shape[0]
