@@ -102,7 +102,6 @@ class Classifier(Libdarknet, object):
         detections : list of ClassifiedImages
             Return a list of ClassifiedImage objects.
         """
-
         # Convert the passed in image variable to a darknet Image
         if isinstance(image, Image):
             img = image
