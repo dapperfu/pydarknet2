@@ -17,7 +17,7 @@ from .utils import url_is_alive
 @click.group()
 @click.version_option()
 def cli():
-    """darknet.py
+    """darknet.py.
 
     darknet.py is a tool for interacting with pydarknet from the
     command line.
@@ -80,7 +80,7 @@ def build(gpu, cudnn, opencv, openmp, force, root):
 
 @cli.group("weights")
 def weights():
-    """Manages darknet weights."""
+    """Manage darknet weights."""
 
 
 @weights.command("list")
