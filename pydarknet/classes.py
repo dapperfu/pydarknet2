@@ -23,7 +23,6 @@ class Detections(object):
 
 
 from cached_property import cached_property
-from PIL import Image
 
 
 class ClassifiedImage(object):
@@ -36,7 +35,7 @@ class ClassifiedImage(object):
     def image(self):
         return Image.open(self.image_path).crop(self.crop)
 
-    @property
+    @cached_property
     def crop(self):
         return self.detection.bbox.pil_crop_box
 
