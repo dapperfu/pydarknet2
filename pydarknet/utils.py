@@ -17,7 +17,12 @@ from .libdarknet.structs import Image
 
 # darknet gets angry if you don't use the darknet directory as 'root'.
 def chroot(f):
-    """Changeroot for functions to keep darknet happy."""
+    """Decorator to change current directory.
+
+    darknet loads stuff relative to its directory. This decorator
+    changes the current working directory to the Darknet or Libdarknet
+    root directory before executing a function.
+    """
 
     @wraps(f)
     def wrapper(self, *args, **kwargs):
@@ -70,8 +75,7 @@ def array_to_image(arr):
 
 
 def url_is_alive(url):
-    """
-    Checks that a given URL is reachable.
+    """Check if a given URL is reachable.
     :param url: A URL
     :rtype: bool
     """
