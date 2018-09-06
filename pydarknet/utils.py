@@ -47,21 +47,10 @@ def get_weight(network):
 
 
 def c_array(values, ctype=ctypes.c_float):
+    """Return a ctypes array of values."""
     arr = (ctype * len(values))()
     arr[:] = values
     return arr
-
-
-def array_to_image(arr):
-    arr = arr.transpose(2, 0, 1)
-    c = arr.shape[0]
-    h = arr.shape[1]
-    w = arr.shape[2]
-    arr = (arr.astype(np.float) / 255.0).flatten()
-    data = c_array(arr)
-    im = Image(w, h, c, data)
-    return im
-
 
 def array_to_image(arr):
     """Convert the array to a darknet Image.
