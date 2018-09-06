@@ -8,3 +8,4 @@ cached_property
 
 click
 numpy
+Pillow
