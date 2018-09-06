@@ -56,6 +56,17 @@ class Detections(object):
 
 
 class ClassifiedImage(object):
+    """High level class for a classified image object.
+
+    Attributes
+    ----------
+    classification : str
+        Classification string.
+    detection : Detection
+        Detection structure from Darknet.
+    image : Image
+        Darknet Image object.
+    """
     def __init__(self, classification, detection, image):
         self.classification = classification
         self.detection = detection
@@ -70,4 +81,5 @@ class ClassifiedImage(object):
         return self.detection.bbox.pil_crop_box
 
     def __repr__(self):
+        """Return ipython representation."""
         return "Classified<{}, {}>".format(self.classification, self.crop_box)
