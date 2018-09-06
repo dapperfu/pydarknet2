@@ -226,7 +226,7 @@ class Libdarknet(object):
                 int relative,
                 int *num)
         """
-        self.lib.get_network_boxes.argtypes = [
+        c.argtypes = [
             ctypes.c_void_p,
             ctypes.c_int,
             ctypes.c_int,
@@ -247,10 +247,12 @@ class Libdarknet(object):
         return num.value, dets
 
     @chroot
-    def get_labels(self, filename):
+    def get_labels(self, path):
         """
         char **get_labels(char *filename);
         """
+        filename =
+
         self.lib.get_labels.argtypes = [ctypes.c_char_p]
         self.lib.get_labels.restype = ctypes.POINTER(ctypes.c_char_p)
 
