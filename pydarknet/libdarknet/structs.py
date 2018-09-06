@@ -57,6 +57,7 @@ class Image(ctypes.Structure):
         )
 
     def __len__(self):
+        """Return the length of the float array."""
         return self.w * self.h * self.c
 
     def asarray(self):
