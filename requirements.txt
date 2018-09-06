@@ -7,3 +7,4 @@ isort
 cached_property
 
 click
+numpy
