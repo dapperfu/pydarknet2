@@ -18,13 +18,13 @@ def darknet():
 
 
 @darknet.command("clone")
-@darknet.option(
+@click.option(
     "--url",
     metavar="url",
     default=default_darknet_clone_url,
     help="Speed in knots.",
 )
-@darknet.option(
+@click.option(
     "--root",
     metavar="root",
     default=default_darknet_root,
