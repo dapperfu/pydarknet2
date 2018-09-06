@@ -14,6 +14,7 @@ a line by itself, preferably preceded by a blank line.
 
 import sys
 
+import numpy as np
 from cached_property import cached_property
 from PIL import Image
 

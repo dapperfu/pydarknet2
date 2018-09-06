@@ -1,3 +1,6 @@
+from cached_property import cached_property
+
+
 class Detections(object):
     def __init__(self, num, detections_ptr):
         self.num = num
@@ -22,9 +25,6 @@ class Detections(object):
         return self.detections_ptr[index]
 
 
-from cached_property import cached_property
-
-
 class ClassifiedImage(object):
     def __init__(self, classification, detection, image):
         self.classification = classification
@@ -40,4 +40,4 @@ class ClassifiedImage(object):
         return self.detection.bbox.pil_crop_box
 
     def __repr__(self):
-        return "Classified<{}, {}>".format(self.classification, self.crop)
+        return "Classified<{}, {}>".format(self.classification, self.crop_box)

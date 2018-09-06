@@ -1,6 +1,9 @@
+import os
+
 import click
 
 from .config import config
+from .utils import url_is_alive
 
 
 @click.group()
@@ -66,3 +69,93 @@ def build(gpu, opencv, openmp, force, root):
 @cli.group("weights")
 def weights():
     """Manages darknet weights."""
+
+
+@weights.command("list")
+@click.option(
+    "--root",
+    metavar="root",
+    default=config["darknet"]["root"],
+    help="Darknet root directory",
+)
+@click.option(
+    "--weights",
+    metavar="weights",
+    default=config["darknet"]["weight_dir"],
+    help="Darknet root directory",
+)
+def list_weights(
+    root=config["darknet"]["root"], weights=config["darknet"]["weight_dir"]
+):
+    import pydarknet
+
+    darknet = pydarknet.darknet.Darknet(root=root, weight_dir=weights)
+    for weight in darknet.weights:
+        print(weight)
+
+
+@weights.command("available")
+@click.option(
+    "--root",
+    metavar="root",
+    default=config["darknet"]["root"],
+    help="Darknet root directory",
+)
+@click.option(
+    "--weight_url",
+    metavar="weight_url",
+    default=config["weights"]["url_root"],
+    help="Darknet root directory",
+)
+def available(
+    root=config["darknet"]["root"], weight_url=config["weights"]["url_root"]
+):
+    import pydarknet
+
+    darknet = pydarknet.darknet.Darknet(root=root)
+    for cfg in darknet.cfgs:
+        basename = ".".join(os.path.basename(cfg).split(".")[0:-1])
+        alive = url_is_alive(weight_url + basename + ".weights")
+        print("{}: {}".format(basename, alive))
+
+
+@weights.command("download")
+@click.argument("weight")
+@click.option(
+    "--root",
+    metavar="root",
+    default=config["darknet"]["root"],
+    help="Darknet root directory",
+)
+@click.option(
+    "--weight_url",
+    metavar="weight_url",
+    default=config["weights"]["url_root"],
+    help="Darknet root directory",
+)
+@click.option(
+    "--weights",
+    metavar="weights",
+    default=config["darknet"]["weight_dir"],
+    help="Darknet root directory",
+)
+def available(
+    weight,
+    root=config["darknet"]["root"],
+    weight_url=config["weights"]["url_root"],
+    weights=config["darknet"]["weight_dir"],
+):
+    import pydarknet
+
+    darknet = pydarknet.darknet.Darknet(root=root, weight_dir=weights)
+
+    cfgs = [
+        ".".join(os.path.basename(cfg).split(".")[0:-1])
+        for cfg in darknet.cfgs
+    ]
+
+    assert weight in cfgs
+    url = weight_url + weight + ".weights"
+    assert url_is_alive(url)
+    print("# Copy and paste this. Still manumatic")
+    print("cd {} && axel -n20 {}".format(weights, url))
