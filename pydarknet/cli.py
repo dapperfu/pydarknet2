@@ -56,5 +56,5 @@ def clone(
 @click.option("--opencv", is_flag=True, help="Compile with OpenCV support.")
 @click.option("--openmp", is_flag=True, help="Compile with OpenMP support.")
 @click.option("--force", is_flag=True, help="Do it.")
-def build(gpu, opencv, openmp, force):
+def build(gpu, opencv, openmp, force, root):
     darknet.build(gpu=gpu, opencv=opencv, openmp=openmp)
