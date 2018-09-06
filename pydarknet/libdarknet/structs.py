@@ -120,7 +120,7 @@ class Box(ctypes.Structure):
 
     @property
     def pil_crop_box(self):
-        """56"""
+        """Crop box for PIL Image."""
         return (self.left, self.upper, self.right, self.lower)
 
 
