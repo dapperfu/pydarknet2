@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
-"""Ipsum"""
+"""pydarknet configuration options.
+
+
+"""
 
 """Configuration."""
 import configparser
@@ -25,7 +28,6 @@ config["darknet"]["clone_url"] = os.environ.get(
 config["darknet"]["weight_dir"] = os.environ.get(
     key="DARKNET_WEIGHT_DIR", default=default_darknet_weight_dir
 )
-
 config["weights"]["url_root"] = os.environ.get(
     key="DARKNET_WEIGHT_URL", default=default_darknet_weight_url
 )
