@@ -70,6 +70,7 @@ class Classifier(Libdarknet, object):
         self.weights_path = weights_path
 
     def __del__(self):
+        """Object deletion cleanup."""
         pass
 
     @cached_property
