@@ -83,6 +83,7 @@ class Libdarknet(object):
 
     @cached_property
     def lib(self):
+        """Return CDLL shared library."""
         lib_ = ctypes.CDLL(self._lib, ctypes.RTLD_GLOBAL)
         lib_.network_width.argtypes = [ctypes.c_void_p]
         lib_.network_width.restype = ctypes.c_int
