@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Ipsum."""
+"""Darknet ctypes structure typedefs."""
 
 import ctypes
 
@@ -7,12 +7,13 @@ import numpy as np
 import PIL
 
 
-class BaseClass(object):
+class BaseMixin(object):
+    """Mixin"""
     def __repr__(self):
         return "{}<>".format(self.__class__.__name__)
 
 
-class ArgumentArgs(ctypes.Structure, BaseClass):
+class ArgumentArgs(ctypes.Structure, BaseMixin):
     _fields_ = [
         ("w", ctypes.c_int),
         ("h", ctypes.c_int),
@@ -24,7 +25,7 @@ class ArgumentArgs(ctypes.Structure, BaseClass):
     ]
 
 
-class UpdateArgs(ctypes.Structure, BaseClass):
+class UpdateArgs(ctypes.Structure, BaseMixin):
     _fields_ = [
         ("batch", ctypes.c_int),
         ("learning_rate", ctypes.c_float),
@@ -104,7 +105,7 @@ class Box(ctypes.Structure):
         return (self.left, self.upper, self.right, self.lower)
 
 
-class Detection(ctypes.Structure, BaseClass):
+class Detection(ctypes.Structure, BaseMixin):
     _fields_ = [
         ("bbox", Box),
         ("classes", ctypes.c_int),
@@ -118,7 +119,7 @@ class Detection(ctypes.Structure, BaseClass):
         return "Detection<{}, {:.2f}>".format(self.bbox, self.objectness)
 
 
-class Matrix(ctypes.Structure, BaseClass):
+class Matrix(ctypes.Structure, BaseMixin):
     _fields_ = [
         ("rows", ctypes.c_int),
         ("cols", ctypes.c_int),
@@ -126,7 +127,7 @@ class Matrix(ctypes.Structure, BaseClass):
     ]
 
 
-class Data(ctypes.Structure, BaseClass):
+class Data(ctypes.Structure, BaseMixin):
     _fields_ = [
         ("w", ctypes.c_int),
         ("h", ctypes.c_int),
@@ -138,7 +139,7 @@ class Data(ctypes.Structure, BaseClass):
     ]
 
 
-class Node(ctypes.Structure, BaseClass):
+class Node(ctypes.Structure, BaseMixin):
     pass
 
 
@@ -150,7 +151,7 @@ Node._fields_ = [
 ]
 
 
-class BoxLabel(ctypes.Structure, BaseClass):
+class BoxLabel(ctypes.Structure, BaseMixin):
     _fields_ = [
         ("id", ctypes.c_int),
         ("x", ctypes.c_float),
