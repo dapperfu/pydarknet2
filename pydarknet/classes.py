@@ -32,11 +32,11 @@ class ClassifiedImage(object):
         self.image = image
 
     @cached_property
-    def image(self):
-        return self.image.asimage().crop(self.crop)
-
-    @cached_property
     def crop(self):
+        return self.image.asimage().crop(self.bbox)
+
+    @proprety
+    def crop_box(self):
         return self.detection.bbox.pil_crop_box
 
     def __repr__(self):
