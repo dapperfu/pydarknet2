@@ -33,7 +33,7 @@ class ClassifiedImage(object):
 
     @cached_property
     def crop(self):
-        return self.image.asimage().crop(self.crop_box)
+        return self.image.crop(self.crop_box)
 
     @property
     def crop_box(self):
