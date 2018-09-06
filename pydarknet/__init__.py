@@ -16,7 +16,6 @@ import sys
 
 import numpy as np
 from cached_property import cached_property
-import PIL
 
 from ._version import get_versions
 from .classes import ClassifiedImage, Detections
