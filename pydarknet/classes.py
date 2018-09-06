@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Custom class.
+"""Custom classes.
 
-Configuration options for all pydarknet.
-
+Custom classes to abstract away darknet bits.
 """
 
 from cached_property import cached_property
