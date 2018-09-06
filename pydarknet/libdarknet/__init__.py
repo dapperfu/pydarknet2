@@ -187,6 +187,25 @@ class Libdarknet(object):
 
     @chroot
     def network_predict_image(self, network, image):
+        """Load an image from a path.
+
+        Parameters
+        ----------
+        path : str
+            Image file to load. Relative paths are relative to the
+            darknet directory.
+        width : int
+            Image width
+        height : int
+            Image height.
+        colors : int
+            Number of image colors.
+
+        Returns
+        -------
+        detections : Image
+            Loaded image structure.
+        """
         self.lib.network_predict_image.argtypes = [ctypes.c_void_p, Image]
         self.lib.network_predict_image.restype = ctypes.POINTER(ctypes.c_float)
         return self.lib.network_predict_image(network, image)
