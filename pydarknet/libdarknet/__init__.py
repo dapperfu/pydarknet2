@@ -293,7 +293,7 @@ class Libdarknet(object):
 
         filename_ = ctypes.c_char_p(filename.encode("UTF-8"))
 
-        return self.lib.get_labels(filename_)
+        return get_labels_(filename_)
 
     @chroot
     def do_nms_obj(self, dets, total, classes, thresh):
