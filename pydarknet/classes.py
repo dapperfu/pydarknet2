@@ -27,10 +27,10 @@ from PIL import Image
 
 
 class ClassifiedImage(object):
-    def __init__(self, classification, detection, image_path):
+    def __init__(self, classification, detection, image):
         self.classification = classification
         self.detection = detection
-        self.image_path = image_path
+        self.image = image
 
     @cached_property
     def image(self):
