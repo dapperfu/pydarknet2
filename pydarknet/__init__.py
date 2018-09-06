@@ -75,7 +75,7 @@ class Classifier(Libdarknet, object):
 
     @cached_property
     def metadata(self):
-        """Cached property pointing to the configured metadata."""
+        """Configured metadata."""
         print("Loading metadata...", end="")
         m = self.get_metadata(self.metadata_path)
         print("...Done")
