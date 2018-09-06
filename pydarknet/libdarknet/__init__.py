@@ -246,7 +246,6 @@ class Libdarknet(object):
                 int relative,
                 int *num)
         """
-
         # Alias C-function.
         get_network_boxes_ = self.lib.get_network_boxes
 
@@ -261,7 +260,7 @@ class Libdarknet(object):
             ctypes.c_int,
             ctypes.POINTER(ctypes.c_int),
         ]
-        get_network_boxes_restype = ctypes.POINTER(Detection)
+        get_network_boxes_.restype = ctypes.POINTER(Detection)
 
         # Create a number and pointer to that number for pass by ref.
         num = ctypes.c_int(0)
