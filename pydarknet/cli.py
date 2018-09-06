@@ -79,7 +79,7 @@ def weights():
     "--root",
     metavar="root",
     default=config["darknet"]["root"],
-    help="Darknet root directory. [Default ~/.darknet/]",
+    help="Darknet root directory. [Default: {}".format(config["darknet"]["root"]),
 )
 @click.option(
     "--weights",
