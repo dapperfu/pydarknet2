@@ -27,6 +27,7 @@ class ArgumentArgs(ctypes.Structure, BaseMixin):
 
 
 class UpdateArgs(ctypes.Structure, BaseMixin):
+    """Update Args."""
     _fields_ = [
         ("batch", ctypes.c_int),
         ("learning_rate", ctypes.c_float),
@@ -41,6 +42,7 @@ class UpdateArgs(ctypes.Structure, BaseMixin):
 
 
 class Image(ctypes.Structure):
+    """Image structure."""
     _fields_ = [
         ("w", ctypes.c_int),
         ("h", ctypes.c_int),
@@ -49,6 +51,7 @@ class Image(ctypes.Structure):
     ]
 
     def __repr__(self):
+        """Return the size of the image."""
         return "{}<{}x{}x{}>".format(
             self.__class__.__name__, self.w, self.h, self.c
         )
