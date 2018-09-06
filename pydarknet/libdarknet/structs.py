@@ -78,6 +78,7 @@ class Image(ctypes.Structure):
 
 
 class Box(ctypes.Structure):
+    """Box structure defines the coordinates of a detected object."""
     _fields_ = [
         ("x", ctypes.c_float),
         ("y", ctypes.c_float),
