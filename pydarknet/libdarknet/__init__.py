@@ -290,7 +290,14 @@ class Libdarknet(object):
 
     @chroot
     def do_nms_sort(self, dets, total, classes, thresh):
-        """void do_nms_sort(detection *dets, int total, int classes, float thresh);
+        """Do a nms sort.
+
+        C Definition of ```do_nms_sort```
+        do_nms_sort(
+            detection *dets,
+            int total,
+            int classes,
+            float thresh);
         """
         self.lib.do_nms_sort.argtypes = [
             ctypes.POINTER(Detection),
