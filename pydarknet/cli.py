@@ -90,6 +90,7 @@ def weights():
 def list_weights(
     root=config["darknet"]["root"], weights=config["darknet"]["weight_dir"]
 ):
+    """List downloaded weights."""
     darknet = pydarknet.darknet.Darknet(root=root, weight_dir=weights)
     for weight in darknet.weights:
         print(weight)
