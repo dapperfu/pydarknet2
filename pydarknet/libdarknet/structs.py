@@ -11,6 +11,7 @@ class BaseMixin(object):
     """Mixin for __repr__."""
 
     def __repr__(self):
+        """Mixin __repr__."""
         return "{}<>".format(self.__class__.__name__)
 
 
