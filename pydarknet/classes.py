@@ -29,7 +29,7 @@ class ClassifiedImage(object):
     def __init__(self, classification, detection, image):
         self.classification = classification
         self.detection = detection
-        self.image = image
+        self.image = image.asimage()
 
     @cached_property
     def crop(self):
