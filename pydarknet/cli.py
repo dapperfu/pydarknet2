@@ -2,10 +2,10 @@ import os
 
 import click
 
+import pydarknet
+
 from .config import config
 from .utils import url_is_alive
-
-import pydarknet
 
 
 @click.group()
@@ -21,6 +21,7 @@ def cli():
 @cli.group("darknet")
 def darknet():
     """Manages local darknet folder."""
+
 
 @darknet.command("clone")
 @click.option(
@@ -66,7 +67,9 @@ def build(gpu, cudnn, opencv, openmp, force, root):
     """Build """
 
     darknet = pydarknet.darknet.Darknet(root=root)
-    darknet.build(gpu=gpu, cudnn=cudnn, opencv=opencv, openmp=openmp, force=force)
+    darknet.build(
+        gpu=gpu, cudnn=cudnn, opencv=opencv, openmp=openmp, force=force
+    )
 
 
 @cli.group("weights")
@@ -79,13 +82,17 @@ def weights():
     "--root",
     metavar="root",
     default=config["darknet"]["root"],
-    help="Darknet root directory. [Default: {}".format(config["darknet"]["root"]),
+    help="Darknet root directory. [Default: {}".format(
+        config["darknet"]["root"]
+    ),
 )
 @click.option(
     "--weights",
     metavar="weights",
     default=config["darknet"]["weight_dir"],
-    help="Darknet weights directory [Default: {}".format(config["darknet"]["weight_dir"]),
+    help="Darknet weights directory [Default: {}".format(
+        config["darknet"]["weight_dir"]
+    ),
 )
 def list_weights(
     root=config["darknet"]["root"], weights=config["darknet"]["weight_dir"]
