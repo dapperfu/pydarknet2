@@ -1,6 +1,6 @@
 import click
 
-from .config import default_darknet_clone_url, default_darknet_root
+from .config import config
 
 
 @click.group()
@@ -30,7 +30,7 @@ def darknet():
     default=default_darknet_root,
     help="Darknet root directory",
 )
-def clone(url, root):
-    """Creates a new ship."""
+def clone(root=default_darknet_root, url):
+    """Clone a darknet repository"""
     click.echo("URL: %s" % url)
     click.echo("Root: %s" % root)
