@@ -20,17 +20,14 @@ class Detections(object):
     """
 
     def __init__(self, num, detections_ptr):
-        r"""Initialize a libdarknet object.
+        r"""Initialize a Detections object.
 
         Parameters
         ----------
-        metadata_path : str
-            Path to metadata.
-        cfg_path : str
-            Path to darknet cfg file.
-        weights_path : str
-            Path to pretrained weights.
-
+        num : int
+            Numbed of detections.
+        detections_ptr : ctypes.c_void_p
+            Pointer to detection array from darknet.
         """
         self.num = num
         self.detections_ptr = detections_ptr
