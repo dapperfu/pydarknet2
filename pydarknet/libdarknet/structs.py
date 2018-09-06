@@ -93,26 +93,32 @@ class Box(ctypes.Structure):
 
     @property
     def left(self):
+        """Left pixel for PIL cropping."""
         return self.x - self.w / 2
 
     @property
     def upper(self):
+        """Upper pixel for PIL cropping."""
         return self.y - self.h / 2
 
     @property
     def right(self):
+        """Right pixel for PIL cropping."""
         return self.x + self.w / 2
 
     @property
     def lower(self):
+        """Lower pixel for PIL cropping."""
         return self.y + self.h / 2
 
     @property
     def pil_crop_box(self):
+        """56"""
         return (self.left, self.upper, self.right, self.lower)
 
 
 class Detection(ctypes.Structure, BaseMixin):
+    """Detection structure."""
     _fields_ = [
         ("bbox", Box),
         ("classes", ctypes.c_int),
