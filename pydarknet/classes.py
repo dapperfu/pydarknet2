@@ -30,10 +30,12 @@ class Detections(object):
         return "Detections<{}>".format(self.num)
 
     def __iter__(self):
+        """__iter__ function for using Detections in a loop."""
         self._idx = 0
         return self
 
     def __next__(self):
+        """__next__ function for using Detections in a loop."""
         idx = self._idx
         if self._idx >= self.num:
             raise StopIteration
