@@ -122,16 +122,20 @@ class Libdarknet(object):
         assert os.path.exists(cfg_file), "Configuration file not found."
         assert os.path.exists(weight_file), "Weight file not found."
 
+        # Specify the shared library argument types.
         self.lib.load_network.argtypes = [
             ctypes.c_char_p,
             ctypes.c_char_p,
             ctypes.c_int,
         ]
+        # Specify the shared library return type.
         self.lib.load_network.restype = ctypes.c_void_p
 
+        # Cast the inputs to their ctypes.
         cfg_file_ = ctypes.c_char_p(cfg_file.encode("UTF-8"))
         weight_file_ = ctypes.c_char_p(weight_file.encode("UTF-8"))
         clear_ = ctypes.c_int(clear)
+        # Return the output of load_network.
         return self.lib.load_network(cfg_file_, weight_file_, clear_)
 
     @chroot
