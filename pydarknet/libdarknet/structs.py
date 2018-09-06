@@ -216,13 +216,16 @@ class Metadata(ctypes.Structure):
         return list(self.asgenerator())
 
     def __iter__(self):
+        """__iter__ function to allow for looping."""
         self._idx = 0
         return self
 
     def __len__(self):
+        """Return the number of classes for len(Metadata)"""
         return self.classes
 
     def __next__(self):
+        """Get the next index point."""
         idx = self._idx
         if self._idx >= self.classes:
             raise StopIteration
