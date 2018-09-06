@@ -58,7 +58,6 @@ def array_to_image(arr):
         Darknet image object.
     """
 
-    from ..utils import chroot
     arr = arr.transpose(2, 0, 1)
     c = arr.shape[0]
     h = arr.shape[1]
