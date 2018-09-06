@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """libdarknet module.
 
-This is the docstring for the example.py module.  Modules names should
-have short, all-lowercase names.  The module name may have underscores if
-this improves readability.
+Low level module for interacting with ```libdarknet.so``` static library.
+
+
 
 Every module should have a docstring at the very top of the file.  The
 module's docstring may extend over multiple lines.  If your docstring does
@@ -35,9 +35,10 @@ class Libdarknet(object):
 
     Attributes
     ----------
-    attr1 : str
-        Description of `attr1`.
-    attr2 : :obj:`int`, optional
+    root : str, optional
+        Root directory for darknet. Default: ~/.darknet
+
+    weight_dir : str, optional
         Description of `attr2`.
 
     Adapted From: https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html
