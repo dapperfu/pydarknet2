@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Ipsum"""
+"""```pydarknet``` utilities module.
+
+Generic utilities for use in ```pydarknet.```
+
+"""
 
 import ctypes
 import os
