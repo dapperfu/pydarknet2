@@ -225,7 +225,7 @@ class Libdarknet(object):
 
 
 
-
+        C Definition of ```get_network_boxes```
         get_network_boxes(
                 network *net,
                 int w,
@@ -300,7 +300,6 @@ class Libdarknet(object):
         """Do a nms obj.
 
         C Definition of ```do_nms_obj```
-
         void do_nms_obj(
             detection *dets,
             int total,
