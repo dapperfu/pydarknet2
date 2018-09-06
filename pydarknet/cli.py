@@ -21,13 +21,13 @@ def darknet():
 @click.option(
     "--url",
     metavar="url",
-    default=default_darknet_clone_url,
-    help="Speed in knots.",
+    default=config["darknet"]["clone_url"],
+    help="Clone URL",
 )
 @click.option(
     "--root",
     metavar="root",
-    default=default_darknet_root,
+    default=config["darknet"]["root"],
     help="Darknet root directory",
 )
 def clone(root=default_darknet_root, url):
