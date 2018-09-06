@@ -11,7 +11,6 @@ from functools import wraps
 
 import numpy as np
 
-# darknet gets angry if you don't use the darknet directory as 'root'.
 def chroot(f):
     """Decorate a function to change execution directory.
 
@@ -19,7 +18,6 @@ def chroot(f):
     changes the current working directory to the Darknet or Libdarknet
     root directory before executing a function.
     """
-
     @wraps(f)
     def wrapper(self, *args, **kwargs):
         """Wrap Function."""
