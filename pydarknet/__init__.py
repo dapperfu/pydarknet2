@@ -67,8 +67,8 @@ class Classifier(Libdarknet, object):
 
         Returns
         -------
-        detections : list
-            Loaded image structure.
+        detections : list of ClassifiedImages
+            Return a list of classified images.
         """
         if isinstance(image, Image):
             img = image
