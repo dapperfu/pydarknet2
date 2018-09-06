@@ -61,3 +61,8 @@ def build(gpu, opencv, openmp, force, root):
 
     darknet = pydarknet.darknet.Darknet(root=root)
     darknet.build(gpu=gpu, opencv=opencv, openmp=openmp, force=force)
+
+
+@cli.group("weights")
+def weights():
+    """Manages darknet weights."""
