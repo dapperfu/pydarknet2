@@ -80,7 +80,7 @@ class Classifier(Libdarknet, object):
                             self.metadata.names[i].decode(), det, img
                         )
                     )
-        self.free_image(img)
+
         return res
 
     def __repr__(self):
