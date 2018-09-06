@@ -22,6 +22,7 @@ from .classes import ClassifiedImage, Detections
 from .darknet import Darknet
 from .libdarknet import Libdarknet
 from .libdarknet.structs import Image
+from .utils import array_to_image
 
 __version__ = get_versions()["version"]
 del get_versions
@@ -56,8 +57,11 @@ class Classifier(Libdarknet, object):
     def detect(self, image, nms=0.5):
         if isinstance(image, Image):
             img = image
-        else:
+        elif isinstance(image, str): hasattr(image, asarray):
             img = self.load_image_color(image)
+        else:
+            img = array_to_image
+
         self.network_predict_image(self.network, img)
 
         num, detections_ptr = self.get_network_boxes(self.network, img)
