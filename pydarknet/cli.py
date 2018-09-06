@@ -26,7 +26,7 @@ def cli():
 
 @cli.group("darknet")
 def darknet():
-    """Manages local darknet folder."""
+    """Manage local darknet folder."""
 
 
 @darknet.command("clone")
@@ -47,7 +47,7 @@ def clone(
     url=config["darknet"]["clone_url"],
     force=False,
 ):
-    """Clone a darknet repository"""
+    """Clone a darknet repository."""
     click.echo("URL: %s" % url)
     click.echo("Root: %s" % root)
 
