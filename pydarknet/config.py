@@ -11,7 +11,6 @@ import os
 
 """Default values."""
 default_darknet_root = os.path.expanduser(os.path.join("~", ".darknet"))
-default_darknet_weight_dir = os.path.join(default_darknet_root, "weights")
 default_darknet_clone_url = "https://github.com/jed-frey/darknet.git"
 default_darknet_weight_url = "https://pjreddie.com/media/files/"
 
@@ -29,6 +28,7 @@ config["darknet"]["root"] = os.environ.get(
 config["darknet"]["clone_url"] = os.environ.get(
     key="DARKNET_CLONE_URL", default=default_darknet_clone_url
 )
+default_darknet_weight_dir = os.path.join(config["darknet"]["root"], "weights")
 config["darknet"]["weight_dir"] = os.environ.get(
     key="DARKNET_WEIGHT_DIR", default=default_darknet_weight_dir
 )
