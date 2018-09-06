@@ -3,8 +3,6 @@
 
 Configuration options for all pydarknet.
 
-
-
 """
 
 """Configuration."""
