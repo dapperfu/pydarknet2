@@ -25,6 +25,7 @@ from .libdarknet import Libdarknet
 from .libdarknet.structs import Image
 from .utils import array_to_image
 
+# Versioneer version.
 __version__ = get_versions()["version"]
 del get_versions
 
