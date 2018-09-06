@@ -23,7 +23,7 @@ from .structs import Detection, Image, Metadata
 
 
 class Libdarknet(object):
-    """The summary line for a class docstring should fit on one line.
+    """Class for libdarknet.so shared library.
 
     If the class has public attributes, they may be documented here
     in an ``Attributes`` section and follow the same formatting as a
