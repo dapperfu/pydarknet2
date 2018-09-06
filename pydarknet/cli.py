@@ -1,5 +1,7 @@
 import click
 
+from .config import default_darknet_clone_url, default_darknet_root
+
 
 @click.group()
 @click.version_option()
@@ -15,8 +17,19 @@ def darknet():
     """Manages cloned darknet repository."""
 
 
-@ship.command("new")
-@click.argument("name")
+@darknet.command("clone")
+@darknet.option(
+    "--url",
+    metavar="url",
+    default=default_darknet_clone_url,
+    help="Speed in knots.",
+)
+@darknet.option(
+    "--root",
+    metavar="root",
+    default=default_darknet_root,
+    help="Darknet root directory",
+)
 def ship_new(name):
     """Creates a new ship."""
     click.echo("Created ship %s" % name)
