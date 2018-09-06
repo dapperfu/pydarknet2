@@ -48,6 +48,7 @@ class Classifier(Libdarknet, object):
     weights_path : str
         Path to pretrained weights.
     """
+
     def __init__(self, metadata_path, cfg_path, weights_path, **kwargs):
         r"""Initialize a libdarknet object.
 
@@ -69,6 +70,7 @@ class Classifier(Libdarknet, object):
         self.weights_path = weights_path
 
     def __del__(self):
+        pass
 
     @cached_property
     def metadata(self):
@@ -122,7 +124,6 @@ class Classifier(Libdarknet, object):
 
         # Construct a detections object from the result.
         dets = Detections(num, detections_ptr)
-
 
         # Empty list for results.
         res = []
