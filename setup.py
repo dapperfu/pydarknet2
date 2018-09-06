@@ -16,7 +16,6 @@ with open(os.path.join(LOCAL_DIR, "requirements.txt"), "r") as infile:
         if line and not line[0] == "#":  # ignore comments
             requirements.append(line)
 
-
 setup(
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
