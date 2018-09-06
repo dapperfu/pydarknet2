@@ -208,7 +208,6 @@ class Libdarknet(object):
         detections : Image
             Loaded image structure.
         """
-
         self.lib.network_predict_image.argtypes = [ctypes.c_void_p, Image]
         self.lib.network_predict_image.restype = ctypes.POINTER(ctypes.c_float)
         return self.lib.network_predict_image(network, image)
@@ -217,7 +216,7 @@ class Libdarknet(object):
     def get_network_boxes(
         self, network, image, threshold=0.5, heir_thresh=0.5
     ):
-        """Get network boxes for a given image classified by network
+        """Get network boxes for a given image classified by network.
 
         Parameters
         ----------
@@ -234,11 +233,6 @@ class Libdarknet(object):
         -------
         img : Image
             Loaded image structure.
-
-
-
-
-
 
         C Definition of ```get_network_boxes```
         get_network_boxes(
