@@ -189,7 +189,7 @@ class Libdarknet(object):
         return img
 
     @chroot
-    def network_predict_image(self, network, image):
+    def network_predict_image(self, network_ptr, image):
         """Load an image from a path.
 
         Parameters
