@@ -33,4 +33,4 @@ def darknet():
 def clone(url, root):
     """Creates a new ship."""
     click.echo("URL: %s" % url)
-    click.echo("Root: %s" % default_darknet_root)
+    click.echo("Root: %s" % root)
