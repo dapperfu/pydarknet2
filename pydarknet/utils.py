@@ -64,7 +64,18 @@ def array_to_image(arr):
 
 
 def array_to_image(arr):
-    """Convert the array to a darknet Image."""
+    """Convert the array to a darknet Image.
+
+    Parameters
+    ----------
+    array : numpy.array
+        numpy array of image data.
+
+    Returns
+    -------
+    img: Image
+        Darknet image object.
+    """
     arr = arr.transpose(2, 0, 1)
     c = arr.shape[0]
     h = arr.shape[1]
