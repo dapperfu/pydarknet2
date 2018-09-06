@@ -14,11 +14,14 @@ default_darknet_weight_dir = os.path.join(default_darknet_root, "weights")
 default_darknet_clone_url = "https://github.com/jed-frey/darknet.git"
 default_darknet_weight_url = "https://pjreddie.com/media/files/"
 
+# Create new config parser.
 config = configparser.ConfigParser()
 
+# Setup config sections.
 config["darknet"] = dict()
 config["weights"] = dict()
 
+# Read ENV variables for overrides, otherwise use defaults from above.
 config["darknet"]["root"] = os.environ.get(
     key="DARKNET_ROOT", default=default_darknet_root
 )
