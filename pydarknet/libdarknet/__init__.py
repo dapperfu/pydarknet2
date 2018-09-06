@@ -295,11 +295,9 @@ class Libdarknet(object):
         labels : ctypes.POINTER(ctypes.c_char_p)
             List of strings of labels.
         """
-
         path = os.path.abspath(path)
 
         assert os.path.exists(path), "Label file does not exist"
-
 
         get_labels_ = self.lib.get_labels
         # Set ctypes argument & return types.
