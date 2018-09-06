@@ -8,12 +8,13 @@ import PIL
 
 
 class BaseMixin(object):
-    """Mixin"""
+    """Mixin for __repr__."""
     def __repr__(self):
         return "{}<>".format(self.__class__.__name__)
 
 
 class ArgumentArgs(ctypes.Structure, BaseMixin):
+    """Argument Args."""
     _fields_ = [
         ("w", ctypes.c_int),
         ("h", ctypes.c_int),
