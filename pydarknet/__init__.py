@@ -40,11 +40,12 @@ class Classifier(Libdarknet, object):
 
     Attributes
     ----------
-    attr1 : str
-        Description of `attr1`.
-    attr2 : :obj:`int`, optional
-        Description of `attr2`.
-
+    metadata_path : str
+        Path to metadata.
+    cfg_path : str
+        Path to darknet cfg file.
+    weights_path : str
+        Path to pretrained weights.
     """
     def __init__(self, metadata_path, cfg_path, weights_path, **kwargs):
 
