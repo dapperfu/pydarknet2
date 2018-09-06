@@ -48,7 +48,18 @@ class Classifier(Libdarknet, object):
         Path to pretrained weights.
     """
     def __init__(self, metadata_path, cfg_path, weights_path, **kwargs):
+        r"""Initialize a libdarknet object.
 
+        Parameters
+        ----------
+        metadata_path : str
+            Path to metadata.
+        cfg_path : str
+            Path to darknet cfg file.
+        weights_path : str
+            Path to pretrained weights.
+
+        """
 
         # Pass any extra arguments into the Libdarknet
         super().__init__(**kwargs)
