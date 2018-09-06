@@ -73,7 +73,7 @@ class Classifier(Libdarknet, object):
                 if det.prob[i] > 0:
                     res.append(
                         ClassifiedImage(
-                            self.metadata.names[i].decode(), det, image_path
+                            self.metadata.names[i].decode(), det, img
                         )
                     )
         return res
