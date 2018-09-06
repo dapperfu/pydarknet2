@@ -68,7 +68,6 @@ class Classifier(Libdarknet, object):
         num, detections_ptr = self.get_network_boxes(self.network, img)
         dets = Detections(num, detections_ptr)
 
-        self.free_image(img)
         self.do_nms_sort(detections_ptr, num, self.metadata.classes, nms)
 
         res = []
@@ -81,6 +80,7 @@ class Classifier(Libdarknet, object):
                             self.metadata.names[i].decode(), det, img
                         )
                     )
+        self.free_image(img)
         return res
 
     def __repr__(self):
