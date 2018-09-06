@@ -147,7 +147,21 @@ class Libdarknet(object):
     def load_image_color(self, path, width=0, height=0, colors=0):
         """Load an image from a path.
 
-        Foo. Barr.
+        Parameters
+        ----------
+        cfg_file : str
+            Config file to load. Relative paths are relative to the
+            darknet directory.
+        weight_file : str
+            Weight file to load. Relative paths are relative to the
+            darknet directory.
+        clear : int
+            Clear network.
+
+        Returns
+        -------
+        img : Image
+            Loaded image structure.
         """
         path = os.path.abspath(path)
 
