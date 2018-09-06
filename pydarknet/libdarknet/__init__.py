@@ -140,7 +140,7 @@ class Libdarknet(object):
 
     @chroot
     def load_image_color(self, path, width=0, height=0, colors=0):
-        """Load image color.
+        """Load an image from a path.
 
         Foo. Barr.
         """
