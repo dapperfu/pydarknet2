@@ -150,6 +150,7 @@ class Matrix(ctypes.Structure, BaseMixin):
 
 class Data(ctypes.Structure, BaseMixin):
     """Data structure."""
+
     _fields_ = [
         ("w", ctypes.c_int),
         ("h", ctypes.c_int),
@@ -163,6 +164,7 @@ class Data(ctypes.Structure, BaseMixin):
 
 class Node(ctypes.Structure, BaseMixin):
     """Node structure."""
+
     pass
 
 
@@ -176,6 +178,7 @@ Node._fields_ = [
 
 class BoxLabel(ctypes.Structure, BaseMixin):
     """Box label structure."""
+
     _fields_ = [
         ("id", ctypes.c_int),
         ("x", ctypes.c_float),
@@ -191,6 +194,7 @@ class BoxLabel(ctypes.Structure, BaseMixin):
 
 class Tree(ctypes.Structure):
     """Tree structure."""
+
     _fields_ = [
         ("leaf", ctypes.POINTER(ctypes.c_int)),
         ("n", ctypes.c_int),
