@@ -50,6 +50,7 @@ class Classifier(Libdarknet, object):
 
     @cached_property
     def network(self):
+        """Property of a loaded network."""
         print("Loading network...", end="")
         n = self.load_network(self.cfg_path, self.weights_path, 0)
         print("...Done")
