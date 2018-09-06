@@ -209,6 +209,7 @@ class Libdarknet(object):
         detections : Image
             Loaded image structure.
         """
+
         self.lib.network_predict_image.argtypes = [ctypes.c_void_p, Image]
         self.lib.network_predict_image.restype = ctypes.POINTER(ctypes.c_float)
         return self.lib.network_predict_image(network, image)
