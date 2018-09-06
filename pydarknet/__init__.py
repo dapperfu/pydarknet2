@@ -16,11 +16,10 @@ import sys
 
 import numpy as np
 from cached_property import cached_property
-from PIL import Image
+import PIL
 
 from ._version import get_versions
 from .classes import ClassifiedImage, Detections
-from .darknet import Darknet
 from .libdarknet import Libdarknet
 from .libdarknet.structs import Image
 from .utils import array_to_image
