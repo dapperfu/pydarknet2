@@ -30,6 +30,7 @@ def darknet():
     default=default_darknet_root,
     help="Darknet root directory",
 )
-def ship_new(name):
+def clone(url, root):
     """Creates a new ship."""
-    click.echo("Created ship %s" % name)
+    click.echo("URL: %s" % url)
+    click.echo("Root: %s" % url)
