@@ -56,6 +56,19 @@ class Classifier(Libdarknet, object):
         return n
 
     def detect(self, image, nms=0.5):
+        """Detect objects in image.
+
+        Parameters
+        ----------
+        path : str
+            Label file to load. Relative paths are relative to the
+            darknet directory.
+
+        Returns
+        -------
+        detections : Image
+            Loaded image structure.
+        """
         if isinstance(image, Image):
             img = image
         elif isinstance(image, str):
