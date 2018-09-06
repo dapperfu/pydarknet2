@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""pydarknet summon darknet from Python.
+"""pydarknet: summon darknet from Python.
 
 This is the docstring for the example.py module.  Modules names should
 have short, all-lowercase names.  The module name may have underscores if
@@ -71,7 +71,7 @@ class Classifier(Libdarknet, object):
 
     @cached_property
     def metadata(self):
-        """ Property pointing to the configured metadata."""
+        """Property pointing to the configured metadata."""
         print("Loading metadata...", end="")
         m = self.get_metadata(self.metadata_path)
         print("...Done")
