@@ -62,7 +62,7 @@ class Classifier(Libdarknet, object):
         """
         # Pass any extra keyword arguments into the Libdarknet init.
         super().__init__(**kwargs)
-        # Assign variables.
+        # Assign attributes.
         self.metadata_path = metadata_path
         self.cfg_path = cfg_path
         self.weights_path = weights_path
