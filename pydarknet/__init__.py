@@ -67,6 +67,8 @@ class Classifier(Libdarknet, object):
         self.cfg_path = cfg_path
         self.weights_path = weights_path
 
+    def __del__(self):
+
     @cached_property
     def metadata(self):
         """ Property pointing to the configured metadata."""
