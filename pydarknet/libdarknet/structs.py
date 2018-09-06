@@ -204,6 +204,7 @@ class Tree(ctypes.Structure):
     ]
 
     def __repr__(self):
+        """__repr__ function."""
         return "Tree<{}, {}>".format(self.n, self.groups)
 
 
