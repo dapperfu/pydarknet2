@@ -212,6 +212,7 @@ class Metadata(ctypes.Structure):
     ]
 
     def __repr__(self):
+        """__repr__ function for Metadata."""
         return "Metadata<{}>".format(len(self))
 
     def asgenerator(self):
@@ -229,7 +230,7 @@ class Metadata(ctypes.Structure):
         return self
 
     def __len__(self):
-        """Return the number of classes for len(Metadata)"""
+        """Return the number of classes for len(Metadata)."""
         return self.classes
 
     def __next__(self):
