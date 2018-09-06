@@ -253,14 +253,8 @@ class Libdarknet(object):
         Parameters
         ----------
         path : str
-            Image file to load. Relative paths are relative to the
+            Label file to load. Relative paths are relative to the
             darknet directory.
-        width : int
-            Image width
-        height : int
-            Image height.
-        colors : int
-            Number of image colors.
 
         Returns
         -------
@@ -272,8 +266,10 @@ class Libdarknet(object):
 
         assert os.path.exists(path), "Label file does not exist"
 
+        # Set ctypes argument & return types.
         self.lib.get_labels.argtypes = [ctypes.c_char_p]
         self.lib.get_labels.restype = ctypes.POINTER(ctypes.c_char_p)
+
 
         filename_ = ctypes.c_char_p(filename.encode("UTF-8"))
 
