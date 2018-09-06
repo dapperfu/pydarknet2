@@ -193,19 +193,14 @@ class Libdarknet(object):
 
         Parameters
         ----------
-        path : str
-            Image file to load. Relative paths are relative to the
-            darknet directory.
-        width : int
-            Image width
-        height : int
-            Image height.
-        colors : int
-            Number of image colors.
+        network_ptr : ctypes.c_void_p
+            Pointer to darknet network object.
+        image: Image
+            Darknet Image.
 
         Returns
         -------
-        detections : Image
+        detections : Detections
             Loaded image structure.
         """
         self.lib.network_predict_image.argtypes = [ctypes.c_void_p, Image]
