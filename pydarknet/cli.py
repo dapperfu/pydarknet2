@@ -10,9 +10,9 @@ def cli():
     """
 
 
-@cli.group()
-def ship():
-    """Manages ships."""
+@cli.group("darknet")
+def darknet():
+    """Manages cloned darknet repository."""
 
 
 @ship.command("new")
