@@ -67,7 +67,7 @@ def build(gpu, cudnn, opencv, openmp, force, root):
     import pydarknet
 
     darknet = pydarknet.darknet.Darknet(root=root)
-    darknet.build(gpu=gpu, opencv=opencv, openmp=openmp, force=force)
+    darknet.build(gpu=gpu, cudnn=cudnn, opencv=opencv, openmp=openmp, force=force)
 
 
 @cli.group("weights")
