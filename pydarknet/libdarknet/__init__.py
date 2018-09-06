@@ -277,8 +277,8 @@ class Libdarknet(object):
 
         Returns
         -------
-        detections : Image
-            Loaded image structure.
+        labels : ctypes.POINTER(ctypes.c_char_p)
+            List of strings of labels.
         """
 
         path = os.path.abspath(path)
