@@ -229,9 +229,11 @@ class Libdarknet(object):
                 int relative,
                 int *num)
         """
+
+        # Alias C-function.
         get_network_boxes_ = self.lib.get_network_boxes
 
-        self.lib.get_network_boxes.argtypes = [
+        v.argtypes = [
             ctypes.c_void_p,
             ctypes.c_int,
             ctypes.c_int,
@@ -241,11 +243,11 @@ class Libdarknet(object):
             ctypes.c_int,
             ctypes.POINTER(ctypes.c_int),
         ]
-        self.lib.get_network_boxes.restype = ctypes.POINTER(Detection)
+        get_network_boxes_restype = ctypes.POINTER(Detection)
 
         num = ctypes.c_int(0)
         pnum = ctypes.pointer(num)
-        dets = self.lib.get_network_boxes(
+        dets = get_network_boxes_(
             network, image.w, image.h, threshold, heir_thresh, None, 0, pnum
         )
 
