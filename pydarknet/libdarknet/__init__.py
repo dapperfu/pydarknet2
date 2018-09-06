@@ -76,12 +76,12 @@ class Libdarknet(object):
 
     @property
     def _lib(self):
-        """Return path to the darknet binary."""
+        """Return path to the darknet shared library."""
         return os.path.abspath(os.path.join(self.root, "libdarknet.so"))
 
     @property
     def exists(self):
-        """Determine if library exists"""
+        """Determine if shared library exists."""
         return os.path.exists(self._lib)
 
     @cached_property
