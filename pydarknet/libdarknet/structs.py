@@ -93,6 +93,7 @@ class Box(ctypes.Structure):
     ]
 
     def __repr__(self):
+        """Box class __repr___."""
         return "{}<{:.1f}, {:.1f}, {:.1f}, {:.1f}>".format(
             self.__class__.__name__, self.x, self.y, self.w, self.h
         )
@@ -136,6 +137,7 @@ class Detection(ctypes.Structure, BaseMixin):
     ]
 
     def __repr__(self):
+        """__repr__function."""
         return "Detection<{}, {:.2f}>".format(self.bbox, self.objectness)
 
 
