@@ -41,9 +41,11 @@ class Libdarknet(object):
     weight_dir : str, optional
         Description of `attr2`.
 
-    Adapted From: https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html
+    Adapted From:
+    https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html
 
-    # Documentation is Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+    # Documentation is Attribution-NonCommercial-ShareAlike 4.0
+    #   International (CC BY-NC-SA 4.0)
     # Copyright (c) 2018, Jed Frey.
     """
 
