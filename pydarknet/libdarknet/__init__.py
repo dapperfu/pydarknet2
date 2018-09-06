@@ -292,9 +292,9 @@ class Libdarknet(object):
         get_labels_.argtypes = [ctypes.c_char_p]
         get_labels_.restype = ctypes.POINTER(ctypes.c_char_p)
 
-        filename_ = ctypes.c_char_p(filename.encode("UTF-8"))
+        path_ = ctypes.c_char_p(path.encode("UTF-8"))
 
-        return get_labels_(filename_)
+        return get_labels_(path_)
 
     @chroot
     def do_nms_obj(self, dets, total, classes, thresh):
