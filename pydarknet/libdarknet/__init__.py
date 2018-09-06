@@ -233,7 +233,8 @@ class Libdarknet(object):
         # Alias C-function.
         get_network_boxes_ = self.lib.get_network_boxes
 
-        v.argtypes = [
+        # Argument and return types:
+        get_network_boxes_.argtypes = [
             ctypes.c_void_p,
             ctypes.c_int,
             ctypes.c_int,
