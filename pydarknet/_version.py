@@ -59,7 +59,6 @@ HANDLERS = {}
 
 def register_vcs_handler(vcs, method):  # decorator
     """Decorate function to mark a method as the handler for a VCS."""
-
     def decorate(f):
         """Store f in HANDLERS[vcs][method]."""
         if vcs not in HANDLERS:
