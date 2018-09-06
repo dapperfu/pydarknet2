@@ -58,10 +58,12 @@ def clone(
     help="Darknet root directory",
 )
 @click.option("--gpu", is_flag=True, help="Compile with GPU support.")
+@click.option("--cudnn", is_flag=True, help="Compile with cudnn support.")
 @click.option("--opencv", is_flag=True, help="Compile with OpenCV support.")
 @click.option("--openmp", is_flag=True, help="Compile with OpenMP support.")
 @click.option("--force", is_flag=True, help="Do it.")
-def build(gpu, opencv, openmp, force, root):
+def build(gpu, cudnn, opencv, openmp, force, root):
+    """Build """
     import pydarknet
 
     darknet = pydarknet.darknet.Darknet(root=root)
