@@ -5,20 +5,22 @@ import click
 from .config import config
 from .utils import url_is_alive
 
+import pydarknet
+
 
 @click.group()
 @click.version_option()
 def cli():
     """darknet.py
 
-    darknet.py is an attempt at darknet implemented in Python using libdarknet.
+    darknet.py is a tool for interacting with pydarknet from the
+    command line.
     """
 
 
 @cli.group("darknet")
 def darknet():
-    """Manages cloned darknet repository."""
-
+    """Manages local darknet folder."""
 
 @darknet.command("clone")
 @click.option(
@@ -87,8 +89,6 @@ def weights():
 def list_weights(
     root=config["darknet"]["root"], weights=config["darknet"]["weight_dir"]
 ):
-    import pydarknet
-
     darknet = pydarknet.darknet.Darknet(root=root, weight_dir=weights)
     for weight in darknet.weights:
         print(weight)
