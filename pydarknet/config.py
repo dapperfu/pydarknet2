@@ -2,10 +2,8 @@
 """pydarknet configuration options.
 
 Configuration options for all pydarknet.
-
 """
 
-"""Configuration."""
 import configparser
 import os
 
