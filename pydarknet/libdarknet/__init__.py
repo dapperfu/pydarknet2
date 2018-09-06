@@ -119,6 +119,9 @@ class Libdarknet(object):
         cfg_file = os.path.abspath(cfg_file)
         weight_file = os.path.abspath(weight_file)
 
+        assert os.path.exists(cfg_file), "Configuration file not found."
+        assert os.path.exists(weight_file), "Weight file not found."
+
         self.lib.load_network.argtypes = [
             ctypes.c_char_p,
             ctypes.c_char_p,
