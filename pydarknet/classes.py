@@ -9,10 +9,7 @@ from cached_property import cached_property
 
 
 class Detections(object):
-    """High level wrapper for detecting objects in an image.
-
-    Abstraction layer on top of ```Libdarknet``` object to classify
-    images from python.
+    """High level class for all found detected objects.
 
     Attributes
     ----------
@@ -23,6 +20,18 @@ class Detections(object):
     """
 
     def __init__(self, num, detections_ptr):
+        r"""Initialize a libdarknet object.
+
+        Parameters
+        ----------
+        metadata_path : str
+            Path to metadata.
+        cfg_path : str
+            Path to darknet cfg file.
+        weights_path : str
+            Path to pretrained weights.
+
+        """
         self.num = num
         self.detections_ptr = detections_ptr
 
