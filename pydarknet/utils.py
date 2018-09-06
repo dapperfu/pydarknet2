@@ -75,9 +75,17 @@ def array_to_image(arr):
 
 
 def url_is_alive(url):
-    """Check if a given URL is reachable.
-    :param url: A URL
-    :rtype: bool
+    r"""Initialize a darknet object.
+
+    Parameters
+    ----------
+    url : str
+        URL to check.
+
+    Returns
+    -------
+    alive: bool
+        True if the URL does not return an error.
     """
     request = urllib.request.Request(url)
     request.get_method = lambda: "HEAD"
