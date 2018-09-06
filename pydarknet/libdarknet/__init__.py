@@ -277,7 +277,9 @@ class Libdarknet(object):
 
     @chroot
     def do_nms_obj(self, dets, total, classes, thresh):
-        """void do_nms_obj(detection *dets, int total, int classes, float thresh);
+        """Do a nms obj.
+
+        void do_nms_obj(detection *dets, int total, int classes, float thresh);
         """
         self.lib.do_nms_obj.argtypes = [
             ctypes.POINTER(Detection),
