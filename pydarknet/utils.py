@@ -17,7 +17,7 @@ from .libdarknet.structs import Image
 
 # darknet gets angry if you don't use the darknet directory as 'root'.
 def chroot(f):
-    """Decorator to change current directory.
+    """Decorate a function to change execution directory.
 
     darknet loads stuff relative to its directory. This decorator
     changes the current working directory to the Darknet or Libdarknet
