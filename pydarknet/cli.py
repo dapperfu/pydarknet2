@@ -46,6 +46,12 @@ def clone(
 
 
 @darknet.command("build")
+@click.option(
+    "--root",
+    metavar="root",
+    default=config["darknet"]["root"],
+    help="Darknet root directory",
+)
 @click.option("--gpu", is_flag=True, help="Compile with GPU support.")
 @click.option("--opencv", is_flag=True, help="Compile with OpenCV support.")
 @click.option("--openmp", is_flag=True, help="Compile with OpenMP support.")
