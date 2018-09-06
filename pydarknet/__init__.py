@@ -75,7 +75,7 @@ class Classifier(Libdarknet, object):
 
     @cached_property
     def metadata(self):
-        """Configured metadata."""
+        """Return metadata object at ```metadata_path```."""
         print("Loading metadata...", end="")
         m = self.get_metadata(self.metadata_path)
         print("...Done")
@@ -83,7 +83,7 @@ class Classifier(Libdarknet, object):
 
     @cached_property
     def network(self):
-        """Cached property pointing to the configured network."""
+        """Return network object specified class attributes."""
         print("Loading network...", end="")
         n = self.load_network(self.cfg_path, self.weights_path, 0)
         print("...Done")
