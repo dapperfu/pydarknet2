@@ -57,5 +57,7 @@ def clone(
 @click.option("--openmp", is_flag=True, help="Compile with OpenMP support.")
 @click.option("--force", is_flag=True, help="Do it.")
 def build(gpu, opencv, openmp, force, root):
+    import pydarknet
 
-    darknet.build(gpu=gpu, opencv=opencv, openmp=openmp)
+    darknet = pydarknet.darknet.Darknet(root=root)
+    darknet.build(gpu=gpu, opencv=opencv, openmp=openmp, force=force)
