@@ -67,7 +67,7 @@ class Image(ctypes.Structure):
     def asarray(self):
         """Return the image object as a numpy array."""
         # Pull all of the data out of the float 'into' a Python object.
-        data = self.float[0 : len(self)]
+        data = self.float[0:len(self)]
         # Multiply by 255 and change datatype.
         data_ = np.multiply(data, 255).astype(dtype=np.uint8)
         # Reshape the array into something.
