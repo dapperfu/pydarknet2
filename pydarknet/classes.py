@@ -32,7 +32,7 @@ class Detections(object):
         self.detections_ptr = detections_ptr
 
     def __repr__(self):
-        """IPython pretty representation."""
+        """Ipython pretty representation."""
         return "Detections<{}>".format(self.num)
 
     def __iter__(self):
