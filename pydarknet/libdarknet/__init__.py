@@ -223,8 +223,8 @@ class Libdarknet(object):
         ----------
         network : Network
             Pointer to darknet network object.
-        width : int
-            Image width
+        image : Image
+            Darknet Image object.
         height : int
             Image height.
         colors : int
