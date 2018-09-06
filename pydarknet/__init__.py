@@ -97,6 +97,7 @@ class Classifier(Libdarknet, object):
         return res
 
     def __repr__(self):
+        """Return a representation of the Classifier object."""
         return "Classifier<{}, {}, {}>".format(
             self.metadata_path, self.cfg_path, self.weights_path
         )
