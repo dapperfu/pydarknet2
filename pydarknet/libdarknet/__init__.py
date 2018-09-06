@@ -229,7 +229,9 @@ class Libdarknet(object):
                 int relative,
                 int *num)
         """
-        c.argtypes = [
+        get_network_boxes_ = self.lib.get_network_boxes
+
+        self.lib.get_network_boxes.argtypes = [
             ctypes.c_void_p,
             ctypes.c_int,
             ctypes.c_int,
