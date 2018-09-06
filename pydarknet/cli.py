@@ -17,7 +17,7 @@ from .utils import url_is_alive
 @click.group()
 @click.version_option()
 def cli():
-    """darknet.py.
+    """```pydarknet``` command line interface entry point.
 
     darknet.py is a tool for interacting with pydarknet from the
     command line.
