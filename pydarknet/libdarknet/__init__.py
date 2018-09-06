@@ -270,6 +270,8 @@ class Libdarknet(object):
 
         path = os.path.abspath(path)
 
+        assert os.path.exists(path), "Label file does not exist"
+
         self.lib.get_labels.argtypes = [ctypes.c_char_p]
         self.lib.get_labels.restype = ctypes.POINTER(ctypes.c_char_p)
 
