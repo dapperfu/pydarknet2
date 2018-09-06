@@ -146,6 +146,7 @@ def available(
     weight_url=config["weights"]["url_root"],
     weights=config["darknet"]["weight_dir"],
 ):
+    """Display a list of weights and if they are available for download."""
     darknet = pydarknet.darknet.Darknet(root=root, weight_dir=weights)
 
     cfgs = [
