@@ -40,9 +40,10 @@ def clone(root=config["darknet"]["root"], url=config["darknet"]["clone_url"]):
     darknet = pydarknet.darknet.Darknet(root=root)
     darknet.clone(clone_url=url, force=force)
 
-@darknet.command("build")
-@click.option('--gpu', is_flag=True, help="Compile with GPU support.")
-@click.option('--opencv', is_flag=True, help="Compile with OpenCV support.")
-@click.option('--openmp', is_flag=True, help="Compile with OpenMP support.")
 
-def build(
+@darknet.command("build")
+@click.option("--gpu", is_flag=True, help="Compile with GPU support.")
+@click.option("--opencv", is_flag=True, help="Compile with OpenCV support.")
+@click.option("--openmp", is_flag=True, help="Compile with OpenMP support.")
+def build(gpu, opencv, openmp):
+    print(gpu, opencv, openmp)
