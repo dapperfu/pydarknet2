@@ -133,6 +133,7 @@ class Detection(ctypes.Structure, BaseMixin):
 
 
 class Matrix(ctypes.Structure, BaseMixin):
+    """Matrix structure."""
     _fields_ = [
         ("rows", ctypes.c_int),
         ("cols", ctypes.c_int),
