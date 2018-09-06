@@ -149,13 +149,12 @@ class Libdarknet(object):
 
         Parameters
         ----------
-        cfg_file : str
-            Config file to load. Relative paths are relative to the
+        path : str
+            Image file to load. Relative paths are relative to the
             darknet directory.
-        weight_file : str
-            Weight file to load. Relative paths are relative to the
-            darknet directory.
-        clear : int
+        width : int
+            Image
+        height : int
             Clear network.
 
         Returns
@@ -165,6 +164,7 @@ class Libdarknet(object):
         """
         path = os.path.abspath(path)
 
+        assert os.path.exists(path)
         load_image_ = self.lib.load_image_color
         load_image_.argtypes = [
             ctypes.c_char_p,
