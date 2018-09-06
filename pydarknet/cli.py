@@ -41,16 +41,8 @@ def clone(root=config["darknet"]["root"], url=config["darknet"]["clone_url"]):
     darknet.clone(clone_url=url, force=force)
 
 @darknet.command("build")
-@click.option(
-    "--url",
-    metavar="url",
-    default=config["darknet"]["clone_url"],
-    help="Clone URL",
-)
-@click.option(
-    "--root",
-    metavar="root",
-    default=config["darknet"]["root"],
-    help="Darknet root directory",
-)
-build
+@click.option('--gpu', is_flag=True, help="Compile with GPU support.")
+@click.option('--opencv', is_flag=True, help="Compile with OpenCV support.")
+@click.option('--openmp', is_flag=True, help="Compile with OpenMP support.")
+
+def build(
