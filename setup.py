@@ -25,4 +25,9 @@ setup(
     description="Python module for DarkNet",
     packages=find_packages(),
     install_requires=requirements,
+    entry_points={
+        'console_scripts': [
+            'darknet.py = pydarknet.cli:cli',
+        ],
+    }
 )

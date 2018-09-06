@@ -19,7 +19,6 @@ from PIL import Image
 
 from ._version import get_versions
 from .classes import ClassifiedImage, Detections
-from .cli import cli
 from .darknet import Darknet
 from .libdarknet import Libdarknet
 from .libdarknet.structs import Image
