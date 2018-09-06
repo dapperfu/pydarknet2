@@ -85,7 +85,7 @@ def weights():
     "--weights",
     metavar="weights",
     default=config["darknet"]["weight_dir"],
-    help="Darknet weights directory [Default: [root]/weights",
+    help="Darknet weights directory [Default: {}".format(config["darknet"]["weight_dir"]),
 )
 def list_weights(
     root=config["darknet"]["root"], weights=config["darknet"]["weight_dir"]
