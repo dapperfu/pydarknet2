@@ -60,9 +60,10 @@ class Classifier(Libdarknet, object):
 
         Parameters
         ----------
-        path : str
-            Label file to load. Relative paths are relative to the
-            darknet directory.
+        image : str, Image, PIL.Image, numpy array
+            Image file to detect objects in.
+        nms : float
+            Nms?
 
         Returns
         -------
