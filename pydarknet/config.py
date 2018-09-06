@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """pydarknet configuration options.
 
+Configuration options for all pydarknet
 
 """
 
