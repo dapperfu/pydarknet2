@@ -64,7 +64,6 @@ def clone(
 @click.option("--force", is_flag=True, help="Do it.")
 def build(gpu, cudnn, opencv, openmp, force, root):
     """Build """
-    import pydarknet
 
     darknet = pydarknet.darknet.Darknet(root=root)
     darknet.build(gpu=gpu, cudnn=cudnn, opencv=opencv, openmp=openmp, force=force)
@@ -147,8 +146,6 @@ def available(
     weight_url=config["weights"]["url_root"],
     weights=config["darknet"]["weight_dir"],
 ):
-    import pydarknet
-
     darknet = pydarknet.darknet.Darknet(root=root, weight_dir=weights)
 
     cfgs = [
