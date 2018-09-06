@@ -2,7 +2,6 @@
 """```pydarknet``` utilities module.
 
 Generic utilities for use in ```pydarknet.```
-
 """
 
 import ctypes
