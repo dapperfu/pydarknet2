@@ -9,7 +9,6 @@ Every module should have a docstring at the very top of the file.  The
 module's docstring may extend over multiple lines.  If your docstring does
 extend over multiple lines, the closing three quotation marks must be on
 a line by itself, preferably preceded by a blank line.
-
 """
 
 import ctypes
