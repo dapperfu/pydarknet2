@@ -64,6 +64,7 @@ def array_to_image(arr):
 
 
 def array_to_image(arr):
+    """Convert the array to a darknet Image."""
     arr = arr.transpose(2, 0, 1)
     c = arr.shape[0]
     h = arr.shape[1]
@@ -89,7 +90,6 @@ def url_is_alive(url):
     """
     request = urllib.request.Request(url)
     request.get_method = lambda: "HEAD"
-
     try:
         urllib.request.urlopen(request)
         return True
