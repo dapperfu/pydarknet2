@@ -35,7 +35,7 @@ class ClassifiedImage(object):
     def crop(self):
         return self.image.asimage().crop(self.crop_box)
 
-    @proprety
+    @property
     def crop_box(self):
         return self.detection.bbox.pil_crop_box
 
