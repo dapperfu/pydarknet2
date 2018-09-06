@@ -115,6 +115,11 @@ class Libdarknet(object):
             darknet directory.
         clear : int
             Clear network.
+
+        Returns
+        -------
+        network_ptr: ctypes.c_void_p
+            Pointer to the loaded network.
         """
         cfg_file = os.path.abspath(cfg_file)
         weight_file = os.path.abspath(weight_file)
