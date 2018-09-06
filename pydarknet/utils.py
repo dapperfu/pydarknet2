@@ -11,9 +11,6 @@ from functools import wraps
 
 import numpy as np
 
-from .libdarknet.structs import Image
-
-
 # darknet gets angry if you don't use the darknet directory as 'root'.
 def chroot(f):
     """Decorate a function to change execution directory.
@@ -60,6 +57,8 @@ def array_to_image(arr):
     img: Image
         Darknet image object.
     """
+
+    from ..utils import chroot
     arr = arr.transpose(2, 0, 1)
     c = arr.shape[0]
     h = arr.shape[1]
