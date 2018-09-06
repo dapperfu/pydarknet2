@@ -48,7 +48,6 @@ def clone(
     force=False,
 ):
     """Clone a darknet repository."""
-
     click.echo("URL: %s" % url)
     click.echo("Root: %s" % root)
     darknet = pydarknet.darknet.Darknet(root=root)
@@ -69,7 +68,6 @@ def clone(
 @click.option("--force", is_flag=True, help="Do it.")
 def build(gpu, cudnn, opencv, openmp, force, root):
     """Build darknet."""
-
     darknet = pydarknet.darknet.Darknet(root=root)
     darknet.build(
         gpu=gpu, cudnn=cudnn, opencv=opencv, openmp=openmp, force=force
