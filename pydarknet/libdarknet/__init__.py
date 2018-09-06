@@ -217,7 +217,15 @@ class Libdarknet(object):
     def get_network_boxes(
         self, network, image, threshold=0.5, heir_thresh=0.5
     ):
-        """
+        """Get network boxes for a given image classified by network
+
+
+
+
+
+
+
+
         get_network_boxes(
                 network *net,
                 int w,
@@ -246,8 +254,11 @@ class Libdarknet(object):
         ]
         get_network_boxes_restype = ctypes.POINTER(Detection)
 
+        # Create a number and pointer to that number for pass by ref.
         num = ctypes.c_int(0)
         pnum = ctypes.pointer(num)
+
+        # Get the detections and
         dets = get_network_boxes_(
             network, image.w, image.h, threshold, heir_thresh, None, 0, pnum
         )
@@ -274,9 +285,11 @@ class Libdarknet(object):
 
         assert os.path.exists(path), "Label file does not exist"
 
+
+        get_labels_ = self.lib.get_labels
         # Set ctypes argument & return types.
-        self.lib.get_labels.argtypes = [ctypes.c_char_p]
-        self.lib.get_labels.restype = ctypes.POINTER(ctypes.c_char_p)
+        get_labels_.argtypes = [ctypes.c_char_p]
+        get_labels_.restype = ctypes.POINTER(ctypes.c_char_p)
 
         filename_ = ctypes.c_char_p(filename.encode("UTF-8"))
 
