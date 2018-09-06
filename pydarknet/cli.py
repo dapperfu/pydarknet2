@@ -140,7 +140,7 @@ def available(
     default=config["darknet"]["weight_dir"],
     help="Darknet root directory",
 )
-def available(
+def download(
     weight,
     root=config["darknet"]["root"],
     weight_url=config["weights"]["url_root"],
