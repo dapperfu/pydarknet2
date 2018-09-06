@@ -85,12 +85,12 @@ def weights():
     "--weights",
     metavar="weights",
     default=config["darknet"]["weight_dir"],
-    help="Darknet root directory",
+    help="Darknet weights directory",
 )
 def list_weights(
     root=config["darknet"]["root"], weights=config["darknet"]["weight_dir"]
 ):
-    """List downloaded weights."""
+    """List weights in weights directory."""
     darknet = pydarknet.darknet.Darknet(root=root, weight_dir=weights)
     for weight in darknet.weights:
         print(weight)
