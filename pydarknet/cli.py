@@ -38,4 +38,4 @@ def clone(root=config["darknet"]["root"], url=config["darknet"]["clone_url"]):
     import pydarknet
 
     darknet = pydarknet.darknet.Darknet(root=root)
-    darknet.clone(clone_url=url)
+    darknet.clone(clone_url=url, force=force)
