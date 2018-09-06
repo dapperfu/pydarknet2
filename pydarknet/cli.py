@@ -111,8 +111,7 @@ def list_weights(
 def available(
     root=config["darknet"]["root"], weight_url=config["weights"]["url_root"]
 ):
-    import pydarknet
-
+    """Display a list of weights and if they are available for download."""
     darknet = pydarknet.darknet.Darknet(root=root)
     for cfg in darknet.cfgs:
         basename = ".".join(os.path.basename(cfg).split(".")[0:-1])
