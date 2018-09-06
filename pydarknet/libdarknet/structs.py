@@ -197,6 +197,7 @@ class Tree(ctypes.Structure):
 
 
 class Metadata(ctypes.Structure):
+    """Metadata structure."""
     _fields_ = [
         ("classes", ctypes.c_int),
         ("names", ctypes.POINTER(ctypes.c_char_p)),
@@ -206,10 +207,12 @@ class Metadata(ctypes.Structure):
         return "Metadata<{}>".format(len(self))
 
     def asgenerator(self):
+        """Return the metadata classes as a generator."""
         for idx in range(self.classes):
             yield self.names[idx].decode("UTF-8")
 
     def aslist(self):
+        """Return the metadata classes as a list."""
         return list(self.asgenerator())
 
     def __iter__(self):
