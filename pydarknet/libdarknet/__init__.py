@@ -93,6 +93,7 @@ class Libdarknet(object):
 
     @chroot
     def get_metadata(self, path):
+        """Get metadata from a path."""
         path = os.path.abspath(path)
         self.lib.get_metadata.argtypes = [ctypes.c_char_p]
         self.lib.get_metadata.restype = Metadata
@@ -104,7 +105,16 @@ class Libdarknet(object):
     def load_network(self, cfg_file, weight_file, clear=0):
         """Load a darknet network.
 
-
+        Parameters
+        ----------
+        cfg_file : str
+            Config file to load. Relative paths are relative to the
+            darknet directory.
+        weight_file : str
+            Weight file to load. Relative paths are relative to the
+            darknet directory.
+        clear : int
+            Clear network.
         """
         cfg_file = os.path.abspath(cfg_file)
         weight_file = os.path.abspath(weight_file)
