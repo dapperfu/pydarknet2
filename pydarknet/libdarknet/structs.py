@@ -73,6 +73,7 @@ class Image(ctypes.Structure):
         return array
 
     def asimage(self):
+        """Return the image as a PIL Image."""
         return PIL.Image.fromarray(self.asarray())
 
 
