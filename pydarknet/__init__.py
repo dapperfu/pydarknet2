@@ -33,9 +33,23 @@ if sys.version_info[0] < 3:
 
 
 class Classifier(Libdarknet, object):
-    """Classify an image."""
+    """High level wrapper for detecting objects in an image.
 
+    Abstraction layer on top of ```Libdarknet``` object to classify
+    images from python.
+
+    Attributes
+    ----------
+    attr1 : str
+        Description of `attr1`.
+    attr2 : :obj:`int`, optional
+        Description of `attr2`.
+
+    """
     def __init__(self, metadata_path, cfg_path, weights_path, **kwargs):
+
+
+        # Pass any extra arguments into the Libdarknet
         super().__init__(**kwargs)
         self.metadata_path = metadata_path
         self.cfg_path = cfg_path
