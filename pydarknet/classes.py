@@ -1,7 +1,27 @@
+# -*- coding: utf-8 -*-
+"""Custom class.
+
+Configuration options for all pydarknet.
+
+"""
+
 from cached_property import cached_property
 
 
 class Detections(object):
+    """High level wrapper for detecting objects in an image.
+
+    Abstraction layer on top of ```Libdarknet``` object to classify
+    images from python.
+
+    Attributes
+    ----------
+    num : int
+        Numbed of detections.
+    detections_ptr : ctypes.c_void_p
+        Pointer to detection array from darknet.
+    """
+
     def __init__(self, num, detections_ptr):
         self.num = num
         self.detections_ptr = detections_ptr
@@ -22,6 +42,7 @@ class Detections(object):
             return self.detections_ptr[idx]
 
     def __getitem__(self, index):
+        """Return detection object at given index."""
         return self.detections_ptr[index]
 
 
