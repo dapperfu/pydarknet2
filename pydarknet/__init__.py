@@ -57,10 +57,10 @@ class Classifier(Libdarknet, object):
     def detect(self, image, nms=0.5):
         if isinstance(image, Image):
             img = image
-        elif isinstance(image, str): hasattr(image, asarray):
+        elif isinstance(image, str):
             img = self.load_image_color(image)
         else:
-            img = array_to_image
+            img = array_to_image(np.asarray(image))
 
         self.network_predict_image(self.network, img)
 
