@@ -13,11 +13,12 @@ Directly through ```pip```, in a virtual environment:
 	pip install --upgrade pip wheel setuptools # Upgrade pip, install wheel & setuptools.
 	pip install git+https://github.com/jed-frey/pydarknet2.git#egg=pydarknet2
 
+For development, using the examples, running tests, etc:
 
-Install editable for development:
-
-    git clone --depth=1 https://github.com/jed-frey/pydarknet2.git
-    cd pydarknet
+    git clone --recurse-submodules --jobs=8 --depth=1 https://github.com/jed-frey/pydarknet2.git
+    cd pydarknet2
+    make env # Create a local virtual environment.
+    source venv/bin/activate # Activate the virtual environment.
     python3 setup.py build
     python3 setup.py develop
 

@@ -29,6 +29,11 @@ def test_clone_000003_04(darknet_root, clone_url):
 def test_clone_000003_05(darknet_root, clone_url):
     # Build with GPU & cudNN if available.
     dn = pydarknet2.Darknet(root=darknet_root)
+
+    # Hack/Workaround?
+    os.environ["PATH"] = os.environ["PATH"]+os.pathsep+"/usr/local/cuda/bin"
+    os.environ["LD_LIBRARY_PATH"] = os.environ["LD_LIBRARY_PATH"]+os.pathsep+"/usr/local/cuda/lib64"
+
     dn.build(gpu=True, cudnn=True, force=True)
     out = subprocess.check_output(["ldd", dn.exe]).decode("UTF-8")
     assert "libcudart" in out
