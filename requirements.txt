@@ -1,11 +1,28 @@
-pycodestyle
-pydocstyle
+cached_property
+click
+jupyter
+notebook
+nbconvert
 
+# Image Processing.
+Pillow
+imageio
+scikit-image
+
+# Maths
+numpy
+
+# TODO: Remove, these are really just for development.
 autopep8
 black
 isort
-cached_property
+pycodestyle
+pydocstyle
 
-click
-numpy
-Pillow
+##
+# Host Environment Requirements
+##
+#16.04 18.04: git
+#16.04 18.04: python3
+#16.04 18.04: python3-venv
+#16.04 18.04: python3-dev

@@ -4,7 +4,7 @@
 import ctypes
 
 import numpy as np
-import PIL
+import PIL.Image
 
 
 class BaseMixin(object):

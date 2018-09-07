@@ -50,7 +50,7 @@ def clone(
     """Clone a darknet repository."""
     click.echo("URL: %s" % url)
     click.echo("Root: %s" % root)
-    darknet = pydarknet.darknet.Darknet(root=root)
+    darknet = pydarknet.Darknet(root=root)
     darknet.clone(clone_url=url, force=force)
 
 
@@ -68,7 +68,7 @@ def clone(
 @click.option("--force", is_flag=True, help="Do it.")
 def build(gpu, cudnn, opencv, openmp, force, root):
     """Build darknet."""
-    darknet = pydarknet.darknet.Darknet(root=root)
+    darknet = pydarknet.Darknet(root=root)
     darknet.build(
         gpu=gpu, cudnn=cudnn, opencv=opencv, openmp=openmp, force=force
     )
@@ -100,7 +100,7 @@ def list_weights(
     root=config["darknet"]["root"], weights=config["darknet"]["weight_dir"]
 ):
     """List weights in weights directory."""
-    darknet = pydarknet.darknet.Darknet(root=root, weight_dir=weights)
+    darknet = pydarknet.Darknet(root=root, weight_dir=weights)
     for weight in darknet.weights:
         print(weight)
 

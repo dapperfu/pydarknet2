@@ -123,7 +123,13 @@ class Darknet(object):
             )
 
         if os.path.isdir(self.root) and force:
-            os.rmdir(self.root)
+            import shutil
+            try:
+                shutil.rmtree(self.root)
+            except FileNotFoundError:
+                pass # yeah.
+            except:
+                raise
 
         cmd = [
             "git",
@@ -137,9 +143,8 @@ class Darknet(object):
             self.root,
         ]
         print("Starting clone ...", end="")
-        subprocess.check_output(cmd)
+        self._clone_log=subprocess.check_output(cmd)
         print("... Done")
-
         return None
 
     @chroot
@@ -186,15 +191,18 @@ class Darknet(object):
                 # Otherwise set the flag to 0.
                 os.environ[arg.upper()] = "0"
         # Build darknet.
+        print("Starting build (take a water break) ...", end="")
         out = subprocess.check_output(["make", "-j8"])
+        print("... Done")
         # Assert that the binary was built.
         assert os.path.exists(self.exe)
         # Return the output as a string.
-        return out.decode("UTF-8")
+        self._clone_log=out.decode("UTF-8")
+        return None
 
     @property
     def exists(self):
-        """Check if the Darknet directory executable."""
+        """Check if the Darknet executable exists."""
         return os.path.exists(self.exe)
 
     @chroot

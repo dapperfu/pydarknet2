@@ -1,10 +1,11 @@
+# Config
 VENV?=venv
 
-.PHONY: all
-all: ${VENV}
 
-${VENV}:
-	python3.6 -mvenv ${@}
-	${@}/bin/pip install --upgrade setuptools wheel pip
-	${@}/bin/pip install --upgrade jupyter notebook
-	${@}/bin/pip install --editable .
+# Environments to setup for this project
+# Available options: python arduino
+ENVS:=python
+
+## make_sandwich includes
+# https://github.com/jed-frey/make_sandwich
+include .mk_inc/env.mk
