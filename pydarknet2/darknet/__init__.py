@@ -181,6 +181,15 @@ class Darknet(object):
         # Clean the output.
         out = subprocess.check_output(["make", "clean"])
 
+        # venvs do things.
+        if kwargs["gpu"]:
+            os.environ["PATH"] = os.environ["PATH"]+os.pathsep+"/usr/local/cuda/bin"
+        if kwargs["cudnn"]:
+            if "LD_LIBRARY_PATH" in os.environ:
+                os.environ["LD_LIBRARY_PATH"] = os.environ["LD_LIBRARY_PATH"]+os.pathsep+"/usr/local/cuda/lib64"
+            else:
+                os.environ["LD_LIBRARY_PATH"] = "/usr/local/cuda/lib64"
+
         # For each argument and its value
         for arg, value in kwargs.items():
             # If the value is set.

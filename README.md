@@ -22,11 +22,16 @@ For development, using the examples, running tests, etc:
     python3 setup.py build
     python3 setup.py develop
 
+	#
+	darknet.py darknet clone
+	darknet.py darknet build --gpu --cudnn
+
 	# Run tests.
 	pytest
 	# Run jupyter notebook
 	jupyter notebook
-	#
+
+
 
 
 # ```darknet.py``` Usage
