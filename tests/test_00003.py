@@ -32,7 +32,7 @@ def test_clone_000003_05(darknet_root, clone_url):
 
     # Hack/Workaround?
     os.environ["PATH"] = os.environ["PATH"]+os.pathsep+"/usr/local/cuda/bin"
-    os.environ["LD_LIBRARY_PATH"] = os.environ["LD_LIBRARY_PATH"]+os.pathsep+"/usr/local/cuda/lib64"
+    os.environ["LD_LIBRARY_PATH"] = "/usr/local/cuda/lib64"
 
     dn.build(gpu=True, cudnn=True, force=True)
     out = subprocess.check_output(["ldd", dn.exe]).decode("UTF-8")
