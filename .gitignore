@@ -5,6 +5,7 @@
 **/.venv/*
 **/venv/*
 **/.pytest_cache/*
+**/dist/*
 
 Untitled*.ipynb
 Scratch*.ipynb
