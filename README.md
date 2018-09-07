@@ -22,6 +22,13 @@ For development, using the examples, running tests, etc:
     python3 setup.py build
     python3 setup.py develop
 
+	# Run tests.
+	pytest
+	# Run jupyter notebook
+	jupyter notebook
+	#
+
+
 # ```darknet.py``` Usage
 
 ```pydarknet``` includes a command line entry point to control darknet's source & weights. It is built with [Click](http://click.pocoo.org/) and should be fairly easy to use for those familiar with the command line.

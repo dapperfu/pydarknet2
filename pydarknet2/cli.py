@@ -8,7 +8,7 @@ import os
 
 import click
 
-import pydarknet
+import pydarknet2
 
 from .config import config
 from .utils import url_is_alive
