@@ -11,12 +11,12 @@ Directly through ```pip```, in a virtual environment:
 	python3 -mvenv venv
 	source venv/bin/activate
 	pip install --upgrade pip wheel setuptools # Upgrade pip, install wheel & setuptools.
-	pip install git+https://github.com/jed-frey/pydarknet.git#egg=pydarknet
+	pip install git+https://github.com/jed-frey/pydarknet2.git#egg=pydarknet2
 
 
 Install editable for development:
 
-    git clone --depth=1 https://github.com/jed-frey/pydarknet.git
+    git clone --depth=1 https://github.com/jed-frey/pydarknet2.git
     cd pydarknet
     python3 setup.py build
     python3 setup.py develop
@@ -71,7 +71,7 @@ If you already have ```libdarknet.so``` built and weights downloaded, you can pu
 
 All of these are functionally equivalent, different ways to do the same thing.
 
-Using ```darknet.py``` entry point, using Click options. 
+Using ```darknet.py``` entry point, using Click options.
 
     $ darknet.py darknet clone --root=/tmp/darknet --url=https://github.com/jed-frey/darknet.git
 
@@ -127,7 +127,7 @@ Using ```darknet.py``` entry point, using Click options.
 From within Python:
 
     $ python3
-    Python 3.6.5 (default, Apr  1 2018, 05:46:30) 
+    Python 3.6.5 (default, Apr  1 2018, 05:46:30)
     [GCC 7.3.0] on linux
     Type "help", "copyright", "credits" or "license" for more information.
     >>> import pydarknet
@@ -172,3 +172,8 @@ If it *doesn't* work, open an issue: https://github.com/jed-frey/pydarknet/issue
 If you would like additional features, open an issue: https://github.com/jed-frey/pydarknet/issues/new
 
 
+
+## Ignore
+
+    export PATH=${PATH}:/usr/local/cuda-9.2/bin
+    export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-9.2/lib64
