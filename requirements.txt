@@ -19,6 +19,8 @@ isort
 pycodestyle
 pydocstyle
 
+pytest
+
 ##
 # Host Environment Requirements
 ##

@@ -1,9 +1,10 @@
-build/
-.ipynb_checkpoints/
-__pycache__/
-*.egg-info/
-.venv/
-venv/
+**/build/*
+**/.ipynb_checkpoints/*
+**/__pycache__/*
+**/*.egg-info/*
+**/.venv/*
+**/venv/*
+**/.pytest_cache/*
 
 Untitled*.ipynb
 Scratch*.ipynb
