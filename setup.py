@@ -19,8 +19,8 @@ with open(os.path.join(LOCAL_DIR, "requirements.txt"), "r") as infile:
 setup(
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
-    name="pydarknet",
-    url="https://github.com/mypackage.git",
+    name="pydarknet2",
+    url="https://github.com/jed-frey/pydarknet2",
     author="Jed Frey",
     description="Python module for DarkNet",
     packages=find_packages(),
