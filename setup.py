@@ -27,7 +27,7 @@ setup(
     install_requires=requirements,
     entry_points={
         'console_scripts': [
-            'darknet.py = pydarknet.cli:cli',
+            'darknet.py = pydarknet2.cli:cli',
         ],
     }
 )
