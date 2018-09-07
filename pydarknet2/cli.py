@@ -167,4 +167,4 @@ def download(
     url = weight_url + weight + ".weights"
     assert url_is_alive(url)
     print("# Copy and paste this. Still manumatic")
-    print("cd {} && axel -n20 {}".format(weights, url))
+    print("mkdir -p {} && cd {} && axel -n20 {}".format(weights, weights, url))
