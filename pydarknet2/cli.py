@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module for the ```darknet.py``` command line interface.
 
-An entrypoint for ```pydarknet``` module.
+An entrypoint for ```pydarknet2``` module.
 """
 
 import os
@@ -17,16 +17,16 @@ from .utils import url_is_alive
 @click.group()
 @click.version_option()
 def cli():
-    """```pydarknet``` command line interface entry point.
+    """```pydarknet2``` command line interface entry point.
 
-    darknet.py is a tool for interacting with pydarknet from the
+    darknet.py is a utility for interacting with pydarknet from the
     command line.
     """
 
 
 @cli.group("darknet")
 def darknet():
-    """Manage local darknet folder."""
+    """Manage darknet folder."""
 
 
 @darknet.command("clone")
@@ -34,13 +34,15 @@ def darknet():
     "--url",
     metavar="url",
     default=config["darknet"]["clone_url"],
-    help="Clone URL",
+    help="Darknet clone url. [Default: {}]".format(
+        config["darknet"]["clone_url"]),
 )
 @click.option(
     "--root",
     metavar="root",
     default=config["darknet"]["root"],
-    help="Darknet root directory",
+    help="Darknet root directory. [Default: {}]".format(
+        config["darknet"]["root"]),
 )
 def clone(
     root=config["darknet"]["root"],
@@ -59,7 +61,8 @@ def clone(
     "--root",
     metavar="root",
     default=config["darknet"]["root"],
-    help="Darknet root directory",
+    help="Darknet root directory. [Default: {}]".format(
+        config["darknet"]["root"])
 )
 @click.option("--gpu", is_flag=True, help="Compile with GPU support.")
 @click.option("--cudnn", is_flag=True, help="Compile with cudnn support.")
@@ -84,15 +87,14 @@ def weights():
     "--root",
     metavar="root",
     default=config["darknet"]["root"],
-    help="Darknet root directory. [Default: {}".format(
-        config["darknet"]["root"]
-    ),
+    help="Darknet root directory. [Default: {}]".format(
+        config["darknet"]["root"]),
 )
 @click.option(
     "--weights",
     metavar="weights",
     default=config["darknet"]["weight_dir"],
-    help="Darknet weights directory [Default: {}".format(
+    help="Darknet weights directory [Default: {}]".format(
         config["darknet"]["weight_dir"]
     ),
 )
@@ -110,13 +112,15 @@ def list_weights(
     "--root",
     metavar="root",
     default=config["darknet"]["root"],
-    help="Darknet root directory",
+    help="Darknet root directory. [Default: {}]".format(
+        config["darknet"]["root"]),
 )
 @click.option(
     "--weight_url",
     metavar="weight_url",
     default=config["weights"]["url_root"],
-    help="Darknet root directory",
+    help="Pretrained weights url base. [Default: {}]".format(
+        config["weights"]["url_root"]),
 )
 def available(
     root=config["darknet"]["root"], weight_url=config["weights"]["url_root"]
@@ -135,19 +139,22 @@ def available(
     "--root",
     metavar="root",
     default=config["darknet"]["root"],
-    help="Darknet root directory",
+    help="Darknet root directory. [Default: {}]".format(
+        config["darknet"]["root"]),
 )
 @click.option(
     "--weight_url",
     metavar="weight_url",
     default=config["weights"]["url_root"],
-    help="Darknet root directory",
+    help="Pretrained weights url base. [Default: {}]".format(
+        config["weights"]["url_root"]),
 )
 @click.option(
     "--weights",
     metavar="weights",
     default=config["darknet"]["weight_dir"],
-    help="Darknet root directory",
+    help="Pretrained weights directory. [Default: {}]".format(
+        config["darknet"]["weight_dir"]),
 )
 def download(
     weight,
@@ -162,9 +169,13 @@ def download(
         ".".join(os.path.basename(cfg).split(".")[0:-1])
         for cfg in darknet.cfgs
     ]
-
     assert weight in cfgs
     url = weight_url + weight + ".weights"
+    referer = weight_url + "index.html"
+    weight_file = os.path.join(weights, weight+".weights")
     assert url_is_alive(url)
+
+    if not os.path.exists(weights):
+        os.makedirs(weights)
     print("# Copy and paste this. Still manumatic")
-    print("mkdir -p {} && cd {} && axel -n20 {}".format(weights, weights, url))
+    print("curl --referer {} --progress-bar --location --output {} {}".format(referer, weight_file, url))
