@@ -50,7 +50,7 @@ def clone(
     """Clone a darknet repository."""
     click.echo("URL: %s" % url)
     click.echo("Root: %s" % root)
-    darknet = pydarknet.Darknet(root=root)
+    darknet = pydarknet2.Darknet(root=root)
     darknet.clone(clone_url=url, force=force)
 
 
@@ -68,7 +68,7 @@ def clone(
 @click.option("--force", is_flag=True, help="Do it.")
 def build(gpu, cudnn, opencv, openmp, force, root):
     """Build darknet."""
-    darknet = pydarknet.Darknet(root=root)
+    darknet = pydarknet2.Darknet(root=root)
     darknet.build(
         gpu=gpu, cudnn=cudnn, opencv=opencv, openmp=openmp, force=force
     )
@@ -100,7 +100,7 @@ def list_weights(
     root=config["darknet"]["root"], weights=config["darknet"]["weight_dir"]
 ):
     """List weights in weights directory."""
-    darknet = pydarknet.Darknet(root=root, weight_dir=weights)
+    darknet = pydarknet2.Darknet(root=root, weight_dir=weights)
     for weight in darknet.weights:
         print(weight)
 
@@ -122,7 +122,7 @@ def available(
     root=config["darknet"]["root"], weight_url=config["weights"]["url_root"]
 ):
     """Display a list of available weights."""
-    darknet = pydarknet.darknet.Darknet(root=root)
+    darknet = pydarknet2.darknet.Darknet(root=root)
     for cfg in darknet.cfgs:
         basename = ".".join(os.path.basename(cfg).split(".")[0:-1])
         alive = url_is_alive(weight_url + basename + ".weights")
@@ -156,7 +156,7 @@ def download(
     weights=config["darknet"]["weight_dir"],
 ):
     """Print command to download weight."""
-    darknet = pydarknet.darknet.Darknet(root=root, weight_dir=weights)
+    darknet = pydarknet2.darknet.Darknet(root=root, weight_dir=weights)
 
     cfgs = [
         ".".join(os.path.basename(cfg).split(".")[0:-1])
