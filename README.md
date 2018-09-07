@@ -15,7 +15,7 @@ Directly through ```pip```, in a virtual environment:
 
 For development, using the examples, running tests, etc:
 
-    git clone --recurse-submodules --jobs=8 --depth=1 https://github.com/jed-frey/pydarknet2.git
+    git clone --recurse-submodules --jobs=8 https://github.com/jed-frey/pydarknet2.git
     cd pydarknet2
     make env # Create a local virtual environment.
     source venv/bin/activate # Activate the virtual environment.
