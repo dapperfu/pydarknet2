@@ -3,7 +3,6 @@
 pydarknet is a Python module for [Darknet, an open source neural network framework written in C and CUDA. It is fast, easy to install, and supports CPU and GPU computation](https://pjreddie.com/darknet/).
 
 
-
 # Installation
 
 Directly through ```pip```, in a virtual environment:
@@ -37,7 +36,7 @@ For development, using the examples, running tests, etc:
 ```pydarknet``` includes a command line entry point to control darknet's source & weights. It is built with [Click](http://click.pocoo.org/) and should be fairly easy to use for those familiar with the command line.
 
 ```
-$ darknet.py 
+$ darknet.py
 Usage: darknet.py [OPTIONS] COMMAND [ARGS]...
 
   ```pydarknet2``` command line interface entry point.
@@ -195,8 +194,3 @@ You can (*should*) check that the libdarknet shared library was built correctly:
 If it *doesn't* work, open an issue: https://github.com/jed-frey/pydarknet/issues/new
 
 If you would like additional features, open an issue: https://github.com/jed-frey/pydarknet/issues/new
-
-## Ignore
-
-    export PATH=${PATH}:/usr/local/cuda-9.2/bin
-    export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-9.2/lib64
