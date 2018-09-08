@@ -169,7 +169,7 @@ class Classifier(Libdarknet, object):
         for arg, value in kwargs.items():
             print("{}: {}".format(arg,value))
 
-        print("Entering!")
+        print("__enter__")
 
     def __exit__(self, *args, **kwargs):
         for idx, arg in enumerate(args):
@@ -177,7 +177,7 @@ class Classifier(Libdarknet, object):
 
         for arg, value in kwargs.items():
             print("{}: {}".format(arg,value))
-        print("Bye!")
+        print("__exit__")
 from ._version import get_versions
 __version__ = get_versions()['version']
 del get_versions
