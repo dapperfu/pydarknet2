@@ -180,8 +180,6 @@ You can (*should*) check that the libdarknet shared library was built correctly:
 - Use ```all_check.sh``` to check all pydarknet source code.
 - Use ```all_fix.sh``` to lazily fix most issues in all pydarknet source code.
 
-
-
 # Motivation
 
 - I want to do image detection for my 2TB+ of photos I've taken, basically Example/
