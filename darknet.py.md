@@ -19,6 +19,7 @@ Commands:
       build  Build darknet.
       clone  Clone a darknet repository.
 
+### Clone
 
 Clone a darknet repository:
 
@@ -31,6 +32,7 @@ Clone a darknet repository:
                        ~/.darknet]
           --help       Show this message and exit.
 
+### Build
 
 Build the darknet binary and shared library:
 
