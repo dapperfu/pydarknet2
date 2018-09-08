@@ -127,7 +127,7 @@ Darknet compilation options are controlled through flags read by Makefile.
 - Use ```/tmp/darknet``` as the darknet directory.
 - Compile with OpenCV & OpenMP, without GPU. (Because my laptop doesn't have a GPU...)
 
-All of these are functionally equivalent, different ways to do the same thing.
+All of these should be functionally equivalent, different ways to do the same thing.
 
 From the shell:
 
