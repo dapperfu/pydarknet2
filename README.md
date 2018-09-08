@@ -59,6 +59,8 @@ More complete examples & usage in [darknet.py.md](darknet.py.md)
 
 ## Configuration
 
+The default configuration values for ```pydarknet``` can be controlled through environmental variables. This allows you to have multiple darknet installations and builds.
+
 | Env Variable             | Description                            | Default                                              |
 |--------------------------|----------------------------------------|------------------------------------------------------|
 | ```DARKNET_ROOT```       | Root directory for darknet.            | ```~/.darknet```                                     |
@@ -66,7 +68,6 @@ More complete examples & usage in [darknet.py.md](darknet.py.md)
 | ```DARKNET_WEIGHT_DIR``` | Directory for downloaded weights.      | ```${DARKNET_ROOT}/weights```                        |
 | ```DARKNET_WEIGHT_URL``` | Base URL to where to download weights. | ```https://functionalsafety.tech/darknet_weights/``` |
 
-The default configuration values for ```pydarknet``` can be controlled through environmental variables. This allows you to have multiple darknet installations and builds:
 
     DARKNET_ROOT
 
