@@ -66,24 +66,11 @@ The default configuration values for ```pydarknet``` can be controlled through e
 | ```DARKNET_ROOT```       | Root directory for darknet.            | ```~/.darknet```                                     |
 | ```DARKNET_CLONE_URL```  | URL to clone for darknet.              | ```https://github.com/jed-frey/darknet.git```        |
 | ```DARKNET_WEIGHT_DIR``` | Directory for downloaded weights.      | ```${DARKNET_ROOT}/weights```                        |
-| ```DARKNET_WEIGHT_URL``` | Base URL to where to download weights. | ```https://functionalsafety.tech/darknet_weights/``` |
+| ```DARKNET_WEIGHT_URL``` | Base URL to where to download weights. | ```https://functionalsafety.tech/darknet_weights/```** |
 
 
-    DARKNET_ROOT
 
-Root directory for darknet, default: ```~/.darknet```
 
-    DARKNET_CLONE_URL
-
-URL to clone for darknet, default: ```https://github.com/jed-frey/darknet.git``` (relies on some changes to the Makefile)
-
-    DARKNET_WEIGHT_DIR
-
-Directory to the weights, default: DARKNET_ROOT/weights
-
-    DARKNET_WEIGHT_URL
-
-Base URL to where to download weights, default: ```https://pjreddie.com/media/files/```
 
 If you already have ```libdarknet.so``` built and weights downloaded, you can put this in your ```.bashrc``` or however else you like to set environment variables. And skip the **Clone Darknet** and **Build Darknet** sections.
 
