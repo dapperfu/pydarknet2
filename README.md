@@ -90,7 +90,7 @@ Add to ```.bashrc``` or ```.cshrc```, respectively, to make it permanently.
 - Use ```/tmp/darknet``` as the darknet directory.
 - Use ```https://github.com/jed-frey/darknet.git``` [default] as repo URL.
 
-All of these are functionally equivalent, different ways to do the same thing.
+All of these should be functionally equivalent, different ways to do the same thing.
 
 Using ```darknet.py``` entry point, using Click options.
 
