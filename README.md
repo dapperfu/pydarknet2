@@ -179,7 +179,7 @@ You can [should] check that the libdarknet shared library was built correctly:
 - I want to do image detection for my 2TB+ of photos I've taken, basically Example/
 - Darknet provided the best 'batteries included' tutorial, with weights.
 - The Python examples were Python2 and needed some prettification.
-- Need to practice ctypes stuff.
+- Need to practice ctypes stuff.;
 
 # Issues
 
