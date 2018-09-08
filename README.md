@@ -166,11 +166,6 @@ You can [should] check that the libdarknet shared library was built correctly:
     ...
 
 
-## Using libdarknet
-
-
-
-
 # Development.
 
 - Use ```check.sh``` to check any source code.
