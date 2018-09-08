@@ -68,7 +68,6 @@ The default configuration values for ```pydarknet``` can be controlled through e
 | ```DARKNET_WEIGHT_DIR``` | Directory for downloaded weights.      | ```${DARKNET_ROOT}/weights```                        |
 | ```DARKNET_WEIGHT_URL``` | Base URL to where to download weights. | ```https://functionalsafety.tech/darknet_weights/```** |
 
-
 \*\*. Mirror of ```https://pjreddie.com/media/files/```, to avoid stealing all the bandwidths.
 
 
