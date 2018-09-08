@@ -71,10 +71,16 @@ The default configuration values for ```pydarknet``` can be controlled through e
 \*\*. Mirror of ```https://pjreddie.com/media/files/```, to avoid stealing all the bandwidths.
 
 
-If you have darknet already built and weights downloaded, you can set environmental variables to use it instead:
+If you have darknet already built and weights downloaded, you can set environmental variables to use it instead.
+
+Bourne Shells
 
     export DARKNET_ROOT=/opt/darknet
     export DARKNET_WEIGHT_DIR=/opt/myweights/
+
+C shells:
+
+    setenv DARKNET_ROOT /opt/darknet
 
 ## Clone Darknet.
 
