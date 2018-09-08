@@ -92,7 +92,7 @@ Add to ```.bashrc``` or ```.cshrc```, respectively, to make it permanently.
 
 All of these should be functionally equivalent, different ways to do the same thing.
 
-Using ```darknet.py``` entry point, using Click options.
+Using ```darknet.py``` command line tool using flags:
 
     $ darknet.py darknet clone --root=/tmp/darknet --url=https://github.com/jed-frey/darknet.git
 
