@@ -69,7 +69,7 @@ The default configuration values for ```pydarknet``` can be controlled through e
 | ```DARKNET_WEIGHT_URL``` | Base URL to where to download weights. | ```https://functionalsafety.tech/darknet_weights/```** |
 
 
-
+\*\*.
 
 
 If you already have ```libdarknet.so``` built and weights downloaded, you can put this in your ```.bashrc``` or however else you like to set environment variables. And skip the **Clone Darknet** and **Build Darknet** sections.
