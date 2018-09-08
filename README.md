@@ -83,6 +83,8 @@ C shells:
     setenv DARKNET_ROOT /opt/darknet
     setenv DARKNET_WEIGHT_DIR /opt/myweights/
 
+Add to ```.bashrc``` or ```.cshrc``` to make it effective permanently.
+
 ## Clone Darknet.
 
 - Use ```/tmp/darknet``` as the darknet directory.
