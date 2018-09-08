@@ -73,7 +73,7 @@ The default configuration values for ```pydarknet``` can be controlled through e
 
 If you have darknet already built and weights downloaded, you can set environmental variables to use it instead.
 
-Bourne Shells
+Bourne Shells:
 
     export DARKNET_ROOT=/opt/darknet
     export DARKNET_WEIGHT_DIR=/opt/myweights/
@@ -85,7 +85,7 @@ C shells:
 
 Add to ```.bashrc``` or ```.cshrc```, respectively, to make it permanently.
 
-## Clone Darknet.
+## Cloning Darknet.
 
 - Use ```/tmp/darknet``` as the darknet directory.
 - Use ```https://github.com/jed-frey/darknet.git``` [default] as repo URL.
