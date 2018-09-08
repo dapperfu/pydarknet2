@@ -32,27 +32,39 @@ For development, using the examples, running tests, etc:
 	jupyter notebook
 
 
-
-
 # ```darknet.py``` Usage
 
 ```pydarknet``` includes a command line entry point to control darknet's source & weights. It is built with [Click](http://click.pocoo.org/) and should be fairly easy to use for those familiar with the command line.
 
 ```
-$ darknet.py darknet --help
-Usage: darknet.py darknet [OPTIONS] COMMAND [ARGS]...
+$ darknet.py 
+Usage: darknet.py [OPTIONS] COMMAND [ARGS]...
 
-  Manage local darknet folder.
+  ```pydarknet2``` command line interface entry point.
+
+  darknet.py is a utility for interacting with pydarknet from the command
+  line.
 
 Options:
-  --help  Show this message and exit.
+  --version  Show the version and exit.
+  --help     Show this message and exit.
 
 Commands:
-  build  Build darknet.
-  clone  Clone a darknet repository.
+  darknet  Manage darknet folder.
+  detect   Detect objects in an image.
+  weights  Manage darknet weights.
 ```
 
+More complete examples & usage in [darknet.py.md](darknet.py.md)
+
 ## Configuration
+
+| Env Variable             | Description                            | Default                                              |
+|--------------------------|----------------------------------------|------------------------------------------------------|
+| ```DARKNET_ROOT```       | Root directory for darknet.            | ```~/.darknet```                                     |
+| ```DARKNET_CLONE_URL```  | URL to clone for darknet.              | ```https://github.com/jed-frey/darknet.git```        |
+| ```DARKNET_WEIGHT_DIR``` | Directory for downloaded weights.      | ```${DARKNET_ROOT}/weights```                        |
+| ```DARKNET_WEIGHT_URL``` | Base URL to where to download weights. | ```https://functionalsafety.tech/darknet_weights/``` |
 
 The default configuration values for ```pydarknet``` can be controlled through environmental variables. This allows you to have multiple darknet installations and builds:
 

@@ -88,6 +88,17 @@ class Classifier(Libdarknet, object):
         print("...Done")
         return n
 
+    def load(self, cfg_path=None, weights_path=None, metadata_path=None):
+        """Explicitly load the network with a function call."""
+        if cfg_path is not None:
+            self.cfg_path=cfg_path
+        if weights_path is not None:
+            self.weights_path=weights_path
+        if metadata_path is not None:
+            self.metadata_path = metadata_path
+        _ = self.metadata
+        _ = self.network
+
     def detect(self, image, nms=0.5):
         """Detect objects in image.
 
@@ -150,6 +161,22 @@ class Classifier(Libdarknet, object):
             self.metadata_path, self.cfg_path, self.weights_path
         )
 
+    def __enter__(self, *args, **kwargs):
+        for idx, arg in enumerate(args):
+            print("{}: {}".format(idx,arg))
+
+        for arg, value in kwargs.items():
+            print("{}: {}".format(arg,value))
+
+        print("Entering!")
+
+    def __exit__(self, *args, **kwargs):
+        for idx, arg in enumerate(args):
+            print("{}: {}".format(idx,arg))
+
+        for arg, value in kwargs.items():
+            print("{}: {}".format(arg,value))
+        print("Bye!")
 from ._version import get_versions
 __version__ = get_versions()['version']
 del get_versions

@@ -101,7 +101,7 @@ def weights():
 def list_weights(
     root=config["darknet"]["root"], weights=config["darknet"]["weight_dir"]
 ):
-    """List weights in weights directory."""
+    """List weights available in weights directory."""
     darknet = pydarknet2.Darknet(root=root, weight_dir=weights)
     for weight in darknet.weights:
         print(weight)
@@ -125,12 +125,17 @@ def list_weights(
 def available(
     root=config["darknet"]["root"], weight_url=config["weights"]["url_root"]
 ):
-    """Display a list of available weights."""
+    """Display a list pretrained weights available for download"""
     darknet = pydarknet2.darknet.Darknet(root=root)
+
+    print("# Available pretrained weights.")
+    print("# Download with: darknet.py weights download [weight]")
+
     for cfg in darknet.cfgs:
         basename = ".".join(os.path.basename(cfg).split(".")[0:-1])
         alive = url_is_alive(weight_url + basename + ".weights")
-        print("{}: {}".format(basename, alive))
+        if alive:
+            print("{} # Download cmd: darknet.py weights download {}".format(basename, basename))
 
 
 @weights.command("download")
@@ -179,3 +184,42 @@ def download(
         os.makedirs(weights)
     print("# Copy and paste this. Still manumatic")
     print("curl --referer {} --progress-bar --location --output {} {}".format(referer, weight_file, url))
+
+
+@cli.command("detect")
+@click.option(
+    "--data",
+    metavar="data",
+    default="cfg/coco.data",
+    help="Network data file. [Default: {}]".format(
+        "cfg/coco.data"),
+)
+@click.option(
+    "--config",
+    metavar="config",
+    default="cfg/yolov3.cfg",
+    help="Network config file. [Default: {}]".format(
+        "cfg/yolov3.cfg"),
+)
+@click.option(
+    "--weights",
+    metavar="weights",
+    default="weights/yolov3.weights",
+    help="Weight file. [Default: {}]".format(
+        "weights/yolov3.weights"),
+)
+@click.argument("image_path")
+def detect(data, config, weights, image_path):
+    """Detect objects in an image.
+
+    Detect objects in an image. All relative paths are relative to the
+    darknet directory.
+
+    Example
+    -------
+    $ darknet.py detect "data/dog.jpg"
+    """
+    # darknet.py detect  "cfg/yolov3.cfg" "weights/yolov3.weights" "data/dog.jpg"
+    classifier = pydarknet2.Classifier(data, config, weights)
+    dets = classifier.detect(image_path)
+    print(dets)
