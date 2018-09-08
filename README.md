@@ -167,12 +167,11 @@ You can (*should*) check that the libdarknet shared library was built correctly:
 
 # Example Notebooks
 
-- [00_DetectionStart](Examples/00_DetectionStart.ipynb): Pièce de résistance. The whole point.
+- [00_DetectionStart](Examples/00_DetectionStart.ipynb): Pièce de résistance. The whole point of this.
 - [01_DetectExamples](Examples/01_DetectExamples.ipynb): Detect objects images opened with PIL, imageio and OpenCV.
 - [02_DetectionBatch](Examples/02_DetectionBatch.ipynb): Batch detection of all ```.jpg``` files included in the darknet data directory.
 - [10_PythonImageLoadingExamples](Examples/10_PythonImageLoadingExamples.ipynb): Behind the scenes look at how PIL, imageio and OpenCV store image data and converting it to a usable form for darknet.
 - [90_CloneNBuild](Examples/90_CloneNBuild.ipynb): Clone and Build darknet from within Jupyter Notebooks.
-
 
 
 # Development.
