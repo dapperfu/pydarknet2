@@ -161,6 +161,7 @@ class Classifier(Libdarknet, object):
             self.metadata_path, self.cfg_path, self.weights_path
         )
 
+    # TODO: Allow with:
     def __enter__(self, *args, **kwargs):
         for idx, arg in enumerate(args):
             print("{}: {}".format(idx,arg))
