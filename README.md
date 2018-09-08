@@ -156,7 +156,7 @@ From within Python:
     >>> dn.build(opencv=True, openmp=True)
     >>> assert dn.exists
 
-You can [should] check that the libdarknet shared library was built correctly:
+You can (*should*) check that the libdarknet shared library was built correctly:
 
     $ ldd libdarknet.so | grep -i openmp
         libopenmpt.so.0 => /usr/lib/x86_64-linux-gnu/libopenmpt.so.0 (0x00007f8946ba4000)
@@ -164,6 +164,15 @@ You can [should] check that the libdarknet shared library was built correctly:
     $ ldd libdarknet.so | grep -i opencv
         libopencv_highgui.so.3.2 => /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.3.2 (0x00007f482292e000)
     ...
+
+# Example Notebooks
+
+- [00_DetectionStart](Examples/00_DetectionStart.ipynb): 
+- [01_DetectExamples](Examples/01_DetectExamples.ipynb):  
+- [02_DetectionBatch](Examples/02_DetectionBatch.ipynb): Batch detection of all ```.jpg``` files included in the darknet data directory.
+- [10_PythonImageLoadingExamples](Examples/10_PythonImageLoadingExamples.ipynb): Behind the scenes look at how PIL, imageio and OpenCV store image data and converting it to a usable form for darknet.
+- [90_CloneNBuild](Examples/90_CloneNBuild.ipynb): Clone and Build darknet from within Jupyter Notebooks.
+
 
 
 # Development.
