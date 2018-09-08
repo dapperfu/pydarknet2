@@ -196,8 +196,6 @@ If it *doesn't* work, open an issue: https://github.com/jed-frey/pydarknet/issue
 
 If you would like additional features, open an issue: https://github.com/jed-frey/pydarknet/issues/new
 
-
-
 ## Ignore
 
     export PATH=${PATH}:/usr/local/cuda-9.2/bin
