@@ -81,6 +81,7 @@ Bourne Shells
 C shells:
 
     setenv DARKNET_ROOT /opt/darknet
+    setenv DARKNET_WEIGHT_DIR /opt/myweights/
 
 ## Clone Darknet.
 
