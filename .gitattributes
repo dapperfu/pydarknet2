@@ -1,1 +1,2 @@
 pydarknet/_version.py export-subst
+pydarknet2/_version.py export-subst

@@ -5,6 +5,7 @@ Low level module for interacting with ```libdarknet.so``` static library.
 
 
 
+
 Every module should have a docstring at the very top of the file.  The
 module's docstring may extend over multiple lines.  If your docstring does
 extend over multiple lines, the closing three quotation marks must be on
@@ -48,7 +49,7 @@ class Libdarknet(object):
     # Copyright (c) 2018, Jed Frey.
     """
 
-    def __init__(self, root=None, weight_dir=None):
+    def __init__(self, root=None, weight_dir=None, shared_lib="libdarknet.so"):
         r"""Initialize a libdarknet object.
 
         Parameters
@@ -73,10 +74,12 @@ class Libdarknet(object):
         self.root = os.path.abspath(root)
         self.weight_dir = os.path.abspath(weight_dir)
 
+        self.shared_lib = shared_lib
+
     @property
     def _lib(self):
         """Return path to the darknet shared library."""
-        return os.path.abspath(os.path.join(self.root, "libdarknet.so"))
+        return os.path.abspath(os.path.join(self.root, self.shared_library))
 
     @property
     def exists(self):
