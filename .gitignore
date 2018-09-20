@@ -11,3 +11,5 @@ Untitled*.ipynb
 Scratch*.ipynb
 
 .env-*
+
+.tox/

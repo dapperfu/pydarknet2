@@ -13,11 +13,11 @@ scikit-image
 numpy
 
 # TODO: Remove, these are really just for development.
-autopep8
-black
-isort
-pycodestyle
-pydocstyle
+# autopep8
+# black
+# isort
+# pycodestyle
+# pydocstyle
 
 pytest
 
