@@ -79,7 +79,12 @@ def build(gpu, cudnn, opencv, openmp, force, root):
 
 @cli.group("weights")
 def weights():
-    """Manage darknet weights."""
+    """Manage darknet weights.
+
+    Download all:
+        darknet.py weights available | cut -f1 -d"#" | xargs -n1 -P8 darknet.py weights download
+
+    """
 
 
 @weights.command("list")
