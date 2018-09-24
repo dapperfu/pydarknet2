@@ -135,8 +135,6 @@ class Darknet(object):
             "git",
             "clone",
             "--recurse-submodules",
-            "--jobs",
-            "8",
             "--depth",
             "1",
             clone_url,
