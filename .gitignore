@@ -13,3 +13,5 @@ Scratch*.ipynb
 .env-*
 
 .tox/
+
+_pydarknet2/

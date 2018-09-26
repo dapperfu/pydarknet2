@@ -1,5 +1,5 @@
 # Config
-VENV?=venv
+VENV:=_pydarknet2
 
 
 # Environments to setup for this project
