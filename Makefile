@@ -1,6 +1,5 @@
 # Config
-VENV?=venv
-
+VENV?=.
 
 # Environments to setup for this project
 # Available options: python arduino
