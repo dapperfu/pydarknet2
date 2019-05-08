@@ -28,3 +28,5 @@ pytest
 #16.04 18.04: python3
 #16.04 18.04: python3-venv
 #16.04 18.04: python3-dev
+
+#git+https://github.com/jed-frey/jupyter_NotebookCleaners.git#egg=notebookcleaner
