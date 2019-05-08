@@ -10,8 +10,7 @@ import os
 """Default values."""
 default_darknet_root = os.path.expanduser(os.path.join("~", ".darknet"))
 default_darknet_clone_url = "https://github.com/jed-frey/darknet.git"
-# default_darknet_weight_url = "https://pjreddie.com/media/files/" #
-default_darknet_weight_url = "https://functionalsafety.tech/darknet_weights/"
+default_darknet_weight_url = "http://lowbrow.exstatic.org/darknet_weights/"
 
 # Create new config parser.
 config = configparser.ConfigParser()

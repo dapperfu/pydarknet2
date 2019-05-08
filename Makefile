@@ -1,6 +1,5 @@
 # Config
-VENV:=_pydarknet2
-
+VENV?=.
 
 # Environments to setup for this project
 # Available options: python arduino

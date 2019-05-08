@@ -18,4 +18,4 @@
 #   ./pyg.sh 'app\.' # Find every time "app." is used.
 #   ./pyg.sh 'app' | grep -v "app\." # Find everywhere 'app' appears without "app."
 
-find pydarknet -name "*.py" | xargs grep "${1}"
+find pydarknet2 -name "*.py" | xargs grep "${1}"
