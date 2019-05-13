@@ -4,7 +4,7 @@ pipeline {
     stage('Clean') {
       steps {
         script {
-            properties([pipelineTriggers([pollSCM('')])])
+            properties([pipelineTriggers([pollSCM('H/5 * * * *')])])
         }
         sh 'make clean'
       }
