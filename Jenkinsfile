@@ -42,7 +42,7 @@ pipeline {
     }
     stage('Darknet Build') {
       steps {
-        sh 'export DARKNET_ROOT=`pwd`/darknet;rm -rf ${DARKNET_ROOT};bin/darknet.py darknet build --force'
+        sh 'export DARKNET_ROOT=`pwd`/darknet;bin/darknet.py darknet build --force'
       }
     }
   }
