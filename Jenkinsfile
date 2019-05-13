@@ -45,5 +45,10 @@ pipeline {
         sh 'export DARKNET_ROOT=`pwd`/darknet;bin/darknet.py darknet build --force'
       }
     }
+    stage('Darknet Build+GPU') {
+      steps {
+        sh 'export DARKNET_ROOT=`pwd`/darknet;bin/darknet.py darknet build --force --gpu'
+      }
+    }
   }
 }
