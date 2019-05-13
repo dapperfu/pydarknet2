@@ -1,7 +1,6 @@
-# pydarknet
+# pydarknet2
 
-pydarknet is a Python module for [Darknet, an open source neural network framework written in C and CUDA. It is fast, easy to install, and supports CPU and GPU computation](https://pjreddie.com/darknet/).
-
+pydarknet2 is a Python module for [Darknet, an open source neural network framework written in C and CUDA. It is fast, easy to install, and supports CPU and GPU computation](https://pjreddie.com/darknet/).
 
 # Installation
 
@@ -39,7 +38,7 @@ For development, using the examples, running tests, etc:
 $ darknet.py
 Usage: darknet.py [OPTIONS] COMMAND [ARGS]...
 
-  ```pydarknet2``` command line interface entry point.
+  ```darknet.py``` command line interface entry point.
 
   darknet.py is a utility for interacting with pydarknet from the command
   line.

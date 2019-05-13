@@ -17,7 +17,7 @@ from .utils import url_is_alive
 @click.group()
 @click.version_option()
 def cli():
-    """```pydarknet2``` command line interface entry point.
+    """pydarknet2 command line interface entry point.
 
     darknet.py is a utility for interacting with pydarknet from the
     command line.
@@ -222,6 +222,7 @@ def detect(data, config, weights, image_path):
 
     Example
     -------
+
     $ darknet.py detect "data/dog.jpg"
     """
     # darknet.py detect  "cfg/yolov3.cfg" "weights/yolov3.weights" "data/dog.jpg"
