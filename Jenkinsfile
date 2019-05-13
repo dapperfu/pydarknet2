@@ -20,4 +20,7 @@ pipeline {
       }
     }
   }
+  environment {
+    DARKNET_FORCE = '1'
+  }
 }
