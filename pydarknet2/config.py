@@ -11,6 +11,7 @@ import os
 default_darknet_root = os.path.expanduser(os.path.join("~", ".darknet"))
 default_darknet_clone_url = "https://github.com/jed-frey/darknet.git"
 default_darknet_weight_url = "http://lowbrow.exstatic.org/darknet_weights/"
+default_force= False
 
 # Create new config parser.
 config = configparser.ConfigParser()
@@ -29,6 +30,9 @@ config["darknet"]["clone_url"] = os.environ.get(
 default_darknet_weight_dir = os.path.join(config["darknet"]["root"], "weights")
 config["darknet"]["weight_dir"] = os.environ.get(
     key="DARKNET_WEIGHT_DIR", default=default_darknet_weight_dir
+)
+config["darknet"]["FORCE"] = os.environ.get(
+    key="DARKNET_FORCE", default=default_force
 )
 config["weights"]["url_root"] = os.environ.get(
     key="DARKNET_WEIGHT_URL", default=default_darknet_weight_url

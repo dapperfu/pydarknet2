@@ -10,8 +10,6 @@ share/
 **/.ipynb_checkpoints/*
 **/__pycache__/*
 **/*.egg-info/*
-**/.venv/*
-**/venv/*
 **/.pytest_cache/*
 **/dist/*
 
@@ -21,5 +19,3 @@ Scratch*.ipynb
 .env-*
 
 .tox/
-
-_pydarknet2/
