@@ -27,12 +27,17 @@ pipeline {
             sh 'bin/python --version'
           }
         }
-        stage('build') {
+        stage('Darknet') {
           steps {
             sh 'bin/python setup.py build'
-            sh 'bin/python setup.py install'
+            sh 'bin/python setup.py develop'
           }
         }
+      }
+    }
+    stage('Darknet') {
+      steps {
+        sh 'export DARKNET_ROOT=`pwd`/darknet;bin/darknet.py darknet clone'
       }
     }
   }
