@@ -37,7 +37,7 @@ pipeline {
     }
     stage('Darknet') {
       steps {
-        sh 'export DARKNET_ROOT=`pwd`/darknet;bin/darknet.py darknet clone'
+        sh 'export DARKNET_ROOT=`pwd`/darknet;rm -rf ${DARKNET_ROOT};bin/darknet.py darknet clone'
       }
     }
   }
