@@ -59,12 +59,12 @@ More complete examples & usage in [darknet.py.md](darknet.py.md)
 
 The default configuration values for ```pydarknet``` can be controlled through environmental variables. This allows you to have multiple darknet installations and builds.
 
-| Env Variable             | Description                            | Default                                              |
-|--------------------------|----------------------------------------|------------------------------------------------------|
-| ```DARKNET_ROOT```       | Root directory for darknet.            | ```~/.darknet```                                     |
-| ```DARKNET_CLONE_URL```  | URL to clone for darknet.              | ```https://github.com/jed-frey/darknet.git```        |
-| ```DARKNET_WEIGHT_DIR``` | Directory for downloaded weights.      | ```${DARKNET_ROOT}/weights```                        |
-| ```DARKNET_WEIGHT_URL``` | Base URL to where to download weights. | ```https://functionalsafety.tech/darknet_weights/```** |
+| Env Variable             | Description                            | Default                                             |
+|--------------------------|----------------------------------------|-----------------------------------------------------|
+| ```DARKNET_ROOT```       | Root directory for darknet.            | ```~/.darknet```                                    |
+| ```DARKNET_CLONE_URL```  | URL to clone for darknet.              | ```https://github.com/jed-frey/darknet.git```       |
+| ```DARKNET_WEIGHT_DIR``` | Directory for downloaded weights.      | ```${DARKNET_ROOT}/weights```                       |
+| ```DARKNET_WEIGHT_URL``` | Base URL to where to download weights. | ```https://lowbrow.exstatic.or/darknet_weights/```**|
 
 \*\*. Mirror of ```https://pjreddie.com/media/files/```, to avoid stealing all the bandwidths.
 
