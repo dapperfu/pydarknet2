@@ -9,7 +9,6 @@ pipeline {
         stage('Submodules') {
           steps {
             sh 'git submodule update --init; git submodule foreach "git submodule update --init"'
-            sh 'make env.python'
           }
         }
         stage('Bootstrap Python') {
