@@ -19,5 +19,22 @@ pipeline {
         }
       }
     }
+    stage('Python') {
+      parallel {
+        stage('Build') {
+          steps {
+            sh './bin/python setup.py build'
+          }
+        }
+        stage('Install') {
+          steps {
+            sh './bin/python setup.py install'
+          }
+        }
+      }
+    }
+  }
+  environment {
+    DARKNET_FORCE = '1'
   }
 }
