@@ -15,12 +15,14 @@ pipeline {
         sh 'git submodule update --init'
       }
     }
-    stage('') {
+    stage('Python Environment') {
       steps {
-        ws(dir: 'MahWorkspace') {
-          sh 'pwd'
-        }
-
+        sh 'make env.python'
+      }
+    }
+    stage('Python Run') {
+      steps {
+        sh 'bin/python --version'
       }
     }
   }
