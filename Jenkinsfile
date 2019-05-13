@@ -20,9 +20,19 @@ pipeline {
         sh 'make env.python'
       }
     }
-    stage('Python Run') {
-      steps {
-        sh 'bin/python --version'
+    stage('Python') {
+      parallel {
+        stage('version') {
+          steps {
+            sh 'bin/python --version'
+          }
+        }
+        stage('build') {
+          steps {
+            sh 'bin/python setup.py build'
+            sh 'bin/python setup.py install'
+          }
+        }
       }
     }
   }
