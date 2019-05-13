@@ -14,12 +14,12 @@ Directly through ```pip```, in a virtual environment:
 
 For development, using the examples, running tests, etc:
 
-    git clone --recurse-submodules --jobs=8 https://github.com/jed-frey/pydarknet2.git
+    git clone --recurse-submodules https://github.com/jed-frey/pydarknet2.git
     cd pydarknet2
     make env # Create a local virtual environment.
-    source venv/bin/activate # Activate the virtual environment.
-    python3 setup.py build
-    python3 setup.py develop
+    source bin/activate # Activate the virtual environment.
+    python setup.py build
+    python setup.py develop
 
 	#
 	darknet.py darknet clone
@@ -175,6 +175,7 @@ You can (*should*) check that the libdarknet shared library was built correctly:
 
 # Development.
 
+[Scripts moved 
 - Use ```check.sh``` to check any source code.
 - Use ```fix.sh``` to lazily fix most issues
 - Use ```all_check.sh``` to check all pydarknet source code.
