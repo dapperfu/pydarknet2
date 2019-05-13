@@ -2,21 +2,19 @@ pipeline {
   agent any
   stages {
     stage('Setup') {
-      environment {
-        FOO = 'BAR'
+    environment {
+      FOO = 'BAR'
+    }
+    stage('Submodules') {
+        steps {
+          sh 'git submodule update --init; git submodule foreach "git submodule update --init"'
+          sh 'make clean'
+        }
       }
-      parallel {
-        stage('Submodules') {
-          steps {
-            sh 'git submodule update --init; git submodule foreach "git submodule update --init"'
-            sh 'make clean'
-          }
-        }
-        stage('Bootstrap Python') {
-          steps {
-            sh 'make env.python'
-          }
-        }
+    }
+    stage('Build') {
+      steps {
+        sh 'make env'
       }
     }
     stage('Build') {
