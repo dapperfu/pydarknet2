@@ -9,6 +9,7 @@ pipeline {
         stage('Submodules') {
           steps {
             sh 'git submodule update --init; git submodule foreach "git submodule update --init"'
+            sh 'make clean'
           }
         }
         stage('Bootstrap Python') {
@@ -18,18 +19,10 @@ pipeline {
         }
       }
     }
-    stage('Python') {
-      parallel {
-        stage('Build') {
-          steps {
-            sh './bin/python setup.py build'
-          }
-        }
-        stage('Install') {
-          steps {
-            sh './bin/python setup.py install'
-          }
-        }
+    stage('Build') {
+      steps {
+        sh './bin/python setup.py build'
+        sh './bin/python setup.py install'
       }
     }
   }
