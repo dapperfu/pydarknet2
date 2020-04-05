@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-# coding: utf-8
-
 import glob
 import os
 import sys
@@ -10,6 +8,7 @@ import imageio
 import PIL.Image
 
 import pydarknet2
+
 
 def benchmark_classifier(shared_lib):
     classifier = pydarknet2.Classifier(
@@ -39,9 +38,7 @@ def benchmark_wrapper(shared_lib):
     shared_lib_ = os.path.basename(shared_lib)
     load_time, identify_time = benchmark_classifier(shared_lib=shared_lib)
     try:
-        _, compiler, version, opencv, openmp, gpu = shared_lib_.split(".")[0].split(
-        "-"
-    )
+        _, compiler, version, opencv, openmp, gpu = shared_lib_.split(".")[0].split("-")
     except:
         compiler, version, opencv, openmp, gpu = "0", "0", "0", "0", "0"
 
@@ -58,9 +55,9 @@ def benchmark_wrapper(shared_lib):
         ]
         print(",".join(result_list), file=fid)
 
+
 if __name__ == "__main__":
     darknet_root = "/tmp/darknet"
     shared_libs = glob.glob(os.path.join(darknet_root, "libdarknet-*-0.so"))
     for shared_lib in shared_libs:
         benchmark_wrapper(shared_lib)
-

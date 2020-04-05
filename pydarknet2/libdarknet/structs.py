@@ -1,18 +1,16 @@
-# -*- coding: utf-8 -*-
 """Darknet ctypes structure typedefs."""
-
 import ctypes
 
 import numpy as np
 import PIL.Image
 
 
-class BaseMixin(object):
+class BaseMixin:
     """Mixin for __repr__."""
 
     def __repr__(self):
         """Mixin __repr__."""
-        return "{}<>".format(self.__class__.__name__)
+        return f"{self.__class__.__name__}<>"
 
 
 class ArgumentArgs(ctypes.Structure, BaseMixin):
@@ -57,9 +55,7 @@ class Image(ctypes.Structure):
 
     def __repr__(self):
         """Return the size of the image."""
-        return "{}<{}x{}x{}>".format(
-            self.__class__.__name__, self.w, self.h, self.c
-        )
+        return f"{self.__class__.__name__}<{self.w}x{self.h}x{self.c}>"
 
     def __len__(self):
         """Return the length of the float array."""
@@ -68,7 +64,7 @@ class Image(ctypes.Structure):
     def asarray(self):
         """Return the image object as a numpy array."""
         # Pull all of the data out of the float 'into' a Python object.
-        data = self.float[0:len(self)]
+        data = self.float[0 : len(self)]
         # Multiply by 255 and change datatype.
         data_ = np.multiply(data, 255).astype(dtype=np.uint8)
         # Reshape the array into something.
@@ -138,7 +134,7 @@ class Detection(ctypes.Structure, BaseMixin):
 
     def __repr__(self):
         """__repr__function."""
-        return "Detection<{}, {:.2f}>".format(self.bbox, self.objectness)
+        return f"Detection<{self.bbox}, {self.objectness:.2f}>"
 
 
 class Matrix(ctypes.Structure, BaseMixin):
@@ -212,7 +208,7 @@ class Tree(ctypes.Structure):
 
     def __repr__(self):
         """__repr__ function."""
-        return "Tree<{}, {}>".format(self.n, self.groups)
+        return f"Tree<{self.n}, {self.groups}>"
 
 
 class Metadata(ctypes.Structure):

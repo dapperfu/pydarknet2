@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """darknet module.
 
 This is the docstring for the example.py module.  Modules names should
@@ -11,7 +10,6 @@ extend over multiple lines, the closing three quotation marks must be on
 a line by itself, preferably preceded by a blank line.
 
 """
-
 import glob
 import os
 import subprocess
@@ -19,10 +17,11 @@ import time
 
 from ..config import config
 from ..utils import chroot
-from .exceptions import BuildException, CloneException
+from .exceptions import BuildException
+from .exceptions import CloneException
 
 
-class Darknet(object):
+class Darknet:
     """Class for the darknet source directory."""
 
     def __init__(self, root=None, weight_dir=None):
@@ -118,16 +117,15 @@ class Darknet(object):
             clone_url = config["darknet"]["clone_url"]
 
         if os.path.isdir(self.root) and not force:
-            raise CloneException(
-                "{} already exists. Not forcing clone.".format(self.root)
-            )
+            raise CloneException(f"{self.root} already exists. Not forcing clone.")
 
         if os.path.isdir(self.root) and force:
             import shutil
+
             try:
                 shutil.rmtree(self.root)
             except FileNotFoundError:
-                pass # yeah.
+                pass  # yeah.
             except:
                 raise
 
@@ -141,7 +139,7 @@ class Darknet(object):
             self.root,
         ]
         print("Starting clone ...", end="")
-        self._clone_log=subprocess.check_output(cmd)
+        self._clone_log = subprocess.check_output(cmd)
         print("... Done")
         return None
 
@@ -181,10 +179,12 @@ class Darknet(object):
 
         # venvs do things.
         if kwargs["gpu"]:
-            os.environ["PATH"] = os.environ["PATH"]+os.pathsep+"/usr/local/cuda/bin"
+            os.environ["PATH"] = os.environ["PATH"] + os.pathsep + "/usr/local/cuda/bin"
         if kwargs["cudnn"]:
             if "LD_LIBRARY_PATH" in os.environ:
-                os.environ["LD_LIBRARY_PATH"] = os.environ["LD_LIBRARY_PATH"]+os.pathsep+"/usr/local/cuda/lib64"
+                os.environ["LD_LIBRARY_PATH"] = (
+                    os.environ["LD_LIBRARY_PATH"] + os.pathsep + "/usr/local/cuda/lib64"
+                )
             else:
                 os.environ["LD_LIBRARY_PATH"] = "/usr/local/cuda/lib64"
 
@@ -204,7 +204,7 @@ class Darknet(object):
         # Assert that the binary was built.
         assert os.path.exists(self.exe)
         # Return the output as a string.
-        self._clone_log=out.decode("UTF-8")
+        self._clone_log = out.decode("UTF-8")
         return None
 
     @property
@@ -234,7 +234,7 @@ class Darknet(object):
         )
 
 
-class Incantation(object):
+class Incantation:
     """Incantation pair.
 
     Conjure magic with a configuration and pretrained weights.
@@ -245,13 +245,9 @@ class Incantation(object):
         assert os.path.exists(weights)
 
         self.name = os.path.splitext(os.path.basename(self.weights))[0]
-        self.root = os.path.abspath(
-            os.path.join(os.path.dirname(weights), "..")
-        )
+        self.root = os.path.abspath(os.path.join(os.path.dirname(weights), ".."))
         if cfg is None:
-            self.cfg = os.path.join(
-                self.root, "cfg", "{}.cfg".format(self.name)
-            )
+            self.cfg = os.path.join(self.root, "cfg", f"{self.name}.cfg")
         else:
             self.cfg = cfg
 
@@ -259,7 +255,7 @@ class Incantation(object):
 
     def __repr__(self):
         """Representation of Incantation."""
-        return "Incantation<spell={}, {}>".format(self.name, self.darknet)
+        return f"Incantation<spell={self.name}, {self.darknet}>"
 
     def cast(self, image):
         """Cast an image detection spell using the incantation."""

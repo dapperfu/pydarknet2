@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """pydarknet: summon darknet from Python.
 
 This is the docstring for the example.py module.  Modules names should
@@ -11,14 +10,14 @@ extend over multiple lines, the closing three quotation marks must be on
 a line by itself, preferably preceded by a blank line.
 
 """
-
 import sys
 
 import numpy as np
 from cached_property import cached_property
 
 from ._version import get_versions
-from .classes import ClassifiedImage, Detections
+from .classes import ClassifiedImage
+from .classes import Detections
 from .darknet import Darknet
 from .libdarknet import Libdarknet
 from .libdarknet.structs import Image
@@ -32,7 +31,7 @@ if sys.version_info[0] < 3:
     raise Exception("Python2. No. https://pythonclock.org/")
 
 
-class Classifier(Libdarknet, object):
+class Classifier(Libdarknet):
     """High level wrapper for detecting objects in an image.
 
     Abstraction layer on top of ```Libdarknet``` object to classify
@@ -91,9 +90,9 @@ class Classifier(Libdarknet, object):
     def load(self, cfg_path=None, weights_path=None, metadata_path=None):
         """Explicitly load the network with a function call."""
         if cfg_path is not None:
-            self.cfg_path=cfg_path
+            self.cfg_path = cfg_path
         if weights_path is not None:
-            self.weights_path=weights_path
+            self.weights_path = weights_path
         if metadata_path is not None:
             self.metadata_path = metadata_path
         _ = self.metadata
@@ -149,9 +148,7 @@ class Classifier(Libdarknet, object):
                 if det.prob[i] > 0:
                     # Add it to the list of results.
                     res.append(
-                        ClassifiedImage(
-                            self.metadata.names[i].decode(), det, img
-                        )
+                        ClassifiedImage(self.metadata.names[i].decode(), det, img)
                     )
         return res
 
@@ -164,20 +161,23 @@ class Classifier(Libdarknet, object):
     # TODO: Allow with:
     def __enter__(self, *args, **kwargs):
         for idx, arg in enumerate(args):
-            print("{}: {}".format(idx,arg))
+            print(f"{idx}: {arg}")
 
         for arg, value in kwargs.items():
-            print("{}: {}".format(arg,value))
+            print(f"{arg}: {value}")
 
         print("__enter__")
 
     def __exit__(self, *args, **kwargs):
         for idx, arg in enumerate(args):
-            print("{}: {}".format(idx,arg))
+            print(f"{idx}: {arg}")
 
         for arg, value in kwargs.items():
-            print("{}: {}".format(arg,value))
+            print(f"{arg}: {value}")
         print("__exit__")
+
+
 from ._version import get_versions
-__version__ = get_versions()['version']
+
+__version__ = get_versions()["version"]
 del get_versions

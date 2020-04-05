@@ -1,8 +1,9 @@
-import pytest
-import uuid
-import tempfile
-import socket
 import shutil
+import socket
+import tempfile
+import uuid
+
+import pytest
 
 
 # Figuring out Pytest fixtures, ignore.
@@ -12,11 +13,13 @@ def uuid_session():
     print("Session!")
     yield str(uuid.uuid4())
 
+
 @pytest.fixture(scope="module")
 def uuid_module():
     """UUID with a module scope."""
     print("Module!")
     yield str(uuid.uuid4())
+
 
 @pytest.fixture(scope="function")
 def uuid_function():
@@ -24,23 +27,25 @@ def uuid_function():
     print("Function!")
     yield str(uuid.uuid4())
 
+
 @pytest.fixture(scope="session")
 def darknet_root():
     """Darknet temporary directory."""
-    root = tempfile.mkdtemp(prefix="darknet_", suffix="_"+socket.gethostname())
+    root = tempfile.mkdtemp(prefix="darknet_", suffix="_" + socket.gethostname())
     try:
         shutil.rmtree(root)
     except FileNotFoundError:
-        pass # yeah.
+        pass  # yeah.
     except:
         raise
     yield str(root)
     try:
         shutil.rmtree(root)
     except FileNotFoundError:
-        pass # yeah.
+        pass  # yeah.
     except:
         raise
+
 
 @pytest.fixture(scope="session")
 def clone_url():

@@ -47,7 +47,7 @@ Build the darknet binary and shared library:
       --openmp     Compile with OpenMP support.
       --force      Do it.
       --help       Show this message and exit.
-    
+
 ## weights command group.
 
 *Note:* Default weight URL: https://functionalsafety.tech/darknet_weights/ is a mirror of *.weights available from https://pjreddie.com/media/files/ but hosted so I don't abuse his bandwidth.
@@ -98,7 +98,7 @@ Example usage:
     curl --referer ... yolov3.weights
 
 Generate a download script & run:
- 
+
     $ darknet.py weights download yolov3 >> download.sh
     $ sh download.sh
     ############################################################################## 100.0%
@@ -106,11 +106,10 @@ Generate a download script & run:
 ### List downloaded pretrained weights
 
     $ darknet.py weights list --help
-    
+
     Options:
       --root root        Darknet root directory. [Default:
                          ~/.darknet]
       --weights weights  Darknet weights directory [Default:
                          ~/.darknet/weights]
       --help             Show this message and exit.
-    

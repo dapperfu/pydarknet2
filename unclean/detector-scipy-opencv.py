@@ -2,13 +2,13 @@
 # Instead just add darknet.py to somewhere in your python path
 # OK actually that might not be a great idea, idk, work in progress
 # Use at your own risk. or don't, i don't care
-
 import os
 import sys
 
 import cv2
-import darknet as dn
 from scipy.misc import imread
+
+import darknet as dn
 
 
 def array_to_image(arr):
@@ -22,7 +22,7 @@ def array_to_image(arr):
     return im
 
 
-def detect2(net, meta, image, thresh=.5, hier_thresh=.5, nms=.45):
+def detect2(net, meta, image, thresh=0.5, hier_thresh=0.5, nms=0.45):
     boxes = dn.make_boxes(net)
     probs = dn.make_probs(net)
     num = dn.num_boxes(net)

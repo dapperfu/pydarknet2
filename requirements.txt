@@ -1,16 +1,15 @@
 cached_property
 click
-jupyter
-notebook
-nbconvert
-
-# Image Processing.
-Pillow
 imageio
-scikit-image
+jupyter
+nbconvert
+notebook
 
 # Maths
 numpy
+
+# Image Processing.
+Pillow
 
 # TODO: Remove, these are really just for development.
 # autopep8
@@ -20,6 +19,7 @@ numpy
 # pydocstyle
 
 pytest
+scikit-image
 
 ##
 # Host Environment Requirements

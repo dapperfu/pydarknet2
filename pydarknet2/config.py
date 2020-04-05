@@ -1,16 +1,14 @@
-# -*- coding: utf-8 -*-
 """pydarknet configuration options.
 
 Configuration options for all pydarknet.
 """
-
 import configparser
 import os
 
 """Default values."""
 default_darknet_root = os.path.expanduser(os.path.join("~", ".darknet"))
-default_darknet_clone_url = "https://github.com/jed-frey/darknet.git"
-default_darknet_weight_url = "https://lowbrow.exstatic.org/darknet_weights/"
+default_darknet_clone_url = "https://github.com/dapperfu/darknet.git"
+default_darknet_weight_url = "https://pjreddie.com/media/files/"
 
 # Create new config parser.
 config = configparser.ConfigParser()

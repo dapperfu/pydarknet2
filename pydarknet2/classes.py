@@ -1,13 +1,11 @@
-# -*- coding: utf-8 -*-
 """Custom classes.
 
 Custom classes to abstract away darknet bits.
 """
-
 from cached_property import cached_property
 
 
-class Detections(object):
+class Detections:
     """High level class for all found detected objects.
 
     Attributes
@@ -33,7 +31,7 @@ class Detections(object):
 
     def __repr__(self):
         """Pretty representation."""
-        return "Detections<{}>".format(self.num)
+        return f"Detections<{self.num}>"
 
     def __iter__(self):
         """__iter__ function for using Detections in a loop."""
@@ -54,7 +52,7 @@ class Detections(object):
         return self.detections_ptr[index]
 
 
-class ClassifiedImage(object):
+class ClassifiedImage:
     """High level class for a classified image object.
 
     Attributes
@@ -84,4 +82,4 @@ class ClassifiedImage(object):
 
     def __repr__(self):
         """Return ipython representation."""
-        return "Classified<{}, {}>".format(self.classification, self.crop_box)
+        return f"Classified<{self.classification}, {self.crop_box}>"

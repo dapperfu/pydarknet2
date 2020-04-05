@@ -18,4 +18,3 @@
 """
 
 find pydarknet -name "*.py" | xargs sed -i "s/$1/$2/g"
-

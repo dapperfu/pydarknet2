@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """darknet module.
 
 This is the docstring for the example.py module.  Modules names should
@@ -11,7 +10,6 @@ extend over multiple lines, the closing three quotation marks must be on
 a line by itself, preferably preceded by a blank line.
 
 """
-
 from ._version import get_versions
 
 __version__ = get_versions()["version"]

@@ -2,7 +2,6 @@
 # Instead just add darknet.py to somewhere in your python path
 # OK actually that might not be a great idea, idk, work in progress
 # Use at your own risk. or don't, i don't care
-
 import os
 import pdb
 import sys

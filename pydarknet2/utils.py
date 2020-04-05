@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
 """```pydarknet``` utilities module.
 
 Generic utilities for use in ```pydarknet.```
 """
-
 import ctypes
 import os
 import urllib.request
@@ -19,6 +17,7 @@ def chroot(f):
     changes the current working directory to the Darknet or Libdarknet
     root directory before executing a function.
     """
+
     @wraps(f)
     def wrapper(self, *args, **kwargs):
         """Wrap Function."""

@@ -137,14 +137,12 @@ def classify(net, meta, im):
     return res
 
 
-def detect(net, meta, image, thresh=.5, hier_thresh=.5, nms=.45):
+def detect(net, meta, image, thresh=0.5, hier_thresh=0.5, nms=0.45):
     im = load_image(image, 0, 0)
     num = c_int(0)
     pnum = pointer(num)
     predict_image(net, im)
-    dets = get_network_boxes(
-        net, im.w, im.h, thresh, hier_thresh, None, 0, pnum
-    )
+    dets = get_network_boxes(net, im.w, im.h, thresh, hier_thresh, None, 0, pnum)
     num = pnum[0]
     if nms:
         do_nms_obj(dets, num, meta.classes, nms)
@@ -154,9 +152,7 @@ def detect(net, meta, image, thresh=.5, hier_thresh=.5, nms=.45):
         for i in range(meta.classes):
             if dets[j].prob[i] > 0:
                 b = dets[j].bbox
-                res.append(
-                    (meta.names[i], dets[j].prob[i], (b.x, b.y, b.w, b.h))
-                )
+                res.append((meta.names[i], dets[j].prob[i], (b.x, b.y, b.w, b.h)))
     res = sorted(res, key=lambda x: -x[1])
     free_image(im)
     free_detections(dets, num)

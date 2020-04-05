@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """libdarknet module.
 
 Low level module for interacting with ```libdarknet.so``` static library.
@@ -11,7 +10,6 @@ module's docstring may extend over multiple lines.  If your docstring does
 extend over multiple lines, the closing three quotation marks must be on
 a line by itself, preferably preceded by a blank line.
 """
-
 import ctypes
 import os
 
@@ -19,10 +17,12 @@ from cached_property import cached_property
 
 from ..config import config
 from ..utils import chroot
-from .structs import Detection, Image, Metadata
+from .structs import Detection
+from .structs import Image
+from .structs import Metadata
 
 
-class Libdarknet(object):
+class Libdarknet:
     """Class for libdarknet.so shared library.
 
     If the class has public attributes, they may be documented here
@@ -211,9 +211,7 @@ class Libdarknet(object):
         return self.lib.network_predict_image(network_ptr, image)
 
     @chroot
-    def get_network_boxes(
-        self, network, image, threshold=0.5, heir_thresh=0.5
-    ):
+    def get_network_boxes(self, network, image, threshold=0.5, heir_thresh=0.5):
         """Get network boxes for a given image classified by network.
 
         Parameters
